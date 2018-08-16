@@ -18,6 +18,7 @@ export default class Nav extends React.Component {
 							<Link className="Nav-link" to="/components/test">Test</Link>
                 		</li>
               		</ul>
+					<hr />
 					  {/* this shold point to the page to render */}
 					  {/* FIX: just poping up below the nav bar */}
 					  <Route path="/components/test" component={Test} />
