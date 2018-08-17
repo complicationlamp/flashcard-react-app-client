@@ -5,6 +5,7 @@ import { Login } from './login';
 import { Logout } from './logout';
 import { Signup } from './signup';
 import { Profile } from './profile';
+import './nav.css';
 
 export default class Nav extends React.Component {
 	render() {
