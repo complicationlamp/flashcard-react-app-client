@@ -12,16 +12,11 @@ class App extends Component {
         <div className="App">
           <Nav />
           <body>
-            <ul>
-              <li>stuff</li>
-            </ul>
+          //===================== buildnote====================================
+          // -need some explination of the app in here, what it dose, maybe a graphic
+          //    -need to make this (instructions) go away when in the quiz
+          // =====================================================================//
           </body>
-
-//===================== buildnote====================================
-// -maybe some redirect button to profile?
-// -need some explination of the app in here, what it dose, maybe a graphic
-// =====================================================================//
-
         </div>
       </Router>
     );
