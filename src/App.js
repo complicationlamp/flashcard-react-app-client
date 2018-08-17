@@ -11,6 +11,20 @@ class App extends Component {
       <Router>
         <div className="App">
           <Nav />
+          <body>
+            <ul>
+              <li>stuff</li>
+            </ul>
+          </body>
+
+//===================== buildnote====================================
+// -maybe some redirect button to profile?
+// -need some explination of the app in here, what it dose, maybe a graphic
+// =====================================================================//
+
+
+
+
         </div>
       </Router>
     );
