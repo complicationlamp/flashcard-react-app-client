@@ -22,9 +22,6 @@ class App extends Component {
 // -need some explination of the app in here, what it dose, maybe a graphic
 // =====================================================================//
 
-
-
-
         </div>
       </Router>
     );
