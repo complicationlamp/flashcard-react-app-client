@@ -5,6 +5,7 @@ import { Login } from './login';
 import { Logout } from './logout';
 import { Signup } from './signup';
 import { Profile } from './profile';
+import logo from '../logo.svg';
 import './nav.css';
 
 export default class Nav extends React.Component {
@@ -17,6 +18,7 @@ export default class Nav extends React.Component {
 					<Link className="Nav-link" to="/components/login">Login</Link>
 					<Link className="Nav-link" to="/components/signup">Signup</Link>
 					<Link className="Nav-link" to="/components/logout">Logout</Link>
+					<Link to="/"><img src={logo} className="App-logo" alt="logo" /></Link>
 					<Link className="Nav-link" to="/components/home">Home</Link>
 					<Link className="Nav-link" to="/components/profile">Profile</Link>
 					<hr />
