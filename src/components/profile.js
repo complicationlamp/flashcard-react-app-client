@@ -2,16 +2,22 @@ import React from "react";
 
 export class Profile extends React.Component {
 	render() {
+		const name="Foo";
+		const score={HTML:"75%", CSS: "90%"}
 		return (
 			// in this section it would make more sence to put in the feedbackf
 			<body>
 				<main role="main">
 					<section className="App-profile-welcom">
 						<header role="banner">
-							<h1>Welcome [name]</h1>
+							<h1>Welcome {name}</h1>
 							<h2>Here's how you're doing so far</h2>
 							<ul className="App-subjects">
-								<li className="App-subject-toggle">HTML: %75</li>
+							{/* this is going to be pulled in from props */}
+							{/* ==============================BUILD NOTES================================ */}
+							{/* TODO: this is going to be broken out into a component made up of math */}
+							{/* ==============================BUILD NOTES================================ */}
+								<li className="App-subject-toggle">HTML:{score.HTML}</li>
 								<li className="App-subject-toggle">CSS: %50</li>
 								<li className="App-subject-toggle">JS: 90%</li>
 								<li className="App-subject-toggle">Jquery:Not Tested</li>
@@ -21,6 +27,9 @@ export class Profile extends React.Component {
 						</header>
 					</section>
 					<section className="App-filter">
+					{/* ==============================BUILD NOTES================================ */}
+					{/* TODO: when out of small screen view make this snap to a sidebar */}
+					{/* ==============================BUILD NOTES================================ */}
 						<h3 className="App-filter-banner">Set up your study session</h3>
 						<div class=" custom-checkbox">
 							<input type="checkbox" class="custom-control-input" id="customCheck1"/>
@@ -43,6 +52,9 @@ export class Profile extends React.Component {
 							<input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input"/>
 							<label class="custom-control-label" for="customRadioInline2">Quiz</label>
 						</div>
+						{/* ==============================BUILD NOTES================================ */}
+						{/* TODO: buttons need to be hooked up to a route */}
+						{/* ==============================BUILD NOTES================================ */}
 						<div className="build-quiz-btn">
 							<button>Start</button>
 						</div>
@@ -55,7 +67,6 @@ export class Profile extends React.Component {
 					</section>
 
 				</main>
-				<footer role="content-info">Footer</footer>
 			</body>
 					
 		)
