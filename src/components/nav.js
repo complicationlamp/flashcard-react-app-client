@@ -5,6 +5,7 @@ import { Login } from './login';
 import { Logout } from './logout';
 import { Signup } from './signup';
 import { Profile } from './profile';
+import { FlashQuiz } from './flashQuiz';
 import logo from '../logo.svg';
 import './nav.css';
 
@@ -31,6 +32,7 @@ export default class Nav extends React.Component {
 					<Route path="/components/logout" component={Logout} />
 					<Route path="/components/signup" component={Signup} />
 					<Route path="/components/profile" component={Profile} />
+					<Route path="/components/flashQuiz" component={FlashQuiz} />
 				</div>
 			</nav>
 		)

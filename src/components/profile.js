@@ -59,8 +59,8 @@ export class Profile extends React.Component {
 						{/* TODO: buttons need to be hooked up to a route */}
 						{/* ==============================BUILD NOTES================================ */}
 						<div className="build-quiz-btn">
-							<button><Link className="Nav-link" to="/components/flashQuiz">Begin</Link></button>
-							<Route path="/components/flashQuiz" component={FlashQuiz} />
+							<button><Link className="Nav-link" to="/components/flashQuiz">FlashQuiz</Link></button>
+							
 						</div>
 					</section>
 					<section>
