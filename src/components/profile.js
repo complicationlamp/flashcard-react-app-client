@@ -1,6 +1,7 @@
 import React from "react";
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import { FlashQuiz } from './flashQuiz';
+import {Feedback} from './feedback'
 
 export class Profile extends React.Component {
 	render() {
@@ -14,19 +15,7 @@ export class Profile extends React.Component {
 						<header role="banner">
 							<h1>Welcome {name}</h1>
 							<h2>Here's how you're doing so far</h2>
-							<ul className="App-subjects">
-							{/* this is going to be pulled in from props */}
-							{/* ==============================BUILD NOTES================================ */}
-							{/* TODO: this is going to be broken out into a component made up of math */}
-							{/* NOTE: HTML IS THE WAY TO PULL IN THE DATA */}
-							{/* ==============================BUILD NOTES================================ */}
-								<li className="App-subject-toggle">HTML:{score.HTML}</li>
-								<li className="App-subject-toggle">CSS: %50</li>
-								<li className="App-subject-toggle">JS: 90%</li>
-								<li className="App-subject-toggle">Jquery:Not Tested</li>
-								<li className="App-subject-toggle">Node: Not tested</li>
-								<li className="App-subject-toggle">Reac: 45%t</li>
-							</ul>
+							<Feedback/>
 						</header>
 					</section>
 					<section className="App-filter">
