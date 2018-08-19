@@ -16,6 +16,7 @@ export class Profile extends React.Component {
 							{/* this is going to be pulled in from props */}
 							{/* ==============================BUILD NOTES================================ */}
 							{/* TODO: this is going to be broken out into a component made up of math */}
+							{/* NOTE: HTML IS THE WAY TO PULL IN THE DATA */}
 							{/* ==============================BUILD NOTES================================ */}
 								<li className="App-subject-toggle">HTML:{score.HTML}</li>
 								<li className="App-subject-toggle">CSS: %50</li>
