@@ -1,4 +1,6 @@
 import React from "react";
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import { FlashQuiz } from './flashQuiz';
 
 export class Profile extends React.Component {
 	render() {
@@ -57,7 +59,8 @@ export class Profile extends React.Component {
 						{/* TODO: buttons need to be hooked up to a route */}
 						{/* ==============================BUILD NOTES================================ */}
 						<div className="build-quiz-btn">
-							<button>Start</button>
+							<button><Link className="Nav-link" to="/components/flashQuiz">Begin</Link></button>
+							<Route path="/components/flashQuiz" component={FlashQuiz} />
 						</div>
 					</section>
 					<section>

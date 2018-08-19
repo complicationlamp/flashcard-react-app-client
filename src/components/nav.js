@@ -22,8 +22,10 @@ export default class Nav extends React.Component {
 					<Link className="Nav-link" to="/components/home">Home</Link>
 					<Link className="Nav-link" to="/components/profile">Profile</Link>
 					<hr />
-					{/* this shold point to the page to render */}
+					{/* ============================BUILD NOTES================================================= */}
+					{/* MAYBE: this shold point to the page to render */}
 					{/* FIX: just poping up below the nav bar */}
+					{/* ============================BUILD NOTES================================================= */}
 					<Route path="/components/home" component={Home} />
 					<Route path="/components/login" component={Login} />
 					<Route path="/components/logout" component={Logout} />
