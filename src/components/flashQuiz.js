@@ -1,5 +1,6 @@
 import React from "react";
 import {FlashCard} from './flashCard';
+import {Quiz} from './quiz'
 
 
 export class FlashQuiz extends React.Component {
@@ -8,6 +9,7 @@ export class FlashQuiz extends React.Component {
 			<main role="main">
 				<section className="noteCard">
 				 <FlashCard/>
+				 <Quiz/>
 				</section>
 			</main>
 		)

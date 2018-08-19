@@ -34,7 +34,7 @@ export default class Nav extends React.Component {
 					<Route path="/components/signup" component={Signup} />
 					<Route path="/components/profile" component={Profile} />
 					<Route path="/components/flashQuiz" component={FlashQuiz} />
-					<Route path="/components/flashCard" component={FlashCard} />
+					{/* <Route path="/components/flashCard" component={FlashCard} /> */}
 				</div>
 			</nav>
 		)
