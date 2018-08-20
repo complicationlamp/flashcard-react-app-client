@@ -11,7 +11,6 @@ import {Feedback} from './feedback'
 import {Filter} from './flashQuizFilter'
 import {MakeFlashcard} from './makeFlashcard'
 import {DeleteFeedback} from './deleteProfile'
-import logo from '../logo.svg';
 import './nav.css';
 
 export default class Nav extends React.Component {
