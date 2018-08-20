@@ -24,9 +24,7 @@ export class Quiz extends React.Component{
 				</div>
 			</section>
 			<section className="App-submit-answers">
-				<button className="App-quiz-checkans">
-					<Link className="checkans" to="/components/feedback">Submit Answer</Link>
-				</button>
+				<Link className="checkans" to="/components/feedback"><button>Submit Answer</button></Link>
 			</section>
 		</main>
 		)

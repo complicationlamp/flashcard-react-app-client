@@ -11,12 +11,6 @@ export class Home extends React.Component {
 				</h2>
 			</header>
 		</section>
-		<section className="App-filter">
-			<div className="form-login">
-				<p><button classname="form-button-login">Login</button></p>
-				<p><button classname="form-button-login">Signup</button></p>
-			</div>
-		</section>
 		<section className="App-about-graphic">
 			<h3 className="App-about-banner">Build a coustom flashcard deck -or- Quiz </h3>
 			<h4 className="App-about-steps">First: Choose your contnet</h4>

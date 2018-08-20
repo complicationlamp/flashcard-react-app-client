@@ -7,7 +7,6 @@ import {Filter} from './flashQuizFilter'
 export class Profile extends React.Component {
 	render() {
 		const name="Foo";
-		const score={HTML:"75%", CSS: "90%"}
 		return (
 			// in this section it would make more sence to put in the feedbackf
 			<body>
@@ -23,7 +22,7 @@ export class Profile extends React.Component {
 						<Filter/>
 					</section>
 					<section>
-						<button><Link className="Nav-link" to="/components/makeFlashcard">MakeFlashcard</Link></button>
+					<Link className="Nav-link" to="/components/makeFlashcard"><button>MakeFlashcard</button></Link>
 					</section>
 					<section>
 						<button>Clear feedback</button>
