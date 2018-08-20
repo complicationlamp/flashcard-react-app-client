@@ -23,7 +23,7 @@ export class Profile extends React.Component {
 						<Filter/>
 					</section>
 					<section>
-						<button>Make a custom card</button>
+						<button><Link className="Nav-link" to="/components/makeFlashcard">MakeFlashcard</Link></button>
 					</section>
 					<section>
 						<button>Clear feedback</button>

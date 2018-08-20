@@ -9,6 +9,7 @@ import { FlashQuiz } from './flashQuiz';
 import { FlashCard } from './flashCard';
 import {Feedback} from './feedback'
 import {Filter} from './flashQuizFilter'
+import {MakeFlashcard} from './makeFlashcard'
 import logo from '../logo.svg';
 import './nav.css';
 
@@ -38,6 +39,7 @@ export default class Nav extends React.Component {
 					<Route path="/components/flashQuiz" component={FlashQuiz} />
 					<Route path="/components/feedback" component={Feedback} />
 					<Route path="/components/flashQuizFilter" component={Filter} />
+					<Route path="/components/makeFlashcard" component={MakeFlashcard} />
 				</div>
 			</nav>
 		)
