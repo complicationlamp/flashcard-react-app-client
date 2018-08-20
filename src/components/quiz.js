@@ -10,6 +10,10 @@ export class Quiz extends React.Component{
 			wrongAns3:"Computed Server System",
 			docsLink:"https://developer.mozilla.org/en-US/docs/Web/CSS",
 			}
+			function handleSubmitQuiz(e) {
+				e.preventDefault();
+				console.log('Submitquiz was clicked');
+			}
 		return (
 			<main role="main">
 			<section className="App-quiz">
@@ -33,7 +37,7 @@ export class Quiz extends React.Component{
 				</div>
 			</section>
 			<section className="App-submit-answers">
-				<Link className="checkans" to="/components/feedback"><button>Submit Answer</button></Link>
+				<Link className="checkans" to="/components/feedback"><button onClick={handleSubmitQuiz}>Submit Answer</button></Link>
 			</section>
 		</main>
 		)

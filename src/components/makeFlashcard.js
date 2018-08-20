@@ -1,7 +1,16 @@
 import React from 'react';
 
 export class MakeFlashcard extends React.Component {
+	
 	render() {
+		function handleClick(e) {
+			e.preventDefault();
+			console.log('submit was clicked');
+		}
+		function handleReset(e) {
+			e.preventDefault();
+			console.log('reset was clicked');
+		}
 		return (
 			<form id="App-newFlashCard">
 				<div class="form-section">
@@ -47,8 +56,8 @@ export class MakeFlashcard extends React.Component {
 						<span>JQuery</span>
            			 </label>
 				</div>
-				<button type="submit">Submit</button>
-				<button type="reset">Reset</button>
+				<button type="submit" onClick={handleClick}>Submit</button>
+				<button type="reset" onClick={handleReset}>Reset</button>
 			</form>
 		)
 	}

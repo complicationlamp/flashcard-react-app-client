@@ -10,6 +10,18 @@ export class FlashCard extends React.Component{
 			wrongAns3:"Computed Server System",
 			docsLink:"https://developer.mozilla.org/en-US/docs/Web/CSS",
 			}
+			function handleFlip(e) {
+				e.preventDefault();
+				console.log('Flip was clicked');
+			}
+			function handlePrevCard(e) {
+				e.preventDefault();
+				console.log('Previous card was clicked');
+			}
+			function handleNextCard(e) {
+				e.preventDefault();
+				console.log('Next card was clicked');
+			}
 		return (
 			<main role="main">
 			<section className="noteCard">
@@ -33,7 +45,7 @@ export class FlashCard extends React.Component{
 					<input type="radio" id="customRadio2" name="customRadio" class="custom-control-input"/>
 					<label class="custom-control-label" for="customRadio2">{cssExampleQuestion.wrongAns3}</label>
 				</div>
-				<button className="App-flashcard-flip">Flip Card</button>
+				<button className="App-flashcard-flip" onClick={handleFlip}>Flip Card</button>
 			</section>
 			<section>
 				<div className="noteCard-back">
@@ -41,8 +53,8 @@ export class FlashCard extends React.Component{
 					<h1 className="noteCard-header1">{cssExampleQuestion.Q}</h1>
 					<p><strong>ANSWER:</strong> {cssExampleQuestion.ANSWER}</p>
 					<a href={cssExampleQuestion.docsLink}>this is the link to the docs</a>
-			<button className="App-flashcard-prev">Previous Card</button>
-			<button className="App-flashcard-next">Next Card</button>
+			<button className="App-flashcard-prev" onClick={handlePrevCard}>Previous Card</button>
+			<button className="App-flashcard-next" onClick={handleNextCard}>Next Card</button>
 				</div>
 			</section>
 		</main>
