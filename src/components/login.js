@@ -2,6 +2,10 @@ import React from "react";
 
 export class Login extends React.Component {
 	render() {
+		function handleClick(e) {
+			e.preventDefault();
+			console.log('login was clicked');
+		}
 		return (
 			<main role="main">
 			<section className="App-signUp">
@@ -15,7 +19,7 @@ export class Login extends React.Component {
 					<label for="password">Password</label>
 					<input type="password" name='password' id='password' />
 				  </div>
-				  <button type='submit'>Login</button>
+				  <button type='submit' onClick={handleClick}>Login</button>
 			  </form>
 			</section>
 		  </main>
