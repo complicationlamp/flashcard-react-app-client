@@ -24,7 +24,6 @@ export default class Nav extends React.Component {
 					<Link className="Nav-link" to="/components/login">Login</Link>
 					<Link className="Nav-link" to="/components/signup">Signup</Link>
 					<Link className="Nav-link" to="/components/logout">Logout</Link>
-					<Link to="/"><img src={logo} className="App-logo" alt="logo" /></Link>
 					<Link className="Nav-link" to="/components/home">Home</Link>
 					<Link className="Nav-link" to="/components/profile">Profile</Link>
 					<hr />
