@@ -1,4 +1,5 @@
 import React from 'react';
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 
 export class Filter extends React.Component {
 	render() {
@@ -32,6 +33,7 @@ export class Filter extends React.Component {
 				 {/* ==============================BUILD NOTES================================ */}
 				 {/* TODO: buttons need to be hooked up to a route */}
 				 {/* ==============================BUILD NOTES================================ */}
+				 <Link className="Nav-link" to="/components/flashQuiz"><button>Start Your Study Session</button></Link>
 			</section>
 		)
 	}
