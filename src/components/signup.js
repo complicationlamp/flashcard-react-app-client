@@ -2,6 +2,13 @@ import React from "react";
 
 export class Signup extends React.Component {
 	render() {
+		// ========================BUILD NOTES=========================
+		// TODO: needs to be hooked up
+		// ========================BUILD NOTES=========================
+		function handleClick(e) {
+			e.preventDefault();
+			console.log('signUp was clicked');
+		}
 		return (
 			<section className="App-signUp">
 			<h1 role="banner">Signup</h1>
@@ -26,7 +33,7 @@ export class Signup extends React.Component {
 				  <label for="password">Retype Password</label>
 				  <input type="password" name='password' id='password' />
 				</div>
-				<button type='submit'>Sign Up</button>
+				<button type='submit' onClick={handleClick}>Sign Up</button>
 			</form>
 		  </section>
 		)
