@@ -8,7 +8,6 @@ export class Profile extends React.Component {
 	render() {
 		const name="Foo";
 		return (
-			// in this section it would make more sence to put in the feedbackf
 			<body>
 				<main role="main">
 					<section className="App-profile-welcom">
@@ -25,7 +24,7 @@ export class Profile extends React.Component {
 					<Link className="Nav-link" to="/components/makeFlashcard"><button>MakeFlashcard</button></Link>
 					</section>
 					<section>
-						<button>Clear feedback</button>
+					<Link className="Nav-link" to="/components/deleteProfile"><button>Delete Profile</button></Link>
 					</section>
 
 				</main>

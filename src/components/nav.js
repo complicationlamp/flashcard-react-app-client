@@ -10,6 +10,7 @@ import { FlashCard } from './flashCard';
 import {Feedback} from './feedback'
 import {Filter} from './flashQuizFilter'
 import {MakeFlashcard} from './makeFlashcard'
+import {DeleteFeedback} from './deleteProfile'
 import logo from '../logo.svg';
 import './nav.css';
 
@@ -40,6 +41,7 @@ export default class Nav extends React.Component {
 					<Route path="/components/feedback" component={Feedback} />
 					<Route path="/components/flashQuizFilter" component={Filter} />
 					<Route path="/components/makeFlashcard" component={MakeFlashcard} />
+					<Route path="/components/deleteProfile" component={DeleteFeedback} />
 				</div>
 			</nav>
 		)
