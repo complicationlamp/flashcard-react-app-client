@@ -9,8 +9,12 @@ export class FlashQuiz extends React.Component {
 		return (
 			<main role="main">
 				<section className="noteCard">
-				{/* TODO: this needs to be worked on */}
-				{format ==="Flashcard" ? <FlashCard/>:<Quiz/>}
+				{/* ==========================BUILD NOTES=============================== */}
+				{/* NEED TO MAKE SOME SORT OF SWITCH WORK FOR THIS  */}
+				{/* TODO: this needs to be worked on
+				{format ==="Flashcard" ? <FlashCard/>:<Quiz/>} */}
+				<FlashCard/>
+				<Quiz/>
 				</section>
 			</main>
 		)
