@@ -1,5 +1,5 @@
 import React from "react";
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import { FlashQuiz } from './flashQuiz';
 import {Feedback} from './feedback'
 import {Filter} from './flashQuizFilter'
@@ -8,7 +8,7 @@ export class Profile extends React.Component {
 	render() {
 		const name="Foo";
 		return (
-			<body>
+
 				<main role="main">
 					<section className="App-profile-welcom">
 						<header role="banner">
@@ -21,14 +21,14 @@ export class Profile extends React.Component {
 						<Filter/>
 					</section>
 					<section>
-					<Link className="Nav-link" to="/components/makeFlashcard"><button>MakeFlashcard</button></Link>
+					<Link className="Nav-link" to="/makeFlashcard">MakeFlashcard</Link>
 					</section>
 					<section>
-					<Link className="Nav-link" to="/components/deleteProfile"><button>Delete Profile</button></Link>
+					<Link className="Nav-link" to="/deleteProfile">Delete Profile</Link>
 					</section>
 
 				</main>
-			</body>
+
 					
 		)
 	}

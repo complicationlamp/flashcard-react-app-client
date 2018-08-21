@@ -6,6 +6,7 @@ export class Login extends React.Component {
 			e.preventDefault();
 			console.log('login was clicked');
 		}
+		console.log(this.props)
 		return (
 			<main role="main">
 			<section className="App-signUp">
