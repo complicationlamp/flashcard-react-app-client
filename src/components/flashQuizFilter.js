@@ -33,7 +33,7 @@ export class Filter extends React.Component {
 				 {/* ==============================BUILD NOTES================================ */}
 				 {/* TODO: buttons need to be hooked up to a route */}
 				 {/* ==============================BUILD NOTES================================ */}
-				 <Link className="Nav-link" to="/components/flashQuiz">Start Your Study Session</Link>
+				 <Link className="Nav-link" to="/flashQuiz">Start Your Study Session</Link>
 			</section>
 		)
 	}
