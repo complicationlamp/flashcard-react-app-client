@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import Nav from './components/nav';
 import { Home } from './components/home';
 import { Login } from './components/login';
@@ -8,10 +8,11 @@ import { Signup } from './components/signup';
 import { Profile } from './components/profile';
 import { FlashQuiz } from './components/flashQuiz';
 import { FlashCard } from './components/flashCard';
-import {Feedback} from './components/feedback'
-import {Filter} from './components/flashQuizFilter'
-import {MakeFlashcard} from './components/makeFlashcard'
-import {DeleteFeedback} from './components/deleteProfile'
+import { Quiz } from './components/quiz'
+import { Feedback } from './components/feedback'
+import { Filter } from './components/flashQuizFilter'
+import { MakeFlashcard } from './components/makeFlashcard'
+import { DeleteFeedback } from './components/deleteProfile'
 import './App.css';
 
 
@@ -37,6 +38,8 @@ class App extends Component {
 					<Route path="/flashQuizFilter" component={Filter} />
 					<Route path="/makeFlashcard" component={MakeFlashcard} />
 					<Route path="/deleteProfile" component={DeleteFeedback} />
+          <Route path="/flashCard" component={FlashCard} />
+          <Route path="/quiz" component={Quiz} />
           </div>  
       </Router>
     );

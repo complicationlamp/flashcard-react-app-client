@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 export class Filter extends React.Component {
 	render() {
@@ -10,25 +10,25 @@ export class Filter extends React.Component {
 			 {/* ==============================BUILD NOTES================================ */}
 				<h3 className="App-filter-banner">Set up your study session</h3>
 				<div className="custom-checkbox">
-					<input type="checkbox" class="custom-control-input" id="customCheck1"/>
-					<label class="custom-control-label" for="customCheck1">HTML</label>
-					<input type="checkbox" class="custom-control-input" id="customCheck1"/>
-					<label class="custom-control-label" for="customCheck1">CSS</label>
-					<input type="checkbox" class="custom-control-input" id="customCheck1"/>
-					<label class="custom-control-label" for="customCheck1">JS</label>
-					<input type="checkbox" class="custom-control-input" id="customCheck1"/>
-					<label class="custom-control-label" for="customCheck1">NODE</label>
-					<input type="checkbox" class="custom-control-input" id="customCheck1"/>
-					<label class="custom-control-label" for="customCheck1">React</label>
+					<input type="checkbox" className="custom-control-input" id="customCheck1"/>
+					<label className="custom-control-label">HTML</label>
+					<input type="checkbox" className="custom-control-input" id="customCheck1"/>
+					<label className="custom-control-label">CSS</label>
+					<input type="checkbox" className="custom-control-input" id="customCheck1"/>
+					<label className="custom-control-label">JS</label>
+					<input type="checkbox" className="custom-control-input" id="customCheck1"/>
+					<label className="custom-control-label">NODE</label>
+					<input type="checkbox" className="custom-control-input" id="customCheck1"/>
+					<label className="custom-control-label">React</label>
 				</div>
 				<h3 className="App-filter-presentation">Chose your presentation</h3>
-				<div class="custom-control custom-radio custom-control-inline">
-					<input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input"/>
-					<label class="custom-control-label" for="customRadioInline1">Flashcards</label>
+				<div className="custom-control custom-radio custom-control-inline">
+					<input type="radio" id="customRadioInline1" name="customRadioInline1" className="custom-control-input"/>
+					<label className="custom-control-label">Flashcards</label>
 				</div>
-				<div class="custom-control custom-radio custom-control-inline">
-					<input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input"/>
-					<label class="custom-control-label" for="customRadioInline2">Quiz</label>
+				<div className="custom-control custom-radio custom-control-inline">
+					<input type="radio" id="customRadioInline2" name="customRadioInline1" className="custom-control-input"/>
+					<label className="custom-control-label">Quiz</label>
 				</div>
 				 {/* ==============================BUILD NOTES================================ */}
 				 {/* TODO: buttons need to be hooked up to a route */}

@@ -2,7 +2,6 @@ import React from 'react';
 
 export class Feedback extends React.Component {
 	render() {
-		const name="Foo";
 		const score={HTML:"75%", CSS: "90%", JS: "93%", Jquery: "NA", Node:"NA", React:"72%"}
 		return (
 			<ul className="App-subjects">
