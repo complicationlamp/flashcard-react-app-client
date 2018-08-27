@@ -1,31 +1,10 @@
 import React from "react";
 import {FlashCard} from './flashCard';
 import {Quiz} from './quiz'
+import {CLIENT_ORIGIN} from '../config'
 
 
 export class FlashQuiz extends React.Component {
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			subject: {},
-			question: {},
-			answer: {},
-			wrongAnsOne: {},
-			wrongAnsTwo: {},
-			wrongAnsThree: {}, 
-			link: {}
-		};
-	}
-
-	componentDidMount() {
-		this.laodQuestion()
-	}
-	laodQuestion(){
-		this.setState({
-		});
-		return fetch('{}')
-	}
 	render() {
 		return (
 			<main role="main">

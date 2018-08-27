@@ -1,6 +1,45 @@
 import React from "react";
 
 export class FlashCard extends React.Component{
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			subject: {},
+			question: {},
+			answer: {},
+			wrongAnsOne: {},
+			wrongAnsTwo: {},
+			wrongAnsThree: {}, 
+			link: {}
+		};
+	}
+
+	componentDidMount() {
+		this.laodQuestion()
+	}
+	laodQuestion(){
+		this.setState({
+			loading:true
+		});
+		return fetch(`${CLIENT_ORIGIN}/questions`)
+			.then(res => {
+				if (!res.ok){
+					return Promise.reject(res.statusText);
+				}
+				return res.json();
+			})
+			.then(questions =>
+				this.setState({
+					subject: {},
+					question: {},
+					answer: {},
+					wrongAnsOne: {},
+					wrongAnsTwo: {},
+					wrongAnsThree: {}, 
+					link:
+				})
+	}
 	render() {
 		const cssExampleQuestion={
 			Q:"What does CSS standfor?",
