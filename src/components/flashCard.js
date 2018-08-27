@@ -5,13 +5,9 @@ export class FlashCard extends React.Component{
 		super(props);
 
 		this.state = {
-			subject: {},
-			question: {},
-			answer: {},
-			wrongAnsOne: {},
-			wrongAnsTwo: {},
-			wrongAnsThree: {}, 
-			link: {}
+			questions: [],
+			error: null,
+            loading: false
 		};
 	}
 
@@ -20,6 +16,7 @@ export class FlashCard extends React.Component{
 	}
 	laodQuestion(){
 		this.setState({
+			error: null;
 			loading:true
 		});
 		return fetch(`${CLIENT_ORIGIN}/questions`)
@@ -31,15 +28,18 @@ export class FlashCard extends React.Component{
 			})
 			.then(questions =>
 				this.setState({
-					subject: {},
-					question: {},
-					answer: {},
-					wrongAnsOne: {},
-					wrongAnsTwo: {},
-					wrongAnsThree: {}, 
-					link:
+					questions: questions.questions,
+					loading: false
 				})
+			)
+			.catch(err => 
+			this.setState({
+				error: 'Could not load question',
+				loading: false
+			})
+		);
 	}
+
 	render() {
 		const cssExampleQuestion={
 			Q:"What does CSS standfor?",
