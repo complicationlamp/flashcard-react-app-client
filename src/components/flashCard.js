@@ -1,5 +1,5 @@
 import React from "react";
-import {CLIENT_ORIGIN} from '../config'
+import {API_BASE_URL} from '../config'
 export class FlashCard extends React.Component{
 	constructor(props) {
 		super(props);
@@ -19,7 +19,7 @@ export class FlashCard extends React.Component{
 			error: null,
 			loading:true
 		});
-		return fetch(`http://localhoast:8081/questions`)
+		return fetch(`${API_BASE_URL}/questions`)
 			.then(res => {
 				if (!res.ok){
 					return Promise.reject(res.statusText);
@@ -28,7 +28,7 @@ export class FlashCard extends React.Component{
 			})
 			.then(questions =>
 				this.setState({
-					questions: questions.questions,
+					questions: questions,
 					loading: false
 				})
 			)
