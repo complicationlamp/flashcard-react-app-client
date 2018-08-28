@@ -1,5 +1,5 @@
 import React from "react";
-import {CLIENT_ORIGIN} from '../config'
+import { API_BASE_URL } from '../config'
 export class FlashCard extends React.Component{
 	constructor(props) {
 		super(props);
@@ -19,18 +19,19 @@ export class FlashCard extends React.Component{
 			error: null,
 			loading:true
 		});
-		return fetch(`http://localhoast:8081/questions`)
+		return fetch(`${API_BASE_URL}/questions`)
 			.then(res => {
 				if (!res.ok){
 					return Promise.reject(res.statusText);
 				}
 				return res.json();
 			})
-			.then(questions =>
+			.then(questions => {
 				this.setState({
-					questions: questions.questions,
+					questions: questions,
 					loading: false
 				})
+			}
 			)
 			.catch(err => 
 			this.setState({
@@ -42,14 +43,25 @@ export class FlashCard extends React.Component{
 
 
 	render() {
-		const cssExampleQuestion={
+
+		const exampleQ = {
+			prompt: 'What am I studying?',
+			answers: ['idk tbh', 'math?'],
+			correctIdx: 0
+		}
+		const cssExampleQuestion = {
 			Q:"What does CSS standfor?",
 			ANSWER:"Cascade Styling Sheets",
-			wrongAns1:"Clear Simple Styling",
-			wrongAns2:"Creative Styling Solution",
-			wrongAns3:"Computed Server System",
+			wrongAnsOne:"Clear Simple Styling",
+			wrongAnsTwo:"Creative Styling Solution",
+			wrongAnsThree:"Computed Server System",
 			docsLink:"https://developer.mozilla.org/en-US/docs/Web/CSS",
 			}
+		let questions = [cssExampleQuestion];
+		if (this.state.questions) {
+			questions = this.state.questions
+		}
+		console.log(questions)
 			function handleFlip(e) {
 				e.preventDefault();
 				console.log('Flip was clicked');

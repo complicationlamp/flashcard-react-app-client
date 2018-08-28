@@ -2,7 +2,7 @@
 
 module.exports = {
   // Exporting client origin
-  'CLIENT_ORIGIN' : 'https://obscure-retreat-46503.herokuapp.com/home',
+  API_BASE_URL: 'http://localhost:8081',
 
 // ========================NEED TO KNOW=======================================
 // mongoose takes model and makes it lowercase and plural (Question=> questions)
