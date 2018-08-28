@@ -1,7 +1,7 @@
 import React from "react";
 import {FlashCard} from './flashCard';
 import {Quiz} from './quiz'
-import {CLIENT_ORIGIN} from '../config'
+
 
 
 export class FlashQuiz extends React.Component {

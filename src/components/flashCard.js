@@ -1,5 +1,5 @@
 import React from "react";
-
+import {CLIENT_ORIGIN} from '../config'
 export class FlashCard extends React.Component{
 	constructor(props) {
 		super(props);
@@ -16,10 +16,10 @@ export class FlashCard extends React.Component{
 	}
 	laodQuestion(){
 		this.setState({
-			error: null;
+			error: null,
 			loading:true
 		});
-		return fetch(`${CLIENT_ORIGIN}/questions`)
+		return fetch(`http://localhoast:8081/questions`)
 			.then(res => {
 				if (!res.ok){
 					return Promise.reject(res.statusText);
@@ -39,6 +39,7 @@ export class FlashCard extends React.Component{
 			})
 		);
 	}
+
 
 	render() {
 		const cssExampleQuestion={
@@ -67,7 +68,7 @@ export class FlashCard extends React.Component{
 				<p>=========FRONT OF FLASH========</p>
 				<h1 className="App-quiz-questionHeader">
 					<img src="/media/examples/frog.png" alt="[icon of subject + clickable to docs]" />
-					<strong>Q:</strong>{cssExampleQuestion.Q}</h1>
+					<strong>Q:</strong>{}</h1>
 				<div class="custom-control custom-radio">
 					<input type="radio" id="customRadio1" name="customRadio" class="custom-control-input"/>
 					<label class="custom-control-label" for="customRadio1">{cssExampleQuestion.wrongAns1}</label>
