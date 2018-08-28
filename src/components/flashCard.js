@@ -41,7 +41,6 @@ export class FlashCard extends React.Component{
 		);
 	}
 
-
 	render() {
 
 		const exampleQ = {
@@ -50,21 +49,24 @@ export class FlashCard extends React.Component{
 			correctIdx: 0
 		}
 		const cssExampleQuestion = {
-			Q:"What does CSS standfor?",
-			ANSWER:"Cascade Styling Sheets",
+			subject: "JS",
+			question:"What does CSS standfor?",
+			answer:"Cascade Styling Sheets",
 			wrongAnsOne:"Clear Simple Styling",
 			wrongAnsTwo:"Creative Styling Solution",
 			wrongAnsThree:"Computed Server System",
-			docsLink:"https://developer.mozilla.org/en-US/docs/Web/CSS",
+			Link:"https://developer.mozilla.org/en-US/docs/Web/CSS",
 			}
 		let questions = [cssExampleQuestion];
-		if (this.state.questions) {
+		if (this.state.questions.length > 0) {
 			questions = this.state.questions
+			console.log(this.state.questions)
 		}
 		console.log(questions)
 			function handleFlip(e) {
 				e.preventDefault();
 				console.log('Flip was clicked');
+				console.log(questions[1].answer)
 			}
 			function handlePrevCard(e) {
 				e.preventDefault();
@@ -79,8 +81,9 @@ export class FlashCard extends React.Component{
 			<section className="noteCard">
 				<p>=========FRONT OF FLASH========</p>
 				<h1 className="App-quiz-questionHeader">
-					<img src="/media/examples/frog.png" alt="[icon of subject + clickable to docs]" />
-					<strong>Q:</strong>{}</h1>
+				console.log(this.state.questions)
+					{/* <img src="/media/examples/frog.png" alt="[icon of subject + clickable to docs]" /> */}
+					<strong>Q:</strong>{console.log(this.state.questions[0].question)}</h1>
 				<div class="custom-control custom-radio">
 					<input type="radio" id="customRadio1" name="customRadio" class="custom-control-input"/>
 					<label class="custom-control-label" for="customRadio1">{cssExampleQuestion.wrongAns1}</label>
