@@ -65,7 +65,6 @@ export class FlashCard extends React.Component{
 			function handleFlip(e) {
 				e.preventDefault();
 				console.log('Flip was clicked');
-				console.log(questions[1].answer)
 			}
 			function handlePrevCard(e) {
 				e.preventDefault();
