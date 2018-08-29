@@ -3,6 +3,7 @@ import {FlashCard} from './flashCard';
 import {Quiz} from './quiz'
 
 
+
 export class FlashQuiz extends React.Component {
 	render() {
 		return (
