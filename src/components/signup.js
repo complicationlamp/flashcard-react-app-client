@@ -1,4 +1,6 @@
 import React from "react";
+import {connect} from 'react-redux',
+import {Link, Redirect} from 'react-router-dom'
 
 export class Signup extends React.Component {
 	render() {
@@ -22,7 +24,7 @@ export class Signup extends React.Component {
 				  <input type="text" name='last-name' id='last-name' placeholder='Last Name' />
 				</div>
 				<div>
-				  <label for="username">Email</label>
+				  <label for="username">Username</label>
 				  <input type="text" name='username' id='username' />
 				</div>
 				<div>
