@@ -17,6 +17,29 @@ export class MakeFlashcard extends React.Component {
             loading: false
 		};
 		this.onSubmit = this.onSubmit.bind(this);
+		this.handleReset = this.handleReset.bind(this);
+	}
+
+	handleClick(e) {
+		e.preventDefault();
+		console.log('submit was clicked');
+	}
+	handleReset(e) {
+		e.preventDefault();
+		this.resetForm();
+	}
+
+	resetForm() {
+		return this.setState({
+			subject: "",
+			question:"",
+			answer:"",
+			wrongAnsOne:"",
+			wrongAnsTwo:"",
+			wrongAnsThree:"",
+			link:""
+		})
+		debugger
 	}
 
 	updateState(field, input) {
@@ -43,42 +66,43 @@ export class MakeFlashcard extends React.Component {
 				link: this.state.link
 			}),
 		})
+		.then(res => {
+			if (!res.ok){
+				return Promise.reject(res.statusText);
+			}
+			return res.json();
+		})
+		.then(()=> {
+			this.resetForm();
+		})
 	};
 
 	render() {
-		function handleClick(e) {
-			e.preventDefault();
-			console.log('submit was clicked');
-		}
-		function handleReset(e) {
-			e.preventDefault();
-			console.log('reset was clicked');
-		}
 		return (
 			<form id="App-newFlashCard" onSubmit={this.onSubmit}>
 				<div class="form-section">
 					<label for="flashcard-question">Question </label>
-					<input onChange={event => this.updateState('question', event.target.value)} type="text" name="flashcard-question" placeholder="CSS stands for?" required/>
+					<input value={this.state.question} onChange={event => this.updateState('question', event.target.value)} type="text" name="flashcard-question" placeholder="CSS stands for?" required/>
 				</div>
 				<div class="form-section">
 					<label for="flashcard-right-answer">What's the correct answer?</label>
-					<input onChange={event => this.updateState('answer', event.target.value)}type="text" name="flashcard-right-answer" placeholder="Cascade Styling Sheets" required/>
+					<input value={this.state.answer} onChange={event => this.updateState('answer', event.target.value)}type="text" name="flashcard-right-answer" placeholder="Cascade Styling Sheets" required/>
 				</div>
 				<div class="form-section">
 					<label for="flashcard-wrong-answer">Write a fake answer?</label>
-					<input onChange={event => this.updateState('wrongAnsOne', event.target.value)} type="text" name="flashcard-wrong-answer" placeholder="Creedence Stillwater Survival" required/>
+					<input value={this.state.wrongAnsOne} onChange={event => this.updateState('wrongAnsOne', event.target.value)} type="text" name="flashcard-wrong-answer" placeholder="Creedence Stillwater Survival" required/>
 				</div>
 				<div class="form-section">
 					<label for="flashcard-wrong-answer">Write a fake answer?</label>
-					<input onChange={event => this.updateState('wrongAnsTwo', event.target.value)} type="text" name="flashcard-wrong-answer" placeholder="Comp Sci Styling" required/>
+					<input value={this.state.wrongAnsTwo} onChange={event => this.updateState('wrongAnsTwo', event.target.value)} type="text" name="flashcard-wrong-answer" placeholder="Comp Sci Styling" required/>
 				</div>
 				<div class="form-section">
 					<label for="flashcard-wrong-answer">Write a fake answer?</label>
-					<input onChange={event => this.updateState('wrongAnsThree', event.target.value)} type="text" name="flashcard-wrong-answer" placeholder="Computer Systematic Structure" />
+					<input value={this.state.wrongAnsThree} onChange={event => this.updateState('wrongAnsThree', event.target.value)} type="text" name="flashcard-wrong-answer" placeholder="Computer Systematic Structure" />
 				</div>
 				<div class="form-section">
 					<label for="flashcard-link">Link</label>
-					<input onChange={event => this.updateState('link', event.target.value)} type="url" name="flashcard-link" placeholder="www.someplace.com"/>
+					<input value={this.state.link} onChange={event => this.updateState('link', event.target.value)} type="url" name="flashcard-link" placeholder="www.someplace.com"/>
 				</div>
 				<div class="form-section">
 					<p>What subject is this?</p>
@@ -104,7 +128,7 @@ export class MakeFlashcard extends React.Component {
            			 </label>
 				</div>
 				<button type="submit" >Submit</button>
-				<button type="reset" onClick={handleReset}>Reset</button>
+				<button type="reset" onClick={this.handleReset}>Reset</button>
 			</form>
 		)
 	}
