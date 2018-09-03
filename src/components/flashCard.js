@@ -74,12 +74,6 @@ export class FlashCard extends React.Component{
 	}
 
 	render() {
-
-		const exampleQ = {
-			prompt: 'What am I studying?',
-			answers: ['idk tbh', 'math?'],
-			correctIdx: 0
-		}
 		const cssExampleQuestion = {
 			subject: "JS",
 			question:"What does CSS standfor?",
