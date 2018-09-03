@@ -8,7 +8,6 @@ import { Signup } from './components/signup';
 import { Profile } from './components/profile';
 import { FlashQuiz } from './components/flashQuiz';
 import { FlashCard } from './components/flashCard';
-import { Quiz } from './components/quiz'
 import { Feedback } from './components/feedback'
 import { Filter } from './components/flashQuizFilter'
 import { MakeFlashcard } from './components/makeFlashcard'
@@ -21,25 +20,21 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Nav />
-          <Route exact path="/" render={() => (
-            <Redirect to="/home"/>
-          )}/>
-          {/* //===================== buildnote====================================
-          // TODO: ADD ROUTS
-          // =====================================================================// */}
-          <Route path="/home" component={Home} />
-					<Route path="/login" component={Login} />
-					<Route path="/logout" component={Logout} />
-					<Route path="/signup" component={Signup} />
-					<Route path="/profile" component={Profile} />
-					<Route path="/flashQuiz" component={FlashQuiz} />
-					<Route path="/feedback" component={Feedback} />
-					<Route path="/flashQuizFilter" component={Filter} />
-					<Route path="/makeFlashcard" component={MakeFlashcard} />
-					<Route path="/deleteProfile" component={DeleteFeedback} />
-          <Route path="/flashCard" component={FlashCard} />
-          <Route path="/quiz" component={Quiz} />
+            <Nav />
+            <Route exact path="/" render={() => (
+              <Redirect to="/home"/>
+            )}/>
+            <Route path="/home" component={Home} />
+            <Route path="/login" component={Login} />
+            <Route path="/logout" component={Logout} />
+            <Route path="/signup" component={Signup} />
+            <Route path="/profile" component={Profile} />
+            <Route path="/flashQuiz" component={FlashQuiz} />
+            <Route path="/feedback" component={Feedback} />
+            <Route path="/flashQuizFilter" component={Filter} />
+            <Route path="/makeFlashcard" component={MakeFlashcard} />
+            <Route path="/deleteProfile" component={DeleteFeedback} />
+            <Route path="/flashCard" component={FlashCard} />
           </div>  
       </Router>
     );

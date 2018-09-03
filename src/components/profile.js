@@ -19,10 +19,10 @@ export class Profile extends React.Component {
 						<Filter/>
 					</section>
 					<section>
-					<Link className="Nav-link" to="/makeFlashcard">MakeFlashcard</Link>
+						<Link className="Nav-link" to="/makeFlashcard">MakeFlashcard</Link>
 					</section>
 					<section>
-					<Link className="Nav-link" to="/deleteProfile">Delete Profile</Link>
+						<Link className="Nav-link" to="/deleteProfile">Delete Profile</Link>
 					</section>
 				</main>
 		)

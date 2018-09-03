@@ -21,18 +21,6 @@ export class Filter extends React.Component {
 					<input type="checkbox" className="custom-control-input" id="customCheck1"/>
 					<label className="custom-control-label">React</label>
 				</div>
-				<h3 className="App-filter-presentation">Chose your presentation</h3>
-				<div className="custom-control custom-radio custom-control-inline">
-					<input type="radio" id="customRadioInline1" name="customRadioInline1" className="custom-control-input"/>
-					<label className="custom-control-label">Flashcards</label>
-				</div>
-				<div className="custom-control custom-radio custom-control-inline">
-					<input type="radio" id="customRadioInline2" name="customRadioInline1" className="custom-control-input"/>
-					<label className="custom-control-label">Quiz</label>
-				</div>
-				 {/* ==============================BUILD NOTES================================ */}
-				 {/* TODO: buttons need to be hooked up to a route */}
-				 {/* ==============================BUILD NOTES================================ */}
 				 <Link className="Nav-link" to="/flashQuiz">Start Your Study Session</Link>
 			</section>
 		)

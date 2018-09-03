@@ -39,7 +39,6 @@ export class MakeFlashcard extends React.Component {
 			wrongAnsThree:"",
 			link:""
 		})
-		debugger
 	}
 
 	updateState(field, input) {
