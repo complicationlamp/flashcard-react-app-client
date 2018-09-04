@@ -35,7 +35,6 @@ export class Signup extends React.Component {
 				// we weren't getting here before because redux-form expects us to
 				// use "this.props.handleSubmit"
 
-				// redirect to profile?
 				alert('successful login!');
 				console.log('successful login!')
 			});

@@ -9,7 +9,9 @@ import './nav.css';
 export class Nav extends React.Component {
 	logOut() {
         this.props.dispatch(clearAuth());
-        clearAuthToken();
+		clearAuthToken();
+			window.location.replace('/home')
+			alert('successful logout!');
     }
 	render() {
 		let logOutButton;
