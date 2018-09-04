@@ -1,7 +1,26 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {setSubjectFilter} from '../actions/profile'
 
 export class Filter extends React.Component {
+	constructor(props) {
+		super(props)
+		this.state = {
+			HTML: false,
+			CSS: false,
+			JS: false,
+			NODE: false,
+			React: false
+		};
+		this.updateSubjectSelection=this.updateSubjectSelection.bind(this);
+	}
+	updateState(subject) {
+		this.setState({[subject]: !this.state[subject]})
+	}
+	updateSubjectSelection(){
+		const selectedSubjects = Object.keys(this.state).filter(key => this.state[key] === true);
+		setSubjectFilter(selectedSubjects);
+		window.location.replace('/flashQuiz')
+	}
 	render() {
 		return (
 			<section>
@@ -10,19 +29,20 @@ export class Filter extends React.Component {
 			 {/* ==============================BUILD NOTES================================ */}
 				<h3 className="App-filter-banner">Set up your study session</h3>
 				<div className="custom-checkbox">
-					<input type="checkbox" className="custom-control-input" id="customCheck1"/>
+					<input onChange={() => this.updateState('HTML')} type="checkbox" className="custom-control-input" id="customCheck1"/>
 					<label className="custom-control-label">HTML</label>
-					<input type="checkbox" className="custom-control-input" id="customCheck1"/>
+					<input onChange={() => this.updateState('CSS')} type="checkbox" className="custom-control-input" id="customCheck1"/>
 					<label className="custom-control-label">CSS</label>
-					<input type="checkbox" className="custom-control-input" id="customCheck1"/>
+					<input onChange={() => this.updateState('JS')} type="checkbox" className="custom-control-input" id="customCheck1"/>
 					<label className="custom-control-label">JS</label>
-					<input type="checkbox" className="custom-control-input" id="customCheck1"/>
+					<input onChange={() => this.updateState('NODE')} type="checkbox" className="custom-control-input" id="customCheck1"/>
 					<label className="custom-control-label">NODE</label>
-					<input type="checkbox" className="custom-control-input" id="customCheck1"/>
+					<input onChange={() => this.updateState('React')} type="checkbox" className="custom-control-input" id="customCheck1"/>
 					<label className="custom-control-label">React</label>
 				</div>
-				 <Link className="Nav-link" to="/flashQuiz">Start Your Study Session</Link>
+				 <button onClick={this.updateSubjectSelection} className="Nav-link">Start Your Study Session</button>
 			</section>
 		)
 	}
 }
+
