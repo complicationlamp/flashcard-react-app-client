@@ -12,14 +12,23 @@ export class Login extends React.Component {
 		const username = e.target.username.value;
 		const password = e.target.password.value;
 		console.log(e.target.username.value);
-		this.props.dispatch(login(username, password));
+		this.props.dispatch(login(username, password))
+		.then(() => { 
+			window.location.replace('/profile')
+			// we weren't getting here before because redux-form expects us to
+			// use "this.props.handleSubmit"
+			console.log('successful login!')
+		})
+		.catch((error) => {
+			console.log(error)
+		})
 	}
 	render() {
-			
 		return (
 			<main role="main">
 				<section className="App-signUp">
 					<h1 role="banner">Login</h1>
+					{this.props.error ? <div>Invalid Credentials</div> : null}
 					<form onSubmit={this.handleSubmit} className='signup-form'>
 						<div>
 							<label for="username">Username</label>
@@ -36,4 +45,9 @@ export class Login extends React.Component {
 		)
 	}
 }
-export default connect()(Login)
+
+const mapStateToProps = state => ({
+    error: state.auth.error
+});
+
+export default connect(mapStateToProps)(Login)
