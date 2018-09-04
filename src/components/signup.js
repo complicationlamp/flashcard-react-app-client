@@ -1,41 +1,95 @@
-import React from "react";
+import React from 'react';
+import {Field, reduxForm, focus} from 'redux-form';
+import {registerUser} from '../actions/users';
+import {login} from '../actions/auth';
+import Input from './input';
+import {required, nonEmpty, matches, length, isTrimmed} from '../validators';
+const passwordLength = length({min: 10, max: 72});
+const matchesPassword = matches('password');
 
 export class Signup extends React.Component {
-	render() {
-		// ========================BUILD NOTES=========================
-		// TODO: needs to be hooked up
-		// ========================BUILD NOTES=========================
-		function handleClick(e) {
-			e.preventDefault();
-			console.log('signUp was clicked');
-		}
-		return (
-			<section className="App-signUp">
-			<h1 role="banner">Signup</h1>
-			<form className='signup-form'>
-				<div>
-				  <label for="first-name">First name</label>
-				  <input placeholder='First Name' type="text" name='first-name' id='first-name' />
-				</div>
-				<div>
-				  <label for="last-name">Last name</label>
-				  <input type="text" name='last-name' id='last-name' placeholder='Last Name' />
-				</div>
-				<div>
-				  <label for="username">Email</label>
-				  <input type="text" name='username' id='username' />
-				</div>
-				<div>
-				  <label for="password">Password</label>
-				  <input type="password" name='password' id='password' />
-				</div>
-				<div>
-				  <label for="password">Retype Password</label>
-				  <input type="password" name='password' id='password' />
-				</div>
-				<button type='submit' onClick={handleClick}>Sign Up</button>
-			</form>
-		  </section>
-		)
+	constructor(props) {
+		super(props);
 	}
+
+	onSubmit(values) {
+		console.log(values);
+		const {
+			username,
+			password,
+			firstName,
+			lastName
+		} = values;
+
+		const user = {
+			username,
+			password,
+			firstName,
+			lastName
+		};
+		return this.props
+			.dispatch(registerUser(user))
+			.then(() => this.props.dispatch(login(username, password)))
+			.then(() => {
+				// we weren't getting here before because redux-form expects us to
+				// use "this.props.handleSubmit"
+
+				// redirect to profile?
+				alert('successful login!');
+				console.log('successful login!')
+			});
+	}
+
+    render() {
+        return (
+            <form
+                className="login-form"
+                onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+                <label htmlFor="firstName">First name</label>
+                <Field
+									component={Input}
+									type="text"
+									name="firstName"
+								/>
+                <label htmlFor="lastName">Last name</label>
+                <Field
+									component={Input}
+									type="text"
+									name="lastName"
+								/>
+                <label htmlFor="username">Username</label>
+                <Field
+                    component={Input}
+                    type="text"
+                    name="username"
+                    validate={[required, nonEmpty, isTrimmed]}
+                />
+                <label htmlFor="password">Password</label>
+                <Field
+                    component={Input}
+                    type="password"
+                    name="password"
+                    validate={[required, passwordLength, isTrimmed]}
+                />
+                <label htmlFor="passwordConfirm">Confirm password</label>
+                <Field
+                    component={Input}
+                    type="password"
+                    name="passwordConfirm"
+                    validate={[required, nonEmpty, matchesPassword]}
+                />
+                <button
+                    type="submit"
+                    disabled={this.props.pristine || this.props.submitting}>
+                    Register
+                </button>
+            </form>
+        );
+    }
 }
+
+export default reduxForm({
+    form: 'signup',
+    onSubmitFail: (errors, dispatch) =>
+        dispatch(focus('signup', Object.keys(errors)[0]))
+})(Signup);

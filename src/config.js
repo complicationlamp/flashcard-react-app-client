@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = {
   // Exporting client origin
   API_BASE_URL: 'http://localhost:8081',
