@@ -1,6 +1,7 @@
 import React from "react";
 import { API_BASE_URL } from '../config'
-export class FlashCard extends React.Component{
+import {connect} from "react-redux";
+export class FlashCard extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -50,7 +51,7 @@ export class FlashCard extends React.Component{
 			error: null,
 			loading:true
 		});
-		return fetch(`${API_BASE_URL}/questions`)
+		return fetch(`${API_BASE_URL}/questions?subjects=${this.props.subjects}`)
 			.then(res => {
 				if (!res.ok){
 					return Promise.reject(res.statusText);
@@ -87,7 +88,7 @@ export class FlashCard extends React.Component{
 		if (this.state.questions.length > 0) {
 			questions = this.state.questions
 		}
-		console.log(questions)
+		// console.log(questions)
 
 		return (
 			<main role="main">
@@ -100,21 +101,21 @@ export class FlashCard extends React.Component{
 								<h1 className="App-quiz-questionHeader">
 									{/* <img src="/media/examples/frog.png" alt="[icon of subject + clickable to docs]" /> */}
 									<strong>Q:</strong>{this.state.questions[0].question}</h1>
-								<div class="custom-control custom-radio">
-									<input type="radio" id="customRadio1" name="customRadio" class="custom-control-input"/>
-									<label class="custom-control-label" for="customRadio1">{this.state.questions[0].wrongAnsOne}</label>
+								<div className="custom-control custom-radio">
+									<input type="radio" id="customRadio1" name="customRadio" className="custom-control-input"/>
+									<label className="custom-control-label" htmlFor="customRadio1">{this.state.questions[0].wrongAnsOne}</label>
 								</div>
-								<div class="custom-control custom-radio">
-									<input type="radio" id="customRadio2" name="customRadio" class="custom-control-input"/>
-									<label class="custom-control-label" for="customRadio2">{this.state.questions[0].answer}</label>
+								<div className="custom-control custom-radio">
+									<input type="radio" id="customRadio2" name="customRadio" className="custom-control-input"/>
+									<label className="custom-control-label" htmlFor="customRadio2">{this.state.questions[0].answer}</label>
 								</div>
-								<div class="custom-control custom-radio">
-									<input type="radio" id="customRadio1" name="customRadio" class="custom-control-input"/>
-									<label class="custom-control-label" for="customRadio1">{this.state.questions[0].wrongAnsTwo}</label>
+								<div className="custom-control custom-radio">
+									<input type="radio" id="customRadio1" name="customRadio" className="custom-control-input"/>
+									<label className="custom-control-label" htmlFor="customRadio1">{this.state.questions[0].wrongAnsTwo}</label>
 								</div>
-								<div class="custom-control custom-radio">
-									<input type="radio" id="customRadio2" name="customRadio" class="custom-control-input"/>
-									<label class="custom-control-label" for="customRadio2">{this.state.questions[0].wrongAnsThree}</label>
+								<div className="custom-control custom-radio">
+									<input type="radio" id="customRadio2" name="customRadio" className="custom-control-input"/>
+									<label className="custom-control-label" htmlFor="customRadio2">{this.state.questions[0].wrongAnsThree}</label>
 								</div>
 								<button className="App-flashcard-flip" onClick={this.handleFlip}>Flip Card</button>
 							</section>
@@ -135,3 +136,9 @@ export class FlashCard extends React.Component{
 		)
 	}
 }
+
+const mapStateToProps = state => ({
+	subjects: state.profile.subjects
+});
+
+export default connect(mapStateToProps)(FlashCard)

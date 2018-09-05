@@ -1,9 +1,10 @@
 import React from 'react';
-import {setSubjectFilter} from '../actions/profile'
+import { setSubjectFilter } from '../actions/profile'
+import { FlashQuiz } from './flashQuiz';
 
 export class Filter extends React.Component {
 	constructor(props) {
-		super(props)
+		super(props);
 		this.state = {
 			HTML: false,
 			CSS: false,
@@ -12,6 +13,7 @@ export class Filter extends React.Component {
 			React: false
 		};
 		this.updateSubjectSelection=this.updateSubjectSelection.bind(this);
+		this.updateState=this.updateState.bind(this);
 	}
 	updateState(subject) {
 		this.setState({[subject]: !this.state[subject]})
@@ -19,7 +21,8 @@ export class Filter extends React.Component {
 	updateSubjectSelection(){
 		const selectedSubjects = Object.keys(this.state).filter(key => this.state[key] === true);
 		setSubjectFilter(selectedSubjects);
-		window.location.replace('/flashQuiz')
+
+		window.location.replace('/flashQuiz');
 	}
 	render() {
 		return (
@@ -45,4 +48,3 @@ export class Filter extends React.Component {
 		)
 	}
 }
-
