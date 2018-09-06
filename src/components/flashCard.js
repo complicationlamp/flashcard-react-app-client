@@ -72,6 +72,31 @@ export class FlashCard extends React.Component{
 			})
 		);
 	}
+	// function to randomize the order of the answers on the flashcard
+	shuffle(questionObject){
+		const ansArray = []
+		const retArray = [];
+		ansArray.push(
+			questionObject.answer,
+			questionObject.wrongAnsOne,
+			questionObject.wrongAnsTwo,
+			questionObject.wrongAnsThree
+		)
+
+		let currentIndex = ansArray.length,temporaryValue, randomIndex;
+		// while (0 !== currentIndex) {
+		while (ansArray.length !== 0){
+			randomIndex = Math.floor(Math.random() * ansArray.length);
+			retArray.push(ansArray.splice(randomIndex, 1))
+		}
+		// last step is needed or else it will return an array of arrays, eave containing 1 answer
+		// finalArray.push(answer[0])   this denotes that we just want the contents (at 0, becaus one one)
+		let finalArray= [];
+		retArray.forEach((answer) => { 
+			finalArray.push(answer[0])
+		})
+		return finalArray;
+	}
 
 	render() {
 		const cssExampleQuestion = {
@@ -87,7 +112,8 @@ export class FlashCard extends React.Component{
 		if (this.state.questions.length > 0) {
 			questions = this.state.questions
 		}
-		console.log(questions)
+
+		const shuffeledAnswers = this.state.questions.length >0 ? this.shuffle(this.state.questions[0]) : this.shuffle(cssExampleQuestion);
 
 		return (
 			<main role="main">
@@ -102,19 +128,19 @@ export class FlashCard extends React.Component{
 									<strong>Q:</strong>{this.state.questions[0].question}</h1>
 								<div class="custom-control custom-radio">
 									<input type="radio" id="customRadio1" name="customRadio" class="custom-control-input"/>
-									<label class="custom-control-label" for="customRadio1">{this.state.questions[0].wrongAnsOne}</label>
+									<label class="custom-control-label" for="customRadio1">{shuffeledAnswers[0]}</label>
 								</div>
 								<div class="custom-control custom-radio">
 									<input type="radio" id="customRadio2" name="customRadio" class="custom-control-input"/>
-									<label class="custom-control-label" for="customRadio2">{this.state.questions[0].answer}</label>
+									<label class="custom-control-label" for="customRadio2">{shuffeledAnswers[1]}</label>
 								</div>
 								<div class="custom-control custom-radio">
 									<input type="radio" id="customRadio1" name="customRadio" class="custom-control-input"/>
-									<label class="custom-control-label" for="customRadio1">{this.state.questions[0].wrongAnsTwo}</label>
+									<label class="custom-control-label" for="customRadio1">{shuffeledAnswers[2]}</label>
 								</div>
 								<div class="custom-control custom-radio">
 									<input type="radio" id="customRadio2" name="customRadio" class="custom-control-input"/>
-									<label class="custom-control-label" for="customRadio2">{this.state.questions[0].wrongAnsThree}</label>
+									<label class="custom-control-label" for="customRadio2">{shuffeledAnswers[3]}</label>
 								</div>
 								<button className="App-flashcard-flip" onClick={this.handleFlip}>Flip Card</button>
 							</section>
