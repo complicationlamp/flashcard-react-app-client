@@ -6,6 +6,7 @@ export class FlashCard extends React.Component{
 
 		this.state = {
 			questions: [],
+			index: 0,
 			error: null,
             loading: false
 		};
@@ -24,13 +25,17 @@ export class FlashCard extends React.Component{
 	}
 	handlePrevCard(e) {
 		e.preventDefault();
-		console.log('Previous card was clicked');
+		this.setState({index: this.state.index -1})
 		this.show('noteCard-front');
-		this.hide('noteCard-back');
+		this.hide('noteCard-back')
+		console.log(this.state.index);
 	}
 	handleNextCard(e) {
 		e.preventDefault();
-		console.log('Next card was clicked');
+		this.setState({index: this.state.index +1})
+		this.show('noteCard-front');
+		this.hide('noteCard-back');
+		console.log(this.state.index);
 	}
 
 	//getElementbyID/getElementByClassName always returns an array so we need a [0] to tell it what to hide.
@@ -113,7 +118,7 @@ export class FlashCard extends React.Component{
 			questions = this.state.questions
 		}
 
-		const shuffeledAnswers = this.state.questions.length >0 ? this.shuffle(this.state.questions[0]) : this.shuffle(cssExampleQuestion);
+		const shuffeledAnswers = this.state.questions.length >0 ? this.shuffle(this.state.questions[this.state.index]) : this.shuffle(cssExampleQuestion);
 
 		return (
 			<main role="main">
@@ -125,7 +130,7 @@ export class FlashCard extends React.Component{
 								<p>=========FRONT OF FLASH========</p>
 								<h1 className="App-quiz-questionHeader">
 									{/* <img src="/media/examples/frog.png" alt="[icon of subject + clickable to docs]" /> */}
-									<strong>Q:</strong>{this.state.questions[0].question}</h1>
+									<strong>Q:</strong>{this.state.questions[this.state.index].question}</h1>
 								<div class="custom-control custom-radio">
 									<input type="radio" id="customRadio1" name="customRadio" class="custom-control-input"/>
 									<label class="custom-control-label" for="customRadio1">{shuffeledAnswers[0]}</label>
@@ -143,14 +148,14 @@ export class FlashCard extends React.Component{
 									<label class="custom-control-label" for="customRadio2">{shuffeledAnswers[3]}</label>
 								</div>
 								<button className="App-flashcard-flip" onClick={this.handleFlip}>Flip Card</button>
+								<button className="App-flashcard-prev" onClick={this.handlePrevCard}>Previous Card</button>
 							</section>
 							<section>
 								<div className="noteCard-back">
 									<p>=========Back of NoteCard=========</p>
-									<h1 className="noteCard-header1">{this.state.questions[0].question}</h1>
-									<p><strong>ANSWER:</strong> {this.state.questions[0].answer}</p>
-									<a href={this.state.questions[0].link}>this is the link to the docs</a>
-									<button className="App-flashcard-prev" onClick={this.handlePrevCard}>Flip Back</button>
+									<h1 className="noteCard-header1">{this.state.questions[this.state.index].question}</h1>
+									<p><strong>ANSWER:</strong> {this.state.questions[this.state.index].answer}</p>
+									<a href={this.state.questions[this.state.index].link}>this is the link to the docs</a>
 									<button className="App-flashcard-next" onClick={this.handleNextCard}>Next Card</button>
 								</div>
 							</section>
