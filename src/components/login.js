@@ -31,11 +31,11 @@ export class Login extends React.Component {
 					{this.props.error ? <div>Invalid Credentials</div> : null}
 					<form onSubmit={this.handleSubmit} className='signup-form'>
 						<div>
-							<label for="username">Username</label>
+							<label htmlFor="username">Username</label>
 							<input type="text" name='username' id='username' />
 						</div>
 						<div>
-							<label for="password">Password</label>
+							<label htmlFor="password">Password</label>
 							<input type="password" name='password' id='password' />
 						</div>
 						<button type='submit'>Login</button>

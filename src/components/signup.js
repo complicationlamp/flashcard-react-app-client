@@ -8,12 +8,11 @@ const passwordLength = length({min: 10, max: 72});
 const matchesPassword = matches('password');
 
 export class Signup extends React.Component {
-	constructor(props) {
-		super(props);
-	}
+	// constructor(props) {
+	// 	super(props);
+	// }
 
 	onSubmit(values) {
-		console.log(values);
 		const {
 			username,
 			password,

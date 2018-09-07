@@ -15,38 +15,30 @@ export class FlashCard extends React.Component{
 		this.handleNextCard=this.handleNextCard.bind(this);
 		this.handlePrevCard=this.handlePrevCard.bind(this);
 	}
-
 	handleFlip(e) {
 		e.preventDefault();
-		console.log('Flip was clicked');
 		this.hide('noteCard-front');
 		this.show('noteCard-back');
-
 	}
 	handlePrevCard(e) {
 		e.preventDefault();
 		this.setState({index: this.state.index -1})
 		this.show('noteCard-front');
 		this.hide('noteCard-back')
-		console.log(this.state.index);
 	}
 	handleNextCard(e) {
 		e.preventDefault();
 		this.setState({index: this.state.index +1})
 		this.show('noteCard-front');
 		this.hide('noteCard-back');
-		console.log(this.state.index);
 	}
-
 	//getElementbyID/getElementByClassName always returns an array so we need a [0] to tell it what to hide.
 	hide(target) {
 		document.getElementsByClassName(target)[0].style.display = 'none';
 	}
-
 	show(target){
 		document.getElementsByClassName(target)[0].style.display = 'block';
 	}
-
 	componentDidMount() {
 		this.laodQuestion()
 	}
@@ -68,8 +60,7 @@ export class FlashCard extends React.Component{
 					loading: false
 				})
 				this.hide('noteCard-back');
-			}
-			)
+			})
 			.catch(err => 
 			this.setState({
 				error: 'Could not load question',
@@ -88,7 +79,7 @@ export class FlashCard extends React.Component{
 			questionObject.wrongAnsThree
 		)
 
-		let currentIndex = ansArray.length,temporaryValue, randomIndex;
+		let randomIndex;
 		while (ansArray.length !== 0){
 			randomIndex = Math.floor(Math.random() * ansArray.length);
 			retArray.push(ansArray.splice(randomIndex, 1))
@@ -112,10 +103,10 @@ export class FlashCard extends React.Component{
 			wrongAnsThree:"Computed Server System",
 			link:"https://developer.mozilla.org/en-US/docs/Web/CSS",
 		}
-		let questions = [cssExampleQuestion];
-		if (this.state.questions.length > 0) {
-			questions = this.state.questions
-		}
+		// let questions = [cssExampleQuestion];
+		// if (this.state.questions.length > 0) {
+		// 	questions = this.state.questions
+		// }
 
 		const shuffeledAnswers = this.state.questions.length >0 ? this.shuffle(this.state.questions[this.state.index]) : this.shuffle(cssExampleQuestion);
 
@@ -128,23 +119,22 @@ export class FlashCard extends React.Component{
 							<section className="noteCard-front">
 								<p>=========FRONT OF FLASH========</p>
 								<h1 className="App-quiz-questionHeader">
-									{/* <img src="/media/examples/frog.png" alt="[icon of subject + clickable to docs]" /> */}
 									<strong>Q:</strong>{this.state.questions[this.state.index].question}</h1>
-								<div class="custom-control custom-radio">
-									<input type="radio" id="customRadio1" name="customRadio" class="custom-control-input"/>
-									<label class="custom-control-label" for="customRadio1">{shuffeledAnswers[0]}</label>
+								<div className="custom-control custom-radio">
+									<input type="radio" id="customRadio1" name="customRadio" className="custom-control-input"/>
+									<label className="custom-control-label" htmlFor="customRadio1">{shuffeledAnswers[0]}</label>
 								</div>
-								<div class="custom-control custom-radio">
-									<input type="radio" id="customRadio2" name="customRadio" class="custom-control-input"/>
-									<label class="custom-control-label" for="customRadio2">{shuffeledAnswers[1]}</label>
+								<div className="custom-control custom-radio">
+									<input type="radio" id="customRadio2" name="customRadio" className="custom-control-input"/>
+									<label className="custom-control-label" htmlFor="customRadio2">{shuffeledAnswers[1]}</label>
 								</div>
-								<div class="custom-control custom-radio">
-									<input type="radio" id="customRadio1" name="customRadio" class="custom-control-input"/>
-									<label class="custom-control-label" for="customRadio1">{shuffeledAnswers[2]}</label>
+								<div className="custom-control custom-radio">
+									<input type="radio" id="customRadio1" name="customRadio" className="custom-control-input"/>
+									<label className="custom-control-label" htmlFor="customRadio1">{shuffeledAnswers[2]}</label>
 								</div>
-								<div class="custom-control custom-radio">
-									<input type="radio" id="customRadio2" name="customRadio" class="custom-control-input"/>
-									<label class="custom-control-label" for="customRadio2">{shuffeledAnswers[3]}</label>
+								<div className="custom-control custom-radio">
+									<input type="radio" id="customRadio2" name="customRadio" className="custom-control-input"/>
+									<label className="custom-control-label" htmlFor="customRadio2">{shuffeledAnswers[3]}</label>
 								</div>
 								<button className="App-flashcard-flip" onClick={this.handleFlip}>Flip Card</button>
 								<button className="App-flashcard-prev" onClick={this.handlePrevCard}>Previous Card</button>
