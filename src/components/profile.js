@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from 'react-router-dom';
 import {Feedback} from './feedback'
-import {Filter} from './flashQuizFilter'
+import Filter from './flashQuizFilter'
 
 export class Profile extends React.Component {
 	render() {

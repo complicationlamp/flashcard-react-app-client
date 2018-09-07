@@ -9,7 +9,7 @@ import { Profile } from './components/profile';
 import { FlashQuiz } from './components/flashQuiz';
 import { FlashCard } from './components/flashCard';
 import { Feedback } from './components/feedback'
-import { Filter } from './components/flashQuizFilter'
+import Filter  from './components/flashQuizFilter'
 import { MakeFlashcard } from './components/makeFlashcard'
 import { DeleteFeedback } from './components/deleteProfile'
 import {refreshAuthToken} from './actions/auth';

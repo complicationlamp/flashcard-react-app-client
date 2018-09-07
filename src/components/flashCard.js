@@ -89,7 +89,6 @@ export class FlashCard extends React.Component{
 		)
 
 		let currentIndex = ansArray.length,temporaryValue, randomIndex;
-		// while (0 !== currentIndex) {
 		while (ansArray.length !== 0){
 			randomIndex = Math.floor(Math.random() * ansArray.length);
 			retArray.push(ansArray.splice(randomIndex, 1))
