@@ -109,6 +109,13 @@ export class FlashCard extends React.Component{
 		// }
 
 		const shuffeledAnswers = this.state.questions.length >0 ? this.shuffle(this.state.questions[this.state.index]) : this.shuffle(cssExampleQuestion);
+		// this function puts the randomized answers on the card
+		const insertAnswerDivs = shuffeledAnswers.map((answer, index) => (
+			<div className="shuffeled-answers-radio">
+				<input type="radio" id={`${answer}-${index}`} name="ans" className="custom-control-input"/>
+				<label className="custom-control-label" htmlFor={`${answer}-${index}`}>{answer}</label>
+			</div>
+		))
 
 		return (
 			<main role="main">
@@ -120,22 +127,7 @@ export class FlashCard extends React.Component{
 								<p>=========FRONT OF FLASH========</p>
 								<h1 className="App-quiz-questionHeader">
 									<strong>Q:</strong>{this.state.questions[this.state.index].question}</h1>
-								<div className="custom-control custom-radio">
-									<input type="radio" id="customRadio1" name="customRadio" className="custom-control-input"/>
-									<label className="custom-control-label" htmlFor="customRadio1">{shuffeledAnswers[0]}</label>
-								</div>
-								<div className="custom-control custom-radio">
-									<input type="radio" id="customRadio2" name="customRadio" className="custom-control-input"/>
-									<label className="custom-control-label" htmlFor="customRadio2">{shuffeledAnswers[1]}</label>
-								</div>
-								<div className="custom-control custom-radio">
-									<input type="radio" id="customRadio1" name="customRadio" className="custom-control-input"/>
-									<label className="custom-control-label" htmlFor="customRadio1">{shuffeledAnswers[2]}</label>
-								</div>
-								<div className="custom-control custom-radio">
-									<input type="radio" id="customRadio2" name="customRadio" className="custom-control-input"/>
-									<label className="custom-control-label" htmlFor="customRadio2">{shuffeledAnswers[3]}</label>
-								</div>
+									{insertAnswerDivs}
 								<button className="App-flashcard-flip" onClick={this.handleFlip}>Flip Card</button>
 								<button className="App-flashcard-prev" onClick={this.handlePrevCard}>Previous Card</button>
 							</section>
