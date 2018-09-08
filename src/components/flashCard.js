@@ -124,16 +124,15 @@ export class FlashCard extends React.Component{
 					(
 						<div>
 							<section className="noteCard-front">
-								<p>=========FRONT OF FLASH========</p>
 								<h1 className="App-quiz-questionHeader">
 									<strong>Q:</strong>{this.state.questions[this.state.index].question}</h1>
 									{insertAnswerDivs}
 								<button className="App-flashcard-flip" onClick={this.handleFlip}>Flip Card</button>
 								<button className="App-flashcard-prev" onClick={this.handlePrevCard}>Previous Card</button>
 							</section>
+							{/* ^^^^FRONT OF NOTECARD    vvvvvvv BACK OF NOTECARD */}
 							<section>
 								<div className="noteCard-back">
-									<p>=========Back of NoteCard=========</p>
 									<h1 className="noteCard-header1">{this.state.questions[this.state.index].question}</h1>
 									<p><strong>ANSWER:</strong> {this.state.questions[this.state.index].answer}</p>
 									<a href={this.state.questions[this.state.index].link}>this is the link to the docs</a>
