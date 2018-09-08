@@ -11,7 +11,7 @@ import { FlashCard } from './components/flashCard';
 import { Feedback } from './components/feedback'
 import Filter  from './components/flashQuizFilter'
 import { MakeFlashcard } from './components/makeFlashcard'
-// import { DeleteFeedback } from './components/deleteProfile'
+import DeleteProfile from './components/deleteProfile'
 import {refreshAuthToken} from './actions/auth';
 import './App.css';
 
@@ -62,7 +62,7 @@ stopPeriodicRefresh() {
             <Route path="/feedback" component={Feedback} />
             <Route path="/flashQuizFilter" component={Filter} />
             <Route path="/makeFlashcard" component={MakeFlashcard} />
-            {/* <Route path="/deleteProfile" component={DeleteFeedback} /> */}
+            <Route path="/deleteProfile" component={DeleteProfile} />
             <Route path="/flashCard" component={FlashCard} />
           </div>  
       </Router>
