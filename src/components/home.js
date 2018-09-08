@@ -3,6 +3,12 @@ import {Feedback} from './feedback'
 
 export class Home extends React.Component {
 	render() {
+		const subjects=['HTML', 'CSS', 'JS', 'Jquery', 'NODE', 'React'].map((subject) => (
+		<ul className="App-subjects">
+			<li className="App-subject-toggle">{subject}</li>
+		</ul>
+		));
+
 		return (
 			<main role="main">
 				<section className="App-about">
@@ -15,24 +21,9 @@ export class Home extends React.Component {
 				<section className="App-about-graphic">
 					<h3 className="App-about-banner">Build a custom flashcard deck</h3>
 					<h4 className="App-about-steps">First: Choose your contnet</h4>
-					<ul className="App-subjects">
-						<li className="App-subject-toggle">HTML</li>
-						<li className="App-subject-toggle">CSS</li>
-						<li className="App-subject-toggle">JS</li>
-						<li className="App-subject-toggle">Jquery</li>
-						<li className="App-subject-toggle">Node</li>
-						<li className="App-subject-toggle">React</li>
-					</ul>
+					{subjects}
 					<h3 className="App-about-steps">Lastly: review the feedback to hone in on what you need to work on</h3>
 					<Feedback />
-					{/* <ul className="App-subjects">
-						<li className="App-subject-toggle">HTML: %75</li>
-						<li className="App-subject-toggle">CSS: %50</li>
-						<li className="App-subject-toggle">JS: 90%</li>
-						<li className="App-subject-toggle">Jquery:Not Tested</li>
-						<li className="App-subject-toggle">Node: Not tested</li>
-						<li className="App-subject-toggle">React: 45%</li>
-					</ul> */}
 				</section>
 			</main>
 		)
