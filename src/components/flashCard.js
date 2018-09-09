@@ -1,4 +1,5 @@
 import React from "react";
+import {connect} from "react-redux";
 import { API_BASE_URL } from '../config'
 export class FlashCard extends React.Component{
 	constructor(props) {
@@ -40,9 +41,9 @@ export class FlashCard extends React.Component{
 		document.getElementsByClassName(target)[0].style.display = 'block';
 	}
 	componentDidMount() {
-		this.laodQuestion()
+		this.loadQuestions()
 	}
-	laodQuestion(){
+	loadQuestions(){
 		this.setState({
 			error: null,
 			loading:true
@@ -55,8 +56,26 @@ export class FlashCard extends React.Component{
 				return res.json();
 			})
 			.then(questions => {
+				const filteredQuestions = questions.filter((question) => {
+					// flitering by this.props.subject
+					// if this.props.subjects.indexof is >=o (if it matchs/ if the same 
+					// subject is in the question object as our subject filters on porps)
+					// return those questions
+					return this.props.subjects.indexOf(question.subject) >=0;
+				})
+				// this.props.subjects = ['HTML', 'JS'];
+
+				// questions = [
+				// 	{
+				// 		subject: 'HTML',
+				// 		question: 'some question',
+				// 		...
+				// 	}
+				// ]
+				
+
 				this.setState({
-					questions: questions,
+					questions: filteredQuestions,
 					loading: false
 				})
 				this.hide('noteCard-back');

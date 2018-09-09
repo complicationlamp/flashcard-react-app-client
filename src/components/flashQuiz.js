@@ -52,7 +52,7 @@ export class FlashQuiz extends React.Component {
 				{
 					this.state.viewFlashcard ?
 						(<section className="noteCard">
-							<FlashCard/>
+							<FlashCard subjects={this.props.subjects}/>
 						</section>) : null
 				}
 			</main>
@@ -62,7 +62,7 @@ export class FlashQuiz extends React.Component {
 
 const mapStateToProps = (state) => {
 	return {
-    	userid: state.auth.currentUser && state.auth.currentUser.id || null
+		subjects: state.profile.subjects
 	}
 };
 

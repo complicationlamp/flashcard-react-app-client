@@ -7,7 +7,7 @@ import { Logout } from './components/logout';
 import { SignupPage } from './components/signup-page';
 import Profile from './components/profile';
 import FlashQuiz from './components/flashQuiz';
-import { FlashCard } from './components/flashCard';
+import {FlashCard} from './components/flashCard';
 import { Feedback } from './components/feedback'
 import { MakeFlashcard } from './components/makeFlashcard'
 import DeleteProfile from './components/deleteProfile'
