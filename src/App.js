@@ -5,11 +5,10 @@ import { Home } from './components/home';
 import Login from './components/login';
 import { Logout } from './components/logout';
 import { SignupPage } from './components/signup-page';
-import { Profile } from './components/profile';
-import { FlashQuiz } from './components/flashQuiz';
+import Profile from './components/profile';
+import FlashQuiz from './components/flashQuiz';
 import { FlashCard } from './components/flashCard';
 import { Feedback } from './components/feedback'
-import Filter  from './components/flashQuizFilter'
 import { MakeFlashcard } from './components/makeFlashcard'
 import DeleteProfile from './components/deleteProfile'
 import {refreshAuthToken} from './actions/auth';
@@ -60,7 +59,6 @@ stopPeriodicRefresh() {
             <Route path="/profile" component={Profile} />
             <Route path="/flashQuiz" component={FlashQuiz} />
             <Route path="/feedback" component={Feedback} />
-            <Route path="/flashQuizFilter" component={Filter} />
             <Route path="/makeFlashcard" component={MakeFlashcard} />
             <Route path="/deleteProfile" component={DeleteProfile} />
             <Route path="/flashCard" component={FlashCard} />
