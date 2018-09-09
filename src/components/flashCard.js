@@ -1,5 +1,4 @@
 import React from "react";
-import {connect} from "react-redux";
 import { API_BASE_URL } from '../config'
 export class FlashCard extends React.Component{
 	constructor(props) {
@@ -29,9 +28,15 @@ export class FlashCard extends React.Component{
 	}
 	handleNextCard(e) {
 		e.preventDefault();
-		this.setState({index: this.state.index +1})
-		this.show('noteCard-front');
-		this.hide('noteCard-back');
+
+		if ( this.state.index < this.state.questions.length - 1 ){
+			this.setState({index: this.state.index +1})
+			this.show('noteCard-front');
+			this.hide('noteCard-back');
+		} else {
+			return window.location.replace('/profile')
+
+		}
 	}
 	//getElementbyID/getElementByClassName always returns an array so we need a [0] to tell it what to hide.
 	hide(target) {
@@ -63,15 +68,6 @@ export class FlashCard extends React.Component{
 					// return those questions
 					return this.props.subjects.indexOf(question.subject) >=0;
 				})
-				// this.props.subjects = ['HTML', 'JS'];
-
-				// questions = [
-				// 	{
-				// 		subject: 'HTML',
-				// 		question: 'some question',
-				// 		...
-				// 	}
-				// ]
 				
 
 				this.setState({
@@ -127,7 +123,7 @@ export class FlashCard extends React.Component{
 		// 	questions = this.state.questions
 		// }
 
-		const shuffeledAnswers = this.state.questions.length >0 ? this.shuffle(this.state.questions[this.state.index]) : this.shuffle(cssExampleQuestion);
+		const shuffeledAnswers = this.state.questions.length > 0 && this.state.questions.length > this.state.index ? this.shuffle(this.state.questions[this.state.index]) : this.shuffle(cssExampleQuestion);
 		// this function puts the randomized answers on the card
 		const insertAnswerDivs = shuffeledAnswers.map((answer, index) => (
 			<div className="shuffeled-answers-radio">
@@ -139,7 +135,7 @@ export class FlashCard extends React.Component{
 		return (
 			<main role="main">
 				{
-					this.state.questions.length > 0 ?
+					this.state.questions.length ?
 					(
 						<div>
 							<section className="noteCard-front">
