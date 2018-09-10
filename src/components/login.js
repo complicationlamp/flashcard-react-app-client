@@ -28,8 +28,8 @@ export class Login extends React.Component {
 				<section className="App-signUp">
 					<h1 role="banner">Login</h1>
 					<h2 className="logIn-example">
-						Try the app out with this test account:
-						Username: Steve
+						Try the app out with this test account: <br/>
+						Username: Steve<br/>
 						Password: stevesteve
 					</h2>
 					{this.props.error ? <div>Invalid Credentials</div> : null}
