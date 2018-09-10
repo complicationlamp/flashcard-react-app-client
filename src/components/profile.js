@@ -5,10 +5,6 @@ import {Feedback} from './feedback'
 
 
 export class Profile extends React.Component {
-	constructor(props) {
-		super(props);
-	}
-
 	render() {
 		return (
 				<main role="main">
@@ -35,7 +31,7 @@ export class Profile extends React.Component {
 
 const mapStateToProps = (state) => {
 	return {
-    	userFirstName: state.auth.currentUser && state.auth.currentUser.firstName || null
+    	userFirstName: (state.auth.currentUser && state.auth.currentUser.firstName) || null
 	}
 };
 

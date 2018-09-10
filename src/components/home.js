@@ -12,14 +12,14 @@ export class Home extends React.Component {
 		return (
 			<main role="main">
 				<section className="App-about">
-					<header role="banner">
+					<header role="header">
 						<h1>Flash till you crash</h1>
 						<h2>Customizable flash cards to inform user areas of strength and weaknesses
 						</h2>
 					</header>
 				</section>
 				<section className="App-about-graphic">
-					<h3 className="App-about-banner">Build a custom flashcard deck</h3>
+					<h3 className="App-about-header">Build a custom flashcard deck</h3>
 					<h4 className="App-about-steps">First: Choose your contnet</h4>
 					{subjects}
 					<h3 className="App-about-steps">Lastly: review the feedback to hone in on what you need to work on</h3>
