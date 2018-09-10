@@ -30,7 +30,7 @@ export class Login extends React.Component {
 					<h2 className="logIn-example">
 						Try the app out with this test account: <br/>
 						Username: Steve<br/>
-						Password: stevesteve
+						Password: SteveSteve
 					</h2>
 					{this.props.error ? <div>Invalid Credentials</div> : null}
 					<form onSubmit={this.handleSubmit} className='signup-form'>

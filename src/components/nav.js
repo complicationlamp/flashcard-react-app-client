@@ -14,22 +14,33 @@ export class Nav extends React.Component {
 			alert('successful logout!');
     }
 	render() {
-		let logOutButton;
+		// When a user is loggedin they will have access to the nav link to the profile 
+		let logOutButton, profileAccess, signUpAccess, logInAccess;
         if (this.props.loggedIn) {
             logOutButton = (
                 <button onClick={() => this.logOut()}>Log out</button>
-            );
-        }
+			);
+			profileAccess = (
+				<Link className="Nav-link" to="/profile">Profile</Link>
+			)
+        } else if (!this.props.loggedIn) {
+			signUpAccess = (
+				<Link className="Nav-link" to="/signup">Signup</Link>
+			);
+			logInAccess = (
+				<Link className="Nav-link" to="/login">Login</Link>
+			)
+		}
 		return (
 			<nav className="Nav">
 				<div className="Nav-container">
 				{/* CHANGED: the links below were first in an unordered list, while I gained some space, looked like 
 				junk for this portion with bullet points, style at a later date*/}
-					<Link className="Nav-link" to="/login">Login</Link>
-					<Link className="Nav-link" to="/signup">Signup</Link>
-					{logOutButton}
 					<Link className="Nav-link" to="/home">Home</Link>
-					<Link className="Nav-link" to="/profile">Profile</Link>
+					{signUpAccess}
+					{logOutButton}
+					{profileAccess}
+					{logInAccess}
 					<hr />
 				</div>
 			</nav>
