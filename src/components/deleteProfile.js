@@ -69,7 +69,7 @@ export class DeleteProfile extends React.Component {
 
 const mapStateToProps = (state) => {
 	return {
-    	userid: state.auth.currentUser && state.auth.currentUser.id || null
+    	userid: (state.auth.currentUser && state.auth.currentUser.id) || null
 	}
 };
 
