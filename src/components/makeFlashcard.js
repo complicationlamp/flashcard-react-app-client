@@ -123,7 +123,11 @@ export class MakeFlashcard extends React.Component {
             		</label>
 					<input onClick={event => this.updateState('subject', 'jQuery')} type="radio" name="subject-type" value={this.state.subject === 'jQuery'} class="subject-type-radio" />
 					<label htmlFor="subject-type">
-						<span>JQuery</span>
+						<span>jQuery</span>
+           			 </label>
+						<input onClick={event => this.updateState('subject', 'NODE')} type="radio" name="subject-type" value={this.state.subject === 'NODE'} class="subject-type-radio" />
+					<label htmlFor="subject-type">
+						<span>NODE</span>
            			 </label>
 				</div>
 				<button type="submit" >Submit</button>

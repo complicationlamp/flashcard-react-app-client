@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import Nav from './components/nav';
 import { Home } from './components/home';
 import Login from './components/login';
-import { Logout } from './components/logout';
+// import { Logout } from './components/logout';
 import { SignupPage } from './components/signup-page';
 import Profile from './components/profile';
 import FlashQuiz from './components/flashQuiz';
@@ -54,7 +54,7 @@ stopPeriodicRefresh() {
             )}/>
             <Route path="/home" component={Home} />
             <Route path="/login" component={Login} />
-            <Route path="/logout" component={Logout} />
+            {/* <Route path="/logout" component={Logout} /> */}
             <Route path="/signup" component={SignupPage} />
             <Route path="/profile" component={Profile} />
             <Route path="/flashQuiz" component={FlashQuiz} />

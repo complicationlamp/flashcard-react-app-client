@@ -11,7 +11,6 @@ export class Login extends React.Component {
 		e.preventDefault();
 		const username = e.target.username.value;
 		const password = e.target.password.value;
-		console.log(e.target.username.value);
 		this.props.dispatch(login(username, password))
 		.then(() => { 
 			window.location.replace('/profile')

@@ -34,25 +34,19 @@ export class DeleteProfile extends React.Component {
 	}
 
 	render() {
+		const feedbackProfileDetails = ['Username', 'Password', 'Re-enter Password'].map((detail, index) => (
+			<div>
+				<label htmlfor={`${detail}-${index}`}>{detail}</label>
+				<input type="text" id={`${detail}-${index}`} />
+			</div>
+		))
+
 		return(
 			<div>
 				<section className="App-reset">
 					<h2> Reset Account: cleares history of successfull and unsuccessful answers on your account</h2>
-					<form className='reset-form'>
-						<div>
-							<label for="username">Email</label>
-							<input type="text" name='username' id='username' />
-						</div>
-						<div>
-							<label for="password">Password</label>
-							<input type="password" name='password' id='password' />
-						</div>
-						<div>
-							<label for="password">Retype Password</label>
-							<input type="password" name='password' id='password' />
-						</div>
+						{feedbackProfileDetails}
 						<button type='submit'>Clear Feedback</button>
-					</form>
 				</section>
 				<section className="App-delete">
 					<h2> Delete Account</h2>
