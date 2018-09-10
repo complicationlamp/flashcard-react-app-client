@@ -14,12 +14,13 @@ export class Home extends React.Component {
 				<section className="App-about">
 					<header role="header">
 						<h1>Flash till you crash</h1>
-						<h2>Customizable flash cards to inform user areas of strength and weaknesses
+						<h2>A simple Flashcard application where the user has the ability to combine subjects into a deck.
+							Have something to contribute? Login and head over to the profile section where you can make a card
+							the whole comunity can enjoy. If you'd like to demo, head over to Login where a sample login has been set up.
 						</h2>
 					</header>
 				</section>
 				<section className="App-about-graphic">
-					<h3 className="App-about-header">Build a custom flashcard deck</h3>
 					<h4 className="App-about-steps">First: Choose your contnet</h4>
 					{subjects}
 					<h3 className="App-about-steps">Lastly: review the feedback to hone in on what you need to work on</h3>

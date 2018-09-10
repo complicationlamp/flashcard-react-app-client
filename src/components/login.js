@@ -15,7 +15,7 @@ export class Login extends React.Component {
 		.then(() => { 
 			window.location.replace('/profile')
 			// we weren't getting here before because redux-form expects us to
-			// use "this.props.handleSubmit"
+			// use "this.props.handleSubmit" see line 8
 			console.log('successful login!')
 		})
 		.catch((error) => {
@@ -27,6 +27,11 @@ export class Login extends React.Component {
 			<main role="main">
 				<section className="App-signUp">
 					<h1 role="banner">Login</h1>
+					<h2 className="logIn-example">
+						Try the app out with this test account:
+						Username: Steve
+						Password: stevesteve
+					</h2>
 					{this.props.error ? <div>Invalid Credentials</div> : null}
 					<form onSubmit={this.handleSubmit} className='signup-form'>
 						<div>
