@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
-import Nav from './components/nav';
 import { Home } from './components/home';
-import Login from './components/login';
-// import { Logout } from './components/logout';
 import { SignupPage } from './components/signup-page';
+import { FlashCard } from './components/flashCard';
+import { Feedback } from './components/feedback';
+import { MakeFlashcard } from './components/makeFlashcard';
+import { refreshAuthToken } from './actions/auth';
+// below are exported as default riquiering no {}, golbal state
+import Nav from './components/nav';
+import Login from './components/login';
 import Profile from './components/profile';
 import FlashQuiz from './components/flashQuiz';
-import {FlashCard} from './components/flashCard';
-import { Feedback } from './components/feedback'
-import { MakeFlashcard } from './components/makeFlashcard'
 import DeleteProfile from './components/deleteProfile'
-import {refreshAuthToken} from './actions/auth';
-import './App.css';
 
+import './App.css';
 
 class App extends Component {
   componentDidUpdate(prevProps) {
@@ -54,7 +54,6 @@ stopPeriodicRefresh() {
             )}/>
             <Route path="/home" component={Home} />
             <Route path="/login" component={Login} />
-            {/* <Route path="/logout" component={Logout} /> */}
             <Route path="/signup" component={SignupPage} />
             <Route path="/profile" component={Profile} />
             <Route path="/flashQuiz" component={FlashQuiz} />
