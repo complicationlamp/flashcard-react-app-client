@@ -15,6 +15,7 @@ export class Nav extends React.Component {
     }
 	render() {
 		// When a user is loggedin they will have access to the nav link to the profile 
+		// When not logged in the signup and login links will be visiable
 		let logOutButton, profileAccess, signUpAccess, logInAccess;
         if (this.props.loggedIn) {
             logOutButton = (
@@ -34,8 +35,7 @@ export class Nav extends React.Component {
 		return (
 			<nav className="Nav">
 				<div className="Nav-container">
-				{/* CHANGED: the links below were first in an unordered list, while I gained some space, looked like 
-				junk for this portion with bullet points, style at a later date*/}
+				{/* felt that keeping home visiable was always important */}
 					<Link className="Nav-link" to="/home">Home</Link>
 					{signUpAccess}
 					{logOutButton}
