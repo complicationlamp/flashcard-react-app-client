@@ -107,7 +107,7 @@ export class FlashCard extends React.Component{
 
 	render() {
 		const cssExampleQuestion = {
-			subject: "JS",
+			subject: "Javascript",
 			question:"What does CSS standfor?",
 			answer:"Cascade Styling Sheets",
 			wrongAnsOne:"Clear Simple Styling",

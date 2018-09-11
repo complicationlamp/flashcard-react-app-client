@@ -26,7 +26,7 @@ export class FlashQuiz extends React.Component {
 		this.setState({ viewFlashcard: true });
 	}
 	render() {
-		const filters = ['HTML', 'CSS', 'JS', 'NODE', 'jQuery', 'React'].map((subject, index) => (
+		const filters = ['HTML', 'CSS', 'Javascript', 'NODE', 'jQuery', 'React'].map((subject, index) => (
 			<div className="custom-checkbox">
 				<input onChange={() => this.updateState(subject)} type="checkbox" className="custom-control-input" id={`${subject}-${index}`}/>
 				<label htmlFor={`${subject}-${index}`}>{subject}</label>
