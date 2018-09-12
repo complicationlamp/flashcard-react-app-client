@@ -15,12 +15,28 @@ export class FlashCard extends React.Component{
 		this.handleNextCard=this.handleNextCard.bind(this);
 		this.handlePrevCard=this.handlePrevCard.bind(this);
 		this.shuffle=this.shuffle.bind(this);
+		this.handleAnswer=this.handleAnswer.bind(this);
 	}
 	handleFlip(e) {
 		e.preventDefault();
 		this.hide('noteCard-front');
 		this.show('noteCard-back');
 	}
+
+	handleAnswer(e) {
+		// console.log(e.currentTarget.value)
+		const radios = e.currentTarget.value;
+		if(radios === this.state.questions[this.state.index].correctAnswer) {
+			// console.log("sucess");
+			this.show("noteCard-back-correct");
+			this.hide("noteCard-back-wrong")
+		} else if (radios != this.state.questions[this.state.index].correctAnswer){
+			// console.log("worng")
+			this.show("noteCard-back-wrong"); 
+			this.hide("noteCard-back-correct")
+		}
+	  }
+	  
 	handlePrevCard(e) {
 		e.preventDefault();
 		this.setState({index: this.state.index -1})
@@ -48,7 +64,6 @@ export class FlashCard extends React.Component{
 		this.loadQuestions()
 	}
 	loadQuestions(){
-		console.log("load qqqqq")
 		this.setState({
 			error: null,
 			loading:true
@@ -96,13 +111,14 @@ export class FlashCard extends React.Component{
 		return a;
 	};
 
+
 	render() {
 		let insertAnswerDivs;
 		if (this.state.questions.length > 0){
 			console.log(this.state.questions)
 			insertAnswerDivs = this.shuffle(this.state.questions[this.state.index].answers).map((ans, idx) => (
 				<div className="shuffeled-answers-radio" key={`ans-${idx}`}>
-					<input type="radio" name="answer" id={`ans-${idx}`} value={ans}  className="custom-control-input"/>
+					<input onChange={this.handleAnswer} type="radio"  name="answer" id={`ans-${idx}`} value={ans}  className="custom-control-input"/>
 					<label className="custom-control-label" htmlFor={`${ans}-${idx}`}>{ans}</label>
 				</div>
 			));
@@ -124,6 +140,8 @@ export class FlashCard extends React.Component{
 							<section>
 								<div className="noteCard-back">
 									<h1 className="noteCard-header1">{this.state.questions[this.state.index].prompt}</h1>
+									<h2 className="noteCard-back-correct">Correct!</h2>
+									<h2 className="noteCard-back-wrong">Wrong Answer</h2>
 									<p><strong>ANSWER:</strong> {this.state.questions[this.state.index].correctAnswer}</p>
 									<a href={this.state.questions[this.state.index].link}>this is the link to the docs</a>
 									<button className="App-flashcard-next" onClick={this.handleNextCard}>Next Card</button>
