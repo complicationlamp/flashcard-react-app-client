@@ -7,8 +7,8 @@ export class MakeFlashcard extends React.Component {
 
 		this.state = {
 			subject: "",
-			question:"",
-			answer:"",
+			prompt:"",
+			correctAnswer:"", 
 			wrongAnsOne:"",
 			wrongAnsTwo:"",
 			wrongAnsThree:"",
@@ -32,8 +32,8 @@ export class MakeFlashcard extends React.Component {
 	resetForm() {
 		return this.setState({
 			subject: "",
-			question:"",
-			answer:"",
+			prompt:"",
+			correctAnswer:"", 
 			wrongAnsOne:"",
 			wrongAnsTwo:"",
 			wrongAnsThree:"",
@@ -46,9 +46,6 @@ export class MakeFlashcard extends React.Component {
 	}
 	onSubmit(e){
 		e.preventDefault();
-
-		// const value = this.input.value;
-		// console.log(value);
 		return fetch(`${API_BASE_URL}/questions`, {
 			method: 'POST',
 			headers: {
@@ -57,14 +54,13 @@ export class MakeFlashcard extends React.Component {
 			},
 			body: JSON.stringify({
 				subject: this.state.subject,
-				question: this.state.question,
-				answer: this.state.answer,
-				wrongAnsOne: this.state.wrongAnsOne,
-				wrongAnsTwo: this.state.wrongAnsTwo,
-				wrongAnsThree: this.state.wrongAnsThree,
+				prompt: this.state.prompt,
+				correctAnswer: this.state.correctAnswer,
+				answers: [this.state.correctAnswer, this.state.wrongAnsOne, this.state.wrongAnsTwo, this.state.wrongAnsThree],
 				link: this.state.link
 			}),
 		})
+		
 		.then(res => {
 			if (!res.ok){
 				return Promise.reject(res.statusText);
@@ -81,23 +77,23 @@ export class MakeFlashcard extends React.Component {
 			<form id="App-newFlashCard" onSubmit={this.onSubmit}>
 				<div class="form-section">
 					<label htmlFor="flashcard-question">Question </label>
-					<input value={this.state.question} onChange={event => this.updateState('question', event.target.value)} type="text" name="flashcard-question" placeholder="CSS stands for?" required/>
+					<input value={this.state.prompt} onChange={event => this.updateState('prompt', event.target.value)} type="text" name="flashcard-question" placeholder="CSS stands for?" required/>
 				</div>
 				<div class="form-section">
 					<label htmlFor="flashcard-right-answer">What's the correct answer?</label>
-					<input value={this.state.answer} onChange={event => this.updateState('answer', event.target.value)}type="text" name="flashcard-right-answer" placeholder="Cascade Styling Sheets" required/>
+					<input value={this.state.correctAnswer} onChange={event => this.updateState('correctAnswer', event.target.value)}type="text" name="flashcard-right-answer" placeholder="Cascade Styling Sheets" required/>
 				</div>
 				<div class="form-section">
 					<label htmlFor="flashcard-wrong-answer">Write a fake answer?</label>
-					<input value={this.state.wrongAnsOne} onChange={event => this.updateState('wrongAnsOne', event.target.value)} type="text" name="flashcard-wrong-answer" placeholder="Creedence Stillwater Survival" required/>
+					<input value={this.state.wrongAnsOne} onChange={event => this.updateState('wrongAnsOne', event.target.value)} type="text" name="flashcard-wrong-answer-one" placeholder="Creedence Stillwater Survival" required/>
 				</div>
 				<div class="form-section">
 					<label htmlFor="flashcard-wrong-answer">Write a fake answer?</label>
-					<input value={this.state.wrongAnsTwo} onChange={event => this.updateState('wrongAnsTwo', event.target.value)} type="text" name="flashcard-wrong-answer" placeholder="Comp Sci Styling" required/>
+					<input value={this.state.wrongAnsTwo} onChange={event => this.updateState('wrongAnsTwo', event.target.value)} type="text" name="flashcard-wrong-answer-two" placeholder="Comp Sci Styling" required/>
 				</div>
 				<div class="form-section">
 					<label htmlFor="flashcard-wrong-answer">Write a fake answer?</label>
-					<input value={this.state.wrongAnsThree} onChange={event => this.updateState('wrongAnsThree', event.target.value)} type="text" name="flashcard-wrong-answer" placeholder="Computer Systematic Structure" />
+					<input value={this.state.wrongAnsThree} onChange={event => this.updateState('wrongAnsThree', event.target.value)} type="text" name="flashcard-wrong-answer-three" placeholder="Computer Systematic Structure" />
 				</div>
 				<div class="form-section">
 					<label htmlFor="flashcard-link">Link</label>
