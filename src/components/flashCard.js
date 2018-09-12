@@ -14,6 +14,7 @@ export class FlashCard extends React.Component{
 		this.handleFlip=this.handleFlip.bind(this);
 		this.handleNextCard=this.handleNextCard.bind(this);
 		this.handlePrevCard=this.handlePrevCard.bind(this);
+		this.shuffle=this.shuffle.bind(this);
 	}
 	handleFlip(e) {
 		e.preventDefault();
@@ -47,6 +48,7 @@ export class FlashCard extends React.Component{
 		this.loadQuestions()
 	}
 	loadQuestions(){
+		console.log("load qqqqq")
 		this.setState({
 			error: null,
 			loading:true
@@ -59,6 +61,7 @@ export class FlashCard extends React.Component{
 				return res.json();
 			})
 			.then(questions => {
+				console.log(questions)
 				const filteredQuestions = questions.filter((question) => {
 					// flitering by this.props.subject
 					// if this.props.subjects.indexof is >=o (if it matchs/ if the same 
@@ -66,7 +69,9 @@ export class FlashCard extends React.Component{
 					// return those questions
 					return this.props.subjects.indexOf(question.subject) >=0;
 				})
-
+				// .catch(err=> {
+				// 	console.log(err)
+				// })
 				this.setState({
 					questions: filteredQuestions,
 					loading: false
@@ -80,51 +85,28 @@ export class FlashCard extends React.Component{
 			})
 		);
 	}
-	// function to randomize the order of the answers on the flashcard
-	shuffle(questionObject){
-		const ansArray = []
-		const retArray = [];
-		ansArray.push(
-			questionObject.answer,
-			questionObject.wrongAnsOne,
-			questionObject.wrongAnsTwo,
-			questionObject.wrongAnsThree
-		)
-
-		let randomIndex;
-		while (ansArray.length !== 0){
-			randomIndex = Math.floor(Math.random() * ansArray.length);
-			retArray.push(ansArray.splice(randomIndex, 1))
+	shuffle(a) {
+		let j, x, i;
+		for (i = a.length - 1; i > 0; i--) {
+		  j = Math.floor(Math.random() * (i + 1));
+		  x = a[i];
+		  a[i] = a[j];
+		  a[j] = x;
 		}
-		// last step is needed or else it will return an array of arrays, eave containing 1 answer
-		// finalArray.push(answer[0])   this denotes that we just want the contents (at 0, becaus one one)
-		let finalArray= [];
-		retArray.forEach((answer) => { 
-			finalArray.push(answer[0])
-		})
-		return finalArray;
-	}
+		return a;
+	};
 
 	render() {
-		const cssExampleQuestion = {
-			subject: "Javascript",
-			question:"What does CSS standfor?",
-			answer:"Cascade Styling Sheets",
-			wrongAnsOne:"Clear Simple Styling",
-			wrongAnsTwo:"Creative Styling Solution",
-			wrongAnsThree:"Computed Server System",
-			link:"https://developer.mozilla.org/en-US/docs/Web/CSS",
+		let insertAnswerDivs;
+		if (this.state.questions.length > 0){
+			console.log(this.state.questions)
+			insertAnswerDivs = this.shuffle(this.state.questions[this.state.index].answers).map((ans, idx) => (
+				<div className="shuffeled-answers-radio" key={`ans-${idx}`}>
+					<input type="radio" name="answer" id={`ans-${idx}`} value={ans}  className="custom-control-input"/>
+					<label className="custom-control-label" htmlFor={`${ans}-${idx}`}>{ans}</label>
+				</div>
+			));
 		}
-
-		const shuffeledAnswers = this.state.questions.length > 0 && this.state.questions.length > this.state.index ? this.shuffle(this.state.questions[this.state.index]) : this.shuffle(cssExampleQuestion);
-		// this function puts the randomized answers on the card
-		const insertAnswerDivs = shuffeledAnswers.map((answer, index) => (
-			<div className="shuffeled-answers-radio">
-				<input type="radio" id={`${answer}-${index}`} name="ans" className="custom-control-input"/>
-				<label className="custom-control-label" htmlFor={`${answer}-${index}`}>{answer}</label>
-			</div>
-		))
-
 		return (
 			<main role="main">
 				{
@@ -133,7 +115,7 @@ export class FlashCard extends React.Component{
 						<div>
 							<section className="noteCard-front">
 								<h1 className="App-quiz-questionHeader">
-									<strong>Q:</strong>{this.state.questions[this.state.index].question}</h1>
+									<strong>Q:</strong>{this.state.questions[this.state.index].prompt}</h1>
 									{insertAnswerDivs}
 								<button className="App-flashcard-flip" onClick={this.handleFlip}>Flip Card</button>
 								<button className="App-flashcard-prev" onClick={this.handlePrevCard}>Previous Card</button>
@@ -141,8 +123,8 @@ export class FlashCard extends React.Component{
 							{/* ^^^^FRONT OF NOTECARD    vvvvvvv BACK OF NOTECARD */}
 							<section>
 								<div className="noteCard-back">
-									<h1 className="noteCard-header1">{this.state.questions[this.state.index].question}</h1>
-									<p><strong>ANSWER:</strong> {this.state.questions[this.state.index].answer}</p>
+									<h1 className="noteCard-header1">{this.state.questions[this.state.index].prompt}</h1>
+									<p><strong>ANSWER:</strong> {this.state.questions[this.state.index].correctAnswer}</p>
 									<a href={this.state.questions[this.state.index].link}>this is the link to the docs</a>
 									<button className="App-flashcard-next" onClick={this.handleNextCard}>Next Card</button>
 								</div>
