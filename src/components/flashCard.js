@@ -1,5 +1,7 @@
 import React from "react";
 import { API_BASE_URL } from '../config'
+
+import './cssComponents/flashcard.css'
 export class FlashCard extends React.Component{
 	constructor(props) {
 		super(props);

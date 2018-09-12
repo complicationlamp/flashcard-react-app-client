@@ -1,0 +1,11 @@
+.app-makeFlashcard{
+	border: 2px solid green;
+}
+
+.flashcard-content{
+	border: 2px solid purple;
+}
+
+.subject-selection{
+	border: 2px solid gold;
+}

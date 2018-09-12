@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
 
-import './nav.css';
+import './cssComponents/nav.css'
 
 export class Nav extends React.Component {
 	logOut() {

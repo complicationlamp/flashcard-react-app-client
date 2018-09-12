@@ -1,0 +1,10 @@
+.app-flashQuiz{
+	border: 2px solid green;
+}
+
+.setup-filters{
+	border: 2px solid purple;
+}
+
+/* because there is so much in flashcad, do styling for it in 
+it's own folder */

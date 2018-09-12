@@ -2,6 +2,8 @@ import React from 'react';
 import { API_BASE_URL } from '../config';
 import {connect} from 'react-redux';
 
+import './cssComponents/deleteProfile.css'
+
 export class DeleteProfile extends React.Component {
 	constructor(props) {
 		super(props)
@@ -42,13 +44,13 @@ export class DeleteProfile extends React.Component {
 		))
 
 		return(
-			<div>
+			<div className="App-deleteProfile">
 				<section className="App-reset">
 					<h2> Reset Account: cleares history of successfull and unsuccessful answers on your account</h2>
 						{feedbackProfileDetails}
 						<button type='submit'>Clear Feedback</button>
 				</section>
-				<section className="App-delete">
+				<section className="App-deleteMe">
 					<h2> Delete Account</h2>
 					<div class="custom-control custom-checkbox">
 							<input onChange={this.onChangeDeletePofileCheckBox} type="checkbox" class="custom-control-input" id="customCheck1" value={this.state.confirmDelete}/>

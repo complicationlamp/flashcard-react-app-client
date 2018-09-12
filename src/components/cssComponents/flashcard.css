@@ -1,0 +1,11 @@
+.app-flascard{
+	border: 2px solid coral
+}
+
+.noteCard-front{
+	border: 2px solid cornflowerblue;
+}
+
+.noteCard-back{
+	border: 2px solid crimson;
+}

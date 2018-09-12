@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import {FlashCard} from './flashCard';
 import {setSubjectFilter} from '../actions/profile'
 
+import './cssComponents/flashQuiz.css'
+
 export class FlashQuiz extends React.Component {
 	constructor(props) {
 		super(props)
@@ -34,11 +36,11 @@ export class FlashQuiz extends React.Component {
 		))
 
 		return (
-			<main role="main">
+			<main role="main" className="app-flashQuiz">
 				{
 					!this.state.viewFlashcard ?
 						(
-							<section>
+							<section className="setup-filters">
 								<h3 className="App-filter-banner">Set up your study session</h3>
 								{filters}
 								<button onClick={this.onStartStudySession} className="Nav-link">Start Your Study Session</button>

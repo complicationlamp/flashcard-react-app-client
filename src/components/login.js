@@ -2,6 +2,8 @@ import React from "react";
 import {connect} from "react-redux";
 import {login} from "../actions/auth";
 
+import './cssComponents/login.css'
+
 export class Login extends React.Component {
 	constructor(props) {
 		super(props)
