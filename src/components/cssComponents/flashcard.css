@@ -2,7 +2,10 @@
 fall outside the card */
 .app-flascard{
 	/* border: 2px solid coral; */
-	padding-top: 5em
+	padding-top: 5em;
+	width: 24em;
+	display: inline-flex;
+	justify-content: center;
 }
 
 .noteCard-front{

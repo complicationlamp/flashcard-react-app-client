@@ -123,7 +123,7 @@ export class FlashCard extends React.Component{
 			));
 		}
 		return (
-			<main role="main" className="app-flascard">
+			<main role="main" className="app-flascard col-8">
 				{
 					this.state.questions.length ?
 					(
