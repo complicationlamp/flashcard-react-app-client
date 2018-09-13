@@ -1,5 +1,5 @@
 import React from "react";
-import {Feedback} from './feedback'
+// import {Feedback} from './feedback'
 
 import './cssComponents/home.css'
 

@@ -1,10 +1,21 @@
-.app-flashQuiz{
+/* .app-flashQuiz{
 	border: 2px solid green;
 }
 
 .setup-filters{
 	border: 2px solid purple;
-}
+} */
 
 /* because there is so much in flashcad, do styling for it in 
 it's own folder */
+button{
+	border-radius: 4px;
+	background-color: #696969;
+	color: white;
+	width: 10em;
+	margin: .5em
+}
+
+label{
+	color:#696969;
+}

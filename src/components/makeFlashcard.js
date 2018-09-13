@@ -78,33 +78,34 @@ export class MakeFlashcard extends React.Component {
 		return (
 			<form id="App-newFlashCard" onSubmit={this.onSubmit} className="app-makeFlashcard">
 				<div className="flashcard-content">
+				<h1 className="heading">Please fill in the following</h1>
 					<div className="form-section">
-						<label htmlFor="flashcard-question">Question </label>
+						<label htmlFor="flashcard-question" className="make-flashcard-question">Question </label>
 						<input value={this.state.prompt} onChange={event => this.updateState('prompt', event.target.value)} type="text" name="flashcard-question" placeholder="CSS stands for?" required/>
 					</div>
 					<div className="form-section">
-						<label htmlFor="flashcard-right-answer">What's the correct answer?</label>
+						<label htmlFor="flashcard-right-answer"className="make-flashcard-question">What's the correct answer?</label>
 						<input value={this.state.correctAnswer} onChange={event => this.updateState('correctAnswer', event.target.value)}type="text" name="flashcard-right-answer" placeholder="Cascade Styling Sheets" required/>
 					</div>
 					<div className="form-section">
-						<label htmlFor="flashcard-wrong-answer">Write a fake answer?</label>
-						<input value={this.state.wrongAnsOne} onChange={event => this.updateState('wrongAnsOne', event.target.value)} type="text" name="flashcard-wrong-answer-one" placeholder="Creedence Stillwater Survival" required/>
+						<label htmlFor="flashcard-wrong-answer" className="make-flashcard-question">Write a fake answer?</label>
+						<input value={this.state.wrongAnsOne} onChange={event => this.updateState('wrongAnsOne', event.target.value)} type="text" name="flashcard-wrong-answer-one" placeholder="Cry Strive Survive" required/>
 					</div>
 					<div className="form-section">
-						<label htmlFor="flashcard-wrong-answer">Write a fake answer?</label>
+						<label htmlFor="flashcard-wrong-answer" className="make-flashcard-question">Write a fake answer?</label>
 						<input value={this.state.wrongAnsTwo} onChange={event => this.updateState('wrongAnsTwo', event.target.value)} type="text" name="flashcard-wrong-answer-two" placeholder="Comp Sci Styling" required/>
 					</div>
 					<div className="form-section">
-						<label htmlFor="flashcard-wrong-answer">Write a fake answer?</label>
+						<label htmlFor="flashcard-wrong-answer" className="make-flashcard-question">Write a fake answer?</label>
 						<input value={this.state.wrongAnsThree} onChange={event => this.updateState('wrongAnsThree', event.target.value)} type="text" name="flashcard-wrong-answer-three" placeholder="Computer Systematic Structure" />
 					</div>
 					<div className="form-section">
-						<label htmlFor="flashcard-link">Link</label>
+						<label htmlFor="flashcard-link" className="make-flashcard-question">Link</label>
 						<input value={this.state.link} onChange={event => this.updateState('link', event.target.value)} type="url" name="flashcard-link" placeholder="www.someplace.com"/>
 					</div>
 				</div>
 				<div className="subject-selection">
-					<p>What subject is this?</p>
+					<h2 className="subject-selection">What subject is this?</h2>
 					<input onClick={event => this.updateState('subject', 'CSS')} type="radio" name="subject-type" value={this.state.subject === 'CSS'} className="subject-type-radio" />
 					<label htmlFor="subject-type">
 						<span>CSS</span>

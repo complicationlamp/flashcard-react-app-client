@@ -47,14 +47,14 @@ export class DeleteProfile extends React.Component {
 			<div className="App-deleteProfile">
 				<section className="App-reset">
 					<h2> Reset Account</h2>
-					<p>cleares history of successfull and unsuccessful answers on your account</p>
+					<p className="subtext">cleares history of successfull and unsuccessful answers on your account</p>
 						{feedbackProfileDetails}
 						<button type='submit'>Clear Feedback</button>
 				</section>
 				<section className="App-deleteMe">
 					<h2> Delete Account</h2>
 					<div class="custom-control custom-checkbox">
-						<p>Check this box to delete</p>
+						<p className="subtext">Check this box to delete</p>
 							<input onChange={this.onChangeDeletePofileCheckBox} type="checkbox" className="custom-control-input" id="customCheck1" value={this.state.confirmDelete}/>
 							<label class="custom-control-label" for="customCheck1"></label>
 						</div>

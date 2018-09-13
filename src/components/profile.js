@@ -15,10 +15,12 @@ export class Profile extends React.Component {
 							<Feedback/>
 						</header>
 					</section>
+					<section className="start-Section>">
+						<Link className="linkFromProfile" to="/flashQuiz">Start a session</Link>
+					</section>
 					<section className="links-section col-12">
-						<Link className="linkFromProfile col-4" to="/flashQuiz">Start a session</Link>
-						<Link className="linkFromProfile col-4" to="/makeFlashcard">Make Flashcard</Link>
-						<Link className="linkFromProfile col-4" to="/deleteProfile">Delete Profile</Link>
+						<Link className="linkFromProfile col-6" to="/deleteProfile">Delete Profile</Link>
+						<Link className="linkFromProfile col-6" to="/makeFlashcard">Make Flashcard</Link>
 					</section>
 				</main>
 		)

@@ -1,17 +1,9 @@
 .Nav {
 	background:white;
+	margin-bottom: 1em;
 	}
-	
-/* .Nav-container{
-		text-align: left;
-	} */
 
 .Nav-link, a{
 		color:#696969;
 		text-align: left;
-}
-
-a{
-	color:#696969;
-	text-align: left;
 }

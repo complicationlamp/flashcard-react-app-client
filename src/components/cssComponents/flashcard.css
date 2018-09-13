@@ -1,11 +1,46 @@
+/* for this might be appropriate to do the flashcard styling that will
+fall outside the card */
 .app-flascard{
-	border: 2px solid coral
+	/* border: 2px solid coral; */
+	padding-top: 5em
 }
 
 .noteCard-front{
-	border: 2px solid cornflowerblue;
+	border: 1px solid #c1c1c124;
+    padding: .5em;
+    box-shadow: 2px 3px 4px 0px #b7b7b7;
 }
 
 .noteCard-back{
-	border: 2px solid crimson;
+	border: 1px solid #c1c1c124;
+    padding: .5em;
+    box-shadow: 2px 3px 4px 0px #b7b7b7;
+}
+
+.fa-check {
+	margin-right: .3em;
+	color: #5397259d;
+	float: left;
+}
+
+.fa-times {
+	margin-right: .3em;
+	color: #f03c5a62;
+	float: left;
+}
+hr{
+	width:100%;
+	display: block;
+    height: 1px;
+    border: 0;
+    padding: 0;
+}
+.colorRed{
+	border-top: 1px solid #f03c5a62;
+}
+.colorBlue{
+	border-top: 1px solid #0c40eb8f
+}
+.Answer-text{
+	color:black
 }

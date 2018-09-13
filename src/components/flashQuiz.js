@@ -30,7 +30,7 @@ export class FlashQuiz extends React.Component {
 	render() {
 		const filters = ['HTML', 'CSS', 'Javascript', 'NODE', 'jQuery', 'React'].map((subject, index) => (
 			<div className="custom-checkbox">
-				<input onChange={() => this.updateState(subject)} type="checkbox" className="custom-control-input" id={`${subject}-${index}`}/>
+				<input onChange={() => this.updateState(subject)} type="checkbox" className="subject-filter-checkbox" id={`${subject}-${index}`}/>
 				<label htmlFor={`${subject}-${index}`}>{subject}</label>
 			</div>
 		))
@@ -43,11 +43,10 @@ export class FlashQuiz extends React.Component {
 							<section className="setup-filters">
 								<h3 className="App-filter-banner">Set up your study session</h3>
 								{filters}
-								<button onClick={this.onStartStudySession} className="Nav-link">Start Your Study Session</button>
+								<button onClick={this.onStartStudySession} className="start-session-btn">Start Your Study Session</button>
 							</section>
 						) : null
 				}
-
 				{
 					this.state.viewFlashcard ?
 						(<section className="noteCard">

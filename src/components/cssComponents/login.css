@@ -1,16 +1,15 @@
-.App-signUp{
+/* .App-signUp{
 	border: 2px solid green;
 }
 
 .logIn-example{
 	border: 2px solid yellow;
-}
+} */
 
 input{
 	border-radius: 4px;
 	background-color: #c4c4c4;
 	color: #000000;
-	width: 75%;
 }
 button{
 	border-radius: 4px;

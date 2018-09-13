@@ -1,4 +1,4 @@
-.app-makeFlashcard{
+/* .app-makeFlashcard{
 	border: 2px solid green;
 }
 
@@ -8,4 +8,16 @@
 
 .subject-selection{
 	border: 2px solid gold;
+} */
+
+.flashcard-content{
+	line-height: 1.5;
+}
+
+.subject-selection, .heading{
+	color: black
+}
+
+.make-flashcard-question{
+	padding: .5em;
 }
