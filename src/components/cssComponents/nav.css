@@ -1,6 +1,17 @@
 .Nav {
-	background: black;
-	margin-top: 0;
-	margin-right: 0;
-	margin-right: 0;
-  }
+	background:white;
+	}
+	
+/* .Nav-container{
+		text-align: left;
+	} */
+
+.Nav-link, a{
+		color:#696969;
+		text-align: left;
+}
+
+a{
+	color:#696969;
+	text-align: left;
+}

@@ -15,20 +15,26 @@ export class Home extends React.Component {
 			<main role="main" className="App-about">
 				<section className="App-about-intro">
 					<header role="header">
-						<h1>Flash till you crash</h1>
-						<h2 className="App-about-intro-text">
-							A simple Flashcard application where the user has the ability to combine subjects into a deck.
-							Have something to contribute? Login and head over to the profile section where you can make a card
-							the whole comunity can enjoy. If you'd like to demo, head over to Login where a sample login has been set up.
-						</h2>
+						<h1 className="App-about-intro-header">Welcome to FlashQuiz</h1>
+							<p>
+							A simple Flashcard application where the user has the ability to combine subjects into a deck.<br/>
+							Have something to contribute? <br/>Login and head over to the profile section where you can make a card
+							the whole comunity can enjoy. <br/>If you'd like to demo, head over to Login where a sample login has been set up.
+							</p>
 					</header>
 				</section>
 				<section className="App-about-steps">
-					<h3>First: login</h3>
-					<h3 className="App-about-steps-text">First: Choose your contnet</h3>
-					{subjects}
-					<h4 className="App-about-steps-text">Lastly: review the feedback to hone in on what you need to work on</h4>
-					<Feedback />
+					<h2>First</h2>
+					<p>Use the navigation bar to head to the login page</p>
+					<h2 className="App-about-steps-text">Second</h2>
+					<p>Use the example login credentials to log-on <br/> -or-<br/>
+					Create your own account following the signup link</p>
+					<h2>Then</h2>
+					<p>Choose your contnet by toggeling the subjects you want in your flashcard deck</p>
+					{/* {subjects} */}
+					<h2 className="App-about-steps-text">Lastly</h2>
+					<p>Click on 'Start a session' at the bottom of the screen</p>
+					{/* <Feedback /> */}
 				</section>
 			</main>
 		)

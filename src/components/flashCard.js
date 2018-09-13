@@ -126,7 +126,7 @@ export class FlashCard extends React.Component{
 			));
 		}
 		return (
-			<main role="main">
+			<main role="main" className="app-flascard">
 				{
 					this.state.questions.length ?
 					(
@@ -139,15 +139,13 @@ export class FlashCard extends React.Component{
 								<button className="App-flashcard-prev" onClick={this.handlePrevCard}>Previous Card</button>
 							</section>
 							{/* ^^^^FRONT OF NOTECARD    vvvvvvv BACK OF NOTECARD */}
-							<section>
-								<div className="noteCard-back">
-									<h1 className="noteCard-header1">{this.state.questions[this.state.index].prompt}</h1>
-									<h2 className="noteCard-back-correct">Correct!</h2>
-									<h2 className="noteCard-back-wrong">Wrong Answer</h2>
-									<p><strong>ANSWER:</strong> {this.state.questions[this.state.index].correctAnswer}</p>
-									<a href={this.state.questions[this.state.index].link}>this is the link to the docs</a>
-									<button className="App-flashcard-next" onClick={this.handleNextCard}>Next Card</button>
-								</div>
+							<section className="noteCard-back">
+								<h1 className="noteCard-header1">{this.state.questions[this.state.index].prompt}</h1>
+								<h2 className="noteCard-back-correct">Correct!</h2>
+								<h2 className="noteCard-back-wrong">Wrong Answer</h2>
+								<p><strong>ANSWER:</strong> {this.state.questions[this.state.index].correctAnswer}</p>
+								<a href={this.state.questions[this.state.index].link}>this is the link to the docs</a>
+								<button className="App-flashcard-next" onClick={this.handleNextCard}>Next Card</button>
 							</section>
 						</div>
 					) :null 

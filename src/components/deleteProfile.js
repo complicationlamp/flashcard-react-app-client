@@ -38,7 +38,7 @@ export class DeleteProfile extends React.Component {
 	render() {
 		const feedbackProfileDetails = ['Username', 'Password', 'Re-enter Password'].map((detail, index) => (
 			<div>
-				<label htmlfor={`${detail}-${index}`}>{detail}</label>
+				<label htmlfor={`${detail}-${index}`}>{detail}</label><br/>
 				<input type="text" id={`${detail}-${index}`} />
 			</div>
 		))
@@ -46,15 +46,17 @@ export class DeleteProfile extends React.Component {
 		return(
 			<div className="App-deleteProfile">
 				<section className="App-reset">
-					<h2> Reset Account: cleares history of successfull and unsuccessful answers on your account</h2>
+					<h2> Reset Account</h2>
+					<p>cleares history of successfull and unsuccessful answers on your account</p>
 						{feedbackProfileDetails}
 						<button type='submit'>Clear Feedback</button>
 				</section>
 				<section className="App-deleteMe">
 					<h2> Delete Account</h2>
 					<div class="custom-control custom-checkbox">
-							<input onChange={this.onChangeDeletePofileCheckBox} type="checkbox" class="custom-control-input" id="customCheck1" value={this.state.confirmDelete}/>
-							<label class="custom-control-label" for="customCheck1">Check this box to delete </label>
+						<p>Check this box to delete</p>
+							<input onChange={this.onChangeDeletePofileCheckBox} type="checkbox" className="custom-control-input" id="customCheck1" value={this.state.confirmDelete}/>
+							<label class="custom-control-label" for="customCheck1"></label>
 						</div>
 						<button onClick={this.loadId} disabled={!this.state.confirmDelete} type='submit'>Delete account</button>
 				</section>

@@ -16,9 +16,9 @@ export class Profile extends React.Component {
 						</header>
 					</section>
 					<section className="links-section col-12">
-						<Link className="Nav-link col-4" to="/flashQuiz">Start a session</Link>
-						<Link className="Nav-link col-4" to="/makeFlashcard">Make Flashcard</Link>
-						<Link className="Nav-link col-4" to="/deleteProfile">Delete Profile</Link>
+						<Link className="linkFromProfile col-4" to="/flashQuiz">Start a session</Link>
+						<Link className="linkFromProfile col-4" to="/makeFlashcard">Make Flashcard</Link>
+						<Link className="linkFromProfile col-4" to="/deleteProfile">Delete Profile</Link>
 					</section>
 				</main>
 		)

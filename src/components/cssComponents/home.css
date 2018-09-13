@@ -1,4 +1,4 @@
-.App-about {
+/* .App-about {
 	border: 2px solid green;
 }
 
@@ -8,4 +8,13 @@
 
 .App-about-steps{
 	border: 2px solid red;
+} */
+
+h1, h2{
+	color:#000000;
+	/* text-align: left; */
+}
+
+p{
+	color:#696969;
 }
