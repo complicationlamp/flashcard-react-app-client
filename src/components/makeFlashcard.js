@@ -70,6 +70,7 @@ export class MakeFlashcard extends React.Component {
 			return res.json();
 		})
 		.then(()=> {
+			alert("Your card has been added")
 			this.resetForm();
 		})
 	};
@@ -131,7 +132,7 @@ export class MakeFlashcard extends React.Component {
 						<span>NODE</span>
            			 </label>
 				</div>
-				<button type="submit" >Submit</button>
+				<button type="submit">Submit</button>
 				<button type="reset" onClick={this.handleReset}>Reset</button>
 			</form>
 		)

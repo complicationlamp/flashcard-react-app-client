@@ -15,9 +15,27 @@ export class FlashQuiz extends React.Component {
 			jQuery: false,
 			NODE: false,
 			React: false,
-			viewFlashcard: false
+			viewFlashcard: false,
+			isDisabled: true
 		};
 		this.onStartStudySession=this.onStartStudySession.bind(this);
+		this.disableButton=this.disableButton.bind(this);
+	}
+	componentDidMount(){
+		this.disableButton()
+	}
+
+	disableButton(){
+		const filters = ['HTML', 'CSS', 'Javascript', 'NODE', 'jQuery', 'React'].map((subject, index) => {
+			if(this.state[subject]) {
+				return subject
+			}
+		});
+		if(filters.length > 0){
+			this.setState({isDisabled: false})
+		} else {
+			this.setState({isDisabled: true})
+		}
 	}
 	updateState(subject) {
 		this.setState({[subject]: !this.state[subject]})
@@ -43,7 +61,7 @@ export class FlashQuiz extends React.Component {
 							<section className="setup-filters">
 								<h3 className="App-filter-banner">Set up your study session</h3>
 								{filters}
-								<button onClick={this.onStartStudySession} className="start-session-btn">Start Your Study Session</button>
+								<button onClick={this.onStartStudySession} disabled={this.state.isDisabled} className="start-session-btn">Start Your Study Session</button>
 							</section>
 						) : null
 				}

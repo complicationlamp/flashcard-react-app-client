@@ -19,7 +19,7 @@ export class Nav extends React.Component {
 		let logOutButton, profileAccess, signUpAccess, logInAccess;
         if (this.props.loggedIn) {
             logOutButton = (
-                <Link onClick={() => this.logOut()} to="/home">Log out</Link>
+                <Link className="Nav-link" onClick={() => this.logOut()} to="/home">Log out</Link>
 			);
 			profileAccess = (
 				<Link className="Nav-link" to="/profile">Profile</Link>
@@ -33,15 +33,15 @@ export class Nav extends React.Component {
 			)
 		}
 		return (
-			<nav className="Nav col-12">
-				<div className="Nav-container">
+			<nav className="Nav col-2">
+				<ul className="Nav-container">
 				{/* felt that keeping home visiable was always important */}
 					<Link className="Nav-link" to="/home">Home</Link>
 					{signUpAccess}
 					{logOutButton}
 					{profileAccess}
 					{logInAccess}
-				</div>
+				</ul>
 			</nav>
 		)
 	}

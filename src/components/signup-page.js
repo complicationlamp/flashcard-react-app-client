@@ -12,7 +12,7 @@ export function SignupPage (props) {
     }
     return (
         <div className="home">
-            <h2>Register for Foo App</h2>
+            <h2>Register for the FlashCard App</h2>
             <Signup />
             <Link to="/login">Login</Link>
         </div>

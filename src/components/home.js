@@ -13,7 +13,7 @@ export class Home extends React.Component {
 
 		return (
 			<main role="main" className="App-about">
-				<section className="App-about-intro">
+				<section className="App-about-intro col-6">
 					<header role="header">
 						<h1 className="App-about-intro-header">Welcome to FlashQuiz</h1>
 							<p>
@@ -23,7 +23,7 @@ export class Home extends React.Component {
 							</p>
 					</header>
 				</section>
-				<section className="App-about-steps">
+				<section className="App-about-steps col-6">
 					<h2>First</h2>
 					<p>Use the navigation bar to head to the login page</p>
 					<h2 className="App-about-steps-text">Second</h2>

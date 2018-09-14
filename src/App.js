@@ -13,7 +13,6 @@ import Profile from './components/profile';
 import FlashQuiz from './components/flashQuiz';
 import DeleteProfile from './components/deleteProfile'
 
-import './App.css';
 
 class App extends Component {
   componentDidUpdate(prevProps) {

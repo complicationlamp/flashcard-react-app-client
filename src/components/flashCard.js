@@ -41,9 +41,13 @@ export class FlashCard extends React.Component{
 	  
 	handlePrevCard(e) {
 		e.preventDefault();
+		if(this.state.index <1) {
+			alert("There's nothing there")
+		} else{
 		this.setState({index: this.state.index -1})
 		this.show('noteCard-front');
 		this.hide('noteCard-back')
+		}
 	}
 	handleNextCard(e) {
 		e.preventDefault();
@@ -78,7 +82,7 @@ export class FlashCard extends React.Component{
 				return res.json();
 			})
 			.then(questions => {
-				console.log(questions)
+				// console.log(questions)
 				const filteredQuestions = questions.filter((question) => {
 					// flitering by this.props.subject
 					// if this.props.subjects.indexof is >=o (if it matchs/ if the same 
@@ -114,7 +118,7 @@ export class FlashCard extends React.Component{
 	render() {
 		let insertAnswerDivs;
 		if (this.state.questions.length > 0){
-			console.log(this.state.questions)
+			// console.log(this.state.questions)
 			insertAnswerDivs = this.shuffle(this.state.questions[this.state.index].answers).map((ans, idx) => (
 				<div className="shuffeled-answers-radio" key={`ans-${idx}`}>
 					<input onChange={this.handleAnswer} type="radio"  name="answer" id={`ans-${idx}`} value={ans}  className="custom-control-input"/>
