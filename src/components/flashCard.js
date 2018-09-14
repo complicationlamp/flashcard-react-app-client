@@ -147,7 +147,7 @@ export class FlashCard extends React.Component{
 								</span >
 								<hr className="colorRed" />
 								<p className="Answer-text"><strong>ANSWER:</strong> {this.state.questions[this.state.index].correctAnswer}</p>
-								<a href={this.state.questions[this.state.index].link}>this is the link to the docs</a>
+								<a href={this.state.questions[this.state.index].link}>this is the link to the docs</a><br/>
 								<button className="App-flashcard-next" onClick={this.handleNextCard}>Next Card</button>
 							</section>
 						</div>

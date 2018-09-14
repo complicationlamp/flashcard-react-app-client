@@ -17,7 +17,8 @@ fall outside the card */
 .noteCard-back{
 	border: 1px solid #c1c1c124;
     padding: .5em;
-    box-shadow: 2px 3px 4px 0px #b7b7b7;
+	box-shadow: 2px 3px 4px 0px #b7b7b7;
+	min-height: 10em;
 }
 
 .fa-check {
@@ -45,5 +46,10 @@ hr{
 	border-top: 1px solid #0c40eb8f
 }
 .Answer-text{
-	color:black
+	color:black;
+	margin: .5em;
+}
+
+.App-flashcard-next{
+	margin: 2em;
 }
