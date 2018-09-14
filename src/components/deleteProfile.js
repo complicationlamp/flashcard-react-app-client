@@ -37,7 +37,7 @@ export class DeleteProfile extends React.Component {
 
 	render() {
 		const feedbackProfileDetails = ['Username', 'Password', 'Re-enter Password'].map((detail, index) => (
-			<div>
+			<div key={`${detail}-${index}`}>
 				<label htmlfor={`${detail}-${index}`}>{detail}</label><br/>
 				<input type="text" id={`${detail}-${index}`} />
 			</div>
