@@ -1,5 +1,7 @@
 import React from "react";
 import { API_BASE_URL } from '../config'
+
+import './cssComponents/flashcard.css'
 export class FlashCard extends React.Component{
 	constructor(props) {
 		super(props);
@@ -28,20 +30,24 @@ export class FlashCard extends React.Component{
 		const radios = e.currentTarget.value;
 		if(radios === this.state.questions[this.state.index].correctAnswer) {
 			// console.log("sucess");
-			this.show("noteCard-back-correct");
-			this.hide("noteCard-back-wrong")
-		} else if (radios != this.state.questions[this.state.index].correctAnswer){
+			this.show("fa-check");
+			this.hide("fa-times")
+		} else if (radios !== this.state.questions[this.state.index].correctAnswer){
 			// console.log("worng")
-			this.show("noteCard-back-wrong"); 
-			this.hide("noteCard-back-correct")
+			this.show("fa-times"); 
+			this.hide("fa-check");
 		}
 	  }
 	  
 	handlePrevCard(e) {
 		e.preventDefault();
+		if(this.state.index <1) {
+			alert("There's nothing there")
+		} else{
 		this.setState({index: this.state.index -1})
 		this.show('noteCard-front');
 		this.hide('noteCard-back')
+		}
 	}
 	handleNextCard(e) {
 		e.preventDefault();
@@ -76,7 +82,7 @@ export class FlashCard extends React.Component{
 				return res.json();
 			})
 			.then(questions => {
-				console.log(questions)
+				// console.log(questions)
 				const filteredQuestions = questions.filter((question) => {
 					// flitering by this.props.subject
 					// if this.props.subjects.indexof is >=o (if it matchs/ if the same 
@@ -84,9 +90,6 @@ export class FlashCard extends React.Component{
 					// return those questions
 					return this.props.subjects.indexOf(question.subject) >=0;
 				})
-				// .catch(err=> {
-				// 	console.log(err)
-				// })
 				this.setState({
 					questions: filteredQuestions,
 					loading: false
@@ -115,7 +118,7 @@ export class FlashCard extends React.Component{
 	render() {
 		let insertAnswerDivs;
 		if (this.state.questions.length > 0){
-			console.log(this.state.questions)
+			// console.log(this.state.questions)
 			insertAnswerDivs = this.shuffle(this.state.questions[this.state.index].answers).map((ans, idx) => (
 				<div className="shuffeled-answers-radio" key={`ans-${idx}`}>
 					<input onChange={this.handleAnswer} type="radio"  name="answer" id={`ans-${idx}`} value={ans}  className="custom-control-input"/>
@@ -124,28 +127,28 @@ export class FlashCard extends React.Component{
 			));
 		}
 		return (
-			<main role="main">
+			<main role="main" className="app-flascard col-8">
 				{
 					this.state.questions.length ?
 					(
-						<div>
+						<div className="Notecard-front-back">
 							<section className="noteCard-front">
 								<h1 className="App-quiz-questionHeader">
-									<strong>Q:</strong>{this.state.questions[this.state.index].prompt}</h1>
+									<strong>Q: </strong>{this.state.questions[this.state.index].prompt}</h1>
 									{insertAnswerDivs}
+									<button className="App-flashcard-prev" onClick={this.handlePrevCard}>Previous Card</button>
 								<button className="App-flashcard-flip" onClick={this.handleFlip}>Flip Card</button>
-								<button className="App-flashcard-prev" onClick={this.handlePrevCard}>Previous Card</button>
 							</section>
 							{/* ^^^^FRONT OF NOTECARD    vvvvvvv BACK OF NOTECARD */}
-							<section>
-								<div className="noteCard-back">
-									<h1 className="noteCard-header1">{this.state.questions[this.state.index].prompt}</h1>
-									<h2 className="noteCard-back-correct">Correct!</h2>
-									<h2 className="noteCard-back-wrong">Wrong Answer</h2>
-									<p><strong>ANSWER:</strong> {this.state.questions[this.state.index].correctAnswer}</p>
-									<a href={this.state.questions[this.state.index].link}>this is the link to the docs</a>
-									<button className="App-flashcard-next" onClick={this.handleNextCard}>Next Card</button>
-								</div>
+							<section className="noteCard-back">
+								<span className="noteCard-header1">
+									 {this.state.questions[this.state.index].prompt}
+									<i className="fas fa-times"/><i className="fas fa-check"/>
+								</span >
+								<hr className="colorRed" />
+								<p className="Answer-text"><strong>ANSWER:</strong> {this.state.questions[this.state.index].correctAnswer}</p>
+								<a href={this.state.questions[this.state.index].link}>this is the link to the docs</a><br/>
+								<button className="App-flashcard-next" onClick={this.handleNextCard}>Next Card</button>
 							</section>
 						</div>
 					) :null 

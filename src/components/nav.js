@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
 
-import './nav.css';
+import './cssComponents/nav.css'
 
 export class Nav extends React.Component {
 	logOut() {
@@ -19,7 +19,7 @@ export class Nav extends React.Component {
 		let logOutButton, profileAccess, signUpAccess, logInAccess;
         if (this.props.loggedIn) {
             logOutButton = (
-                <button onClick={() => this.logOut()}>Log out</button>
+                <Link className="Nav-link" onClick={() => this.logOut()} to="/home">Log out</Link>
 			);
 			profileAccess = (
 				<Link className="Nav-link" to="/profile">Profile</Link>
@@ -33,16 +33,15 @@ export class Nav extends React.Component {
 			)
 		}
 		return (
-			<nav className="Nav">
-				<div className="Nav-container">
+			<nav className="Nav col-2">
+				<ul className="Nav-container">
 				{/* felt that keeping home visiable was always important */}
 					<Link className="Nav-link" to="/home">Home</Link>
 					{signUpAccess}
 					{logOutButton}
 					{profileAccess}
 					{logInAccess}
-					<hr />
-				</div>
+				</ul>
 			</nav>
 		)
 	}

@@ -1,0 +1,24 @@
+/* .App-about {
+	border: 2px solid green;
+}
+
+.App-about-intro {
+	border: 2px solid yellow;
+}
+
+.App-about-steps{
+	border: 2px solid red;
+} */
+
+h1, h2, h3{
+	color:#000000;
+	margin: .5em;
+	/* text-align: left; */
+}
+
+p{
+	color:#696969;
+	line-break: auto;
+	line-height: 1.2;
+	padding: .5em;
+}

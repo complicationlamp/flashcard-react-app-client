@@ -1,0 +1,16 @@
+/* .App-profile-welcome{
+	border: 2px solid green;
+}
+
+.links-section{
+	border: 2px solid yellow
+} */
+
+h1, h2{
+	color:#000000;
+}
+
+a{
+	color: #696969;
+	text-align: center
+}

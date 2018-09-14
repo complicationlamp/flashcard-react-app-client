@@ -1,6 +1,8 @@
 import React from 'react';
 import { API_BASE_URL } from '../config'
 
+import './cssComponents/makeFlashcard.css'
+
 export class MakeFlashcard extends React.Component {
 	constructor(props) {
 		super(props);
@@ -68,65 +70,69 @@ export class MakeFlashcard extends React.Component {
 			return res.json();
 		})
 		.then(()=> {
+			alert("Your card has been added")
 			this.resetForm();
 		})
 	};
 
 	render() {
 		return (
-			<form id="App-newFlashCard" onSubmit={this.onSubmit}>
-				<div class="form-section">
-					<label htmlFor="flashcard-question">Question </label>
-					<input value={this.state.prompt} onChange={event => this.updateState('prompt', event.target.value)} type="text" name="flashcard-question" placeholder="CSS stands for?" required/>
+			<form id="App-newFlashCard" onSubmit={this.onSubmit} className="app-makeFlashcard">
+				<div className="flashcard-content">
+				<h1 className="heading">Please fill in the following</h1>
+					<div className="form-section">
+						<label htmlFor="flashcard-question" className="make-flashcard-question">Question </label>
+						<input value={this.state.prompt} onChange={event => this.updateState('prompt', event.target.value)} type="text" name="flashcard-question" placeholder="CSS stands for?" required/>
+					</div>
+					<div className="form-section">
+						<label htmlFor="flashcard-right-answer"className="make-flashcard-question">What's the correct answer?</label>
+						<input value={this.state.correctAnswer} onChange={event => this.updateState('correctAnswer', event.target.value)}type="text" name="flashcard-right-answer" placeholder="Cascade Styling Sheets" required/>
+					</div>
+					<div className="form-section">
+						<label htmlFor="flashcard-wrong-answer" className="make-flashcard-question">Write a fake answer?</label>
+						<input value={this.state.wrongAnsOne} onChange={event => this.updateState('wrongAnsOne', event.target.value)} type="text" name="flashcard-wrong-answer-one" placeholder="Cry Strive Survive" required/>
+					</div>
+					<div className="form-section">
+						<label htmlFor="flashcard-wrong-answer" className="make-flashcard-question">Write a fake answer?</label>
+						<input value={this.state.wrongAnsTwo} onChange={event => this.updateState('wrongAnsTwo', event.target.value)} type="text" name="flashcard-wrong-answer-two" placeholder="Comp Sci Styling" required/>
+					</div>
+					<div className="form-section">
+						<label htmlFor="flashcard-wrong-answer" className="make-flashcard-question">Write a fake answer?</label>
+						<input value={this.state.wrongAnsThree} onChange={event => this.updateState('wrongAnsThree', event.target.value)} type="text" name="flashcard-wrong-answer-three" placeholder="Computer Systematic Structure" />
+					</div>
+					<div className="form-section">
+						<label htmlFor="flashcard-link" className="make-flashcard-question">Link</label>
+						<input value={this.state.link} onChange={event => this.updateState('link', event.target.value)} type="url" name="flashcard-link" placeholder="www.someplace.com"/>
+					</div>
 				</div>
-				<div class="form-section">
-					<label htmlFor="flashcard-right-answer">What's the correct answer?</label>
-					<input value={this.state.correctAnswer} onChange={event => this.updateState('correctAnswer', event.target.value)}type="text" name="flashcard-right-answer" placeholder="Cascade Styling Sheets" required/>
-				</div>
-				<div class="form-section">
-					<label htmlFor="flashcard-wrong-answer">Write a fake answer?</label>
-					<input value={this.state.wrongAnsOne} onChange={event => this.updateState('wrongAnsOne', event.target.value)} type="text" name="flashcard-wrong-answer-one" placeholder="Creedence Stillwater Survival" required/>
-				</div>
-				<div class="form-section">
-					<label htmlFor="flashcard-wrong-answer">Write a fake answer?</label>
-					<input value={this.state.wrongAnsTwo} onChange={event => this.updateState('wrongAnsTwo', event.target.value)} type="text" name="flashcard-wrong-answer-two" placeholder="Comp Sci Styling" required/>
-				</div>
-				<div class="form-section">
-					<label htmlFor="flashcard-wrong-answer">Write a fake answer?</label>
-					<input value={this.state.wrongAnsThree} onChange={event => this.updateState('wrongAnsThree', event.target.value)} type="text" name="flashcard-wrong-answer-three" placeholder="Computer Systematic Structure" />
-				</div>
-				<div class="form-section">
-					<label htmlFor="flashcard-link">Link</label>
-					<input value={this.state.link} onChange={event => this.updateState('link', event.target.value)} type="url" name="flashcard-link" placeholder="www.someplace.com"/>
-				</div>
-				<div class="form-section">
-					<p>What subject is this?</p>
-					<input onClick={event => this.updateState('subject', 'CSS')} type="radio" name="subject-type" value={this.state.subject === 'CSS'} class="subject-type-radio" />
+				<div className="subject-selection">
+					<h2 className="subject-selection">What subject is this?</h2>
+					<input onClick={event => this.updateState('subject', 'CSS')} type="radio" name="subject-type" value={this.state.subject === 'CSS'} className="subject-type-radio" />
 					<label htmlFor="subject-type">
 						<span>CSS</span>
           	  		</label>
-					<input onClick={event => this.updateState('subject', 'HTML')} type="radio" name="subject-type" value={this.state.subject === 'HTML'} class="subject-type-radio" />
+					<input onClick={event => this.updateState('subject', 'HTML')} type="radio" name="subject-type" value={this.state.subject === 'HTML'} className="subject-type-radio" />
 					<label htmlFor="subject-type">	
 						<span>HTML</span>
            			 </label>
-					<input onClick={event => this.updateState('subject', 'Javascript')} type="radio" name="subject-type" value={this.state.subject === 'Javascript'} class="subject-type-radio" />
+					<input onClick={event => this.updateState('subject', 'Javascript')} type="radio" name="subject-type" value={this.state.subject === 'Javascript'} className="subject-type-radio" />
 					<label htmlFor="subject-type">
 						<span>Javascript</span>
             		</label>
-					<input onClick={event => this.updateState('subject', 'React')} type="radio" name="subject-type" value={this.state.subject === 'React'} class="subject-type-radio" />
+					<input onClick={event => this.updateState('subject', 'React')} type="radio" name="subject-type" value={this.state.subject === 'React'} className="subject-type-radio" />
 					<label htmlFor="subject-type">
 						<span>React</span>
             		</label>
-					<input onClick={event => this.updateState('subject', 'jQuery')} type="radio" name="subject-type" value={this.state.subject === 'jQuery'} class="subject-type-radio" />
+					<input onClick={event => this.updateState('subject', 'jQuery')} type="radio" name="subject-type" value={this.state.subject === 'jQuery'} className="subject-type-radio" />
 					<label htmlFor="subject-type">
 						<span>jQuery</span>
            			 </label>
-						<input onClick={event => this.updateState('subject', 'NODE')} type="radio" name="subject-type" value={this.state.subject === 'NODE'} class="subject-type-radio" />
+						<input onClick={event => this.updateState('subject', 'NODE')} type="radio" name="subject-type" value={this.state.subject === 'NODE'} className="subject-type-radio" />
 					<label htmlFor="subject-type">
 						<span>NODE</span>
            			 </label>
 				</div>
-				<button type="submit" >Submit</button>
+				<button type="submit">Submit</button>
 				<button type="reset" onClick={this.handleReset}>Reset</button>
 			</form>
 		)

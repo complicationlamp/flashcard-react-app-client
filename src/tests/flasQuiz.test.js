@@ -12,10 +12,10 @@ describe('<FlashQuiz>', () => {
 	// 	const wrapper = shallow(<FlashQuiz />);
 	// 	expect(wrapper.hasClass("noteCard")).toEqual(true);
 	// });
-	it('renders a FlashCard  components', () => {
-		const wrapper = shallow(<FlashQuiz />);
-		expect(wrapper.find("main")).toHaveLength(1);
-	  });
+	// it('renders a FlashCard  components', () => {
+	// 	const wrapper = shallow(<FlashQuiz />);
+	// 	expect(wrapper.find("main")).toHaveLength(1);
+	//   });
 
 	//   it('renders children when passed in', () => {
 	// 	const wrapper = shallow(

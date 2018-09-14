@@ -2,6 +2,8 @@ import React from "react";
 import {connect} from "react-redux";
 import {login} from "../actions/auth";
 
+import './cssComponents/login.css'
+
 export class Login extends React.Component {
 	constructor(props) {
 		super(props)
@@ -27,11 +29,11 @@ export class Login extends React.Component {
 			<main role="main">
 				<section className="App-signUp">
 					<h1 role="banner">Login</h1>
-					<h2 className="logIn-example">
+					<div className="logIn-example">
 						Try the app out with this test account: <br/>
 						Username: Steve<br/>
 						Password: SteveSteve
-					</h2>
+					</div>
 					{this.props.error ? <div>Invalid Credentials</div> : null}
 					<form onSubmit={this.handleSubmit} className='signup-form'>
 						<div>

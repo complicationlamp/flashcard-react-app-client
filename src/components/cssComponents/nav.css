@@ -1,0 +1,31 @@
+/* .Nav {
+	background:white;
+	margin-bottom: 1em;
+	} */
+
+/* .Nav-link, a{
+		color:#696969;
+		text-align: left;
+		padding-right: .5em;
+} */
+
+.Nav-container {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+.Nav-link {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+.Nav-link:hover {
+    background-color: #111;
+}

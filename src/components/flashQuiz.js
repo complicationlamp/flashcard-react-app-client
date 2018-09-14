@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import {FlashCard} from './flashCard';
 import {setSubjectFilter} from '../actions/profile'
 
+import './cssComponents/flashQuiz.css'
+
 export class FlashQuiz extends React.Component {
 	constructor(props) {
 		super(props)
@@ -13,9 +15,27 @@ export class FlashQuiz extends React.Component {
 			jQuery: false,
 			NODE: false,
 			React: false,
-			viewFlashcard: false
+			viewFlashcard: false,
+			isDisabled: true
 		};
 		this.onStartStudySession=this.onStartStudySession.bind(this);
+		this.disableButton=this.disableButton.bind(this);
+	}
+	componentDidMount(){
+		this.disableButton()
+	}
+
+	disableButton(){
+		const filters = ['HTML', 'CSS', 'Javascript', 'NODE', 'jQuery', 'React'].map((subject, index) => {
+			if(this.state[subject]) {
+				return subject
+			}
+		});
+		if(filters.length > 0){
+			this.setState({isDisabled: false})
+		} else {
+			this.setState({isDisabled: true})
+		}
 	}
 	updateState(subject) {
 		this.setState({[subject]: !this.state[subject]})
@@ -28,24 +48,23 @@ export class FlashQuiz extends React.Component {
 	render() {
 		const filters = ['HTML', 'CSS', 'Javascript', 'NODE', 'jQuery', 'React'].map((subject, index) => (
 			<div className="custom-checkbox">
-				<input onChange={() => this.updateState(subject)} type="checkbox" className="custom-control-input" id={`${subject}-${index}`}/>
+				<input onChange={() => this.updateState(subject)} type="checkbox" className="subject-filter-checkbox" id={`${subject}-${index}`}/>
 				<label htmlFor={`${subject}-${index}`}>{subject}</label>
 			</div>
 		))
 
 		return (
-			<main role="main">
+			<main role="main" className="app-flashQuiz">
 				{
 					!this.state.viewFlashcard ?
 						(
-							<section>
+							<section className="setup-filters">
 								<h3 className="App-filter-banner">Set up your study session</h3>
 								{filters}
-								<button onClick={this.onStartStudySession} className="Nav-link">Start Your Study Session</button>
+								<button onClick={this.onStartStudySession} disabled={this.state.isDisabled} className="start-session-btn">Start Your Study Session</button>
 							</section>
 						) : null
 				}
-
 				{
 					this.state.viewFlashcard ?
 						(<section className="noteCard">
