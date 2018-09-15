@@ -5,16 +5,16 @@ import './cssComponents/home.css'
 
 export class Home extends React.Component {
 	render() {
-		const subjects=['HTML', 'CSS', 'JS', 'Jquery', 'NODE', 'React'].map((subject) => (
-		<ul className="App-subjects">
-			<li className="App-subject-toggle">{subject}</li>
-		</ul>
-		));
+		// const subjects=['HTML', 'CSS', 'JS', 'Jquery', 'NODE', 'React'].map((subject) => (
+		// <ul className="App-subjects">
+		// 	<li className="App-subject-toggle">{subject}</li>
+		// </ul>
+		// ));
 
 		return (
 			<main role="main" className="App-about row">
 				<section className="App-about-intro col-12">
-					<header role="header">
+					<header role="heading">
 						<h1 className="App-about-intro-header">Welcome to FlashQuiz</h1>
 							<p>
 							A simple Flashcard application where the user has the ability to combine subjects into a deck.<br/>
