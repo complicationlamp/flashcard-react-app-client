@@ -5,12 +5,12 @@ import './cssComponents/flashcard.css'
 export class FlashCard extends React.Component{
 	constructor(props) {
 		super(props);
-
+		this.userAns= null;
 		this.state = {
 			questions: [],
 			index: 0,
 			error: null,
-            loading: false
+			loading: false,
 		};
 		this.hide=this.hide.bind(this);
 		this.handleFlip=this.handleFlip.bind(this);
@@ -20,23 +20,24 @@ export class FlashCard extends React.Component{
 		this.handleAnswer=this.handleAnswer.bind(this);
 	}
 	handleFlip(e) {
-		e.preventDefault();
 		this.hide('noteCard-front');
 		this.show('noteCard-back');
 	}
 
 	handleAnswer(e) {
-		// console.log(e.currentTarget.value)
-		const radios = e.currentTarget.value;
-		if(radios === this.state.questions[this.state.index].correctAnswer) {
+		e.preventDefault()
+		// console.log(this.userAns)
+		if(this.userAns === this.state.questions[this.state.index].correctAnswer) {
 			// console.log("sucess");
 			this.show("fa-check");
 			this.hide("fa-times")
-		} else if (radios !== this.state.questions[this.state.index].correctAnswer){
+		} else if (this.userAns !== this.state.questions[this.state.index].correctAnswer){
 			// console.log("worng")
 			this.show("fa-times"); 
 			this.hide("fa-check");
 		}
+		this.handleFlip()
+		e.target.reset();
 	  }
 	  
 	handlePrevCard(e) {
@@ -121,24 +122,24 @@ export class FlashCard extends React.Component{
 			// console.log(this.state.questions)
 			insertAnswerDivs = this.shuffle(this.state.questions[this.state.index].answers).map((ans, idx) => (
 				<div className="shuffeled-answers-radio" key={`ans-${idx}`}>
-					<input onChange={this.handleAnswer} type="radio"  name="answer" id={`ans-${idx}`} value={ans}  className="custom-control-input"/>
+					<input type="radio"  name="answer" id={`ans-${idx}`} onChange={(e)=> this.userAns=e.target.value} value={ans}  className="custom-control-input" required/>
 					<label className="custom-control-label" htmlFor={`${ans}-${idx}`}>{ans}</label>
 				</div>
 			));
 		}
 		return (
-			<main role="main" className="app-flascard col-8">
+			<main role="main" className="app-flascard row">
 				{
 					this.state.questions.length ?
 					(
 						<div className="Notecard-front-back">
-							<section className="noteCard-front">
+							<form className="noteCard-front" onSubmit={this.handleAnswer}>
 								<h1 className="App-quiz-questionHeader">
 									<strong>Q: </strong>{this.state.questions[this.state.index].prompt}</h1>
 									{insertAnswerDivs}
 									<button className="App-flashcard-prev" onClick={this.handlePrevCard}>Previous Card</button>
-								<button className="App-flashcard-flip" onClick={this.handleFlip}>Flip Card</button>
-							</section>
+								<button className="App-flashcard-flip" type="submit">Flip Card</button>
+							</form>
 							{/* ^^^^FRONT OF NOTECARD    vvvvvvv BACK OF NOTECARD */}
 							<section className="noteCard-back">
 								<span className="noteCard-header1">

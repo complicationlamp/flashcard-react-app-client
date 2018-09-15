@@ -33,15 +33,18 @@ export class Nav extends React.Component {
 			)
 		}
 		return (
-			<nav className="Nav col-2">
-				<ul className="Nav-container">
+			<nav className="Nav">
+				<div className="row">
+					<ul className="Nav-container ">
 				{/* felt that keeping home visiable was always important */}
 					<Link className="Nav-link" to="/home">Home</Link>
 					{signUpAccess}
 					{logOutButton}
 					{profileAccess}
 					{logInAccess}
-				</ul>
+					</ul>
+				</div>
+				
 			</nav>
 		)
 	}

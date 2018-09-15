@@ -44,7 +44,7 @@ export class DeleteProfile extends React.Component {
 		))
 
 		return(
-			<div className="App-deleteProfile">
+			<div className="App-deleteProfile row">
 				<section className="App-reset">
 					<h2> Reset Account</h2>
 					<p className="subtext">cleares history of successfull and unsuccessful answers on your account</p>

@@ -48,13 +48,13 @@ export class FlashQuiz extends React.Component {
 	render() {
 		const filters = ['HTML', 'CSS', 'Javascript', 'NODE', 'jQuery', 'React'].map((subject, index) => (
 			<div className="custom-checkbox" key={`${subject}-${index}`}>
-				<input onChange={() => this.updateState(subject)} type="checkbox" className="subject-filter-checkbox" id={`${subject}-${index}`}/>
+				<input onChange={() => this.updateState(subject)} type="checkbox" className="subject-filter-checkbox" id={`${subject}-${index}`} required/>
 				<label htmlFor={`${subject}-${index}`}>{subject}</label>
 			</div>
 		))
 
 		return (
-			<main role="main" className="app-flashQuiz">
+			<main role="main" className="app-flashQuiz row">
 				{
 					!this.state.viewFlashcard ?
 						(
