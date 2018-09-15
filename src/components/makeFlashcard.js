@@ -79,7 +79,7 @@ export class MakeFlashcard extends React.Component {
 		return (
 			<form id="App-newFlashCard" onSubmit={this.onSubmit} className="app-makeFlashcard">
 				<div className="flashcard-content">
-				<h1 className="heading">Please fill in the following</h1>
+				<h1 className="heading">Please Add a Flashcard</h1>
 					<div className="form-section">
 						<label htmlFor="flashcard-question" className="make-flashcard-question">Question </label>
 						<input value={this.state.prompt} onChange={event => this.updateState('prompt', event.target.value)} type="text" name="flashcard-question" placeholder="CSS stands for?" required/>

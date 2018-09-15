@@ -8,19 +8,18 @@ import './cssComponents/profile.css'
 export class Profile extends React.Component {
 	render() {
 		return (
-				<main role="main">
+				<main role="main" className="row">
 					<section className="App-profile-welcome col-12">
 						<header role="banner">
 							<h1>Welcome {this.props.userFirstName}</h1>
 							{/* <h2>Here's how you're doing so far</h2> */}
 						</header>
 					</section>
-					<section className="links-section col-6">
-						<Link className="linkFromProfile row" to="/flashQuiz">Start a session</Link>
-						<Link className="linkFromProfile row" to="/deleteProfile">Delete Profile</Link>
-						<Link className="linkFromProfile row" to="/makeFlashcard">Make Flashcard</Link>
+					<section className="links-section">
+						<Link className="linkFromProfile col-6" to="/flashQuiz">Start a session</Link>
+						<Link className="linkFromProfile col-6" to="/deleteProfile">Delete Profile</Link>
 					</section>
-					<section className="makeFC-profile col-6">
+					<section className="makeFC-profile col-12">
 						<MakeFlashcard/>
 					</section>
 				</main>

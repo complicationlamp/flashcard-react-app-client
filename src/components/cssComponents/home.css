@@ -5,10 +5,10 @@
 .App-about-intro {
 	border: 2px solid yellow;
 }
-
+*/
 .App-about-steps{
-	border: 2px solid red;
-} */
+	min-height: 2em;
+} 
 
 h1, h2, h3{
 	color:#000000;

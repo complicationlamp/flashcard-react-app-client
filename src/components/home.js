@@ -12,8 +12,8 @@ export class Home extends React.Component {
 		));
 
 		return (
-			<main role="main" className="App-about">
-				<section className="App-about-intro col-6">
+			<main role="main" className="App-about row">
+				<section className="App-about-intro col-12">
 					<header role="header">
 						<h1 className="App-about-intro-header">Welcome to FlashQuiz</h1>
 							<p>
@@ -23,13 +23,16 @@ export class Home extends React.Component {
 							</p>
 					</header>
 				</section>
+				<hr/>
 				<section className="App-about-steps col-6">
 					<h2>First</h2>
 					<p>Use the navigation bar to head to the login page</p>
 					<h2 className="App-about-steps-text">Second</h2>
 					<p>Use the example login credentials to log-on <br/> -or-<br/>
 					Create your own account following the signup link</p>
-					<h2>Then</h2>
+				</section>
+				<section className="App-about-steps col-6">
+					<h2>Third</h2>
 					<p>Choose your contnet by toggeling the subjects you want in your flashcard deck</p>
 					{/* {subjects} */}
 					<h2 className="App-about-steps-text">Lastly</h2>
