@@ -107,7 +107,7 @@ export class MakeFlashcard extends React.Component {
 				</div>
 				<div className="subject-selection">
 					<h2 className="subject-selection">What subject is this?</h2>
-					<input onClick={event => this.updateState('subject', 'CSS')} type="radio" name="subject-type" value={this.state.subject === 'CSS'} className="subject-type-radio" />
+					<input onClick={event => this.updateState('subject', 'CSS')} type="radio" name="subject-type" value={this.state.subject === 'CSS'} className="subject-type-radio" checked="checked"/>
 					<label htmlFor="subject-type">
 						<span>CSS</span>
           	  		</label>
