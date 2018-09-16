@@ -31,8 +31,8 @@ export class Login extends React.Component {
 					<h1 role="banner">Login</h1>
 					<div className="logIn-example">
 						Try the app out with this test account: <br/>
-						Username: Steve<br/>
-						Password: SteveSteve
+						Username: <strong>Steve</strong><br/>
+						Password: <strong>SteveSteve</strong>
 					</div>
 					{this.props.error ? <div>Invalid Credentials</div> : null}
 					<form onSubmit={this.handleSubmit} className='signup-form'>

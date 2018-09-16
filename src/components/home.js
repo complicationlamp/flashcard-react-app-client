@@ -17,7 +17,7 @@ export class Home extends React.Component {
 					<header role="heading">
 						<h1 className="App-about-intro-header">Welcome to FlashQuiz</h1>
 							<p>
-							A simple Flashcard application where the user has the ability to combine subjects into a deck.<br/>
+							A simple Flashcard application where the user can combine subjects into a deck.<br/>
 							Have something to contribute? <br/>Login and head over to the profile section where you can make a card
 							the whole comunity can enjoy. <br/>If you'd like to demo, head over to Login where a sample login has been set up.
 							</p>
