@@ -42,13 +42,9 @@ export class FlashCard extends React.Component{
 	  
 	handlePrevCard(e) {
 		e.preventDefault();
-		if(this.state.index <1) {
-			alert("There's nothing there")
-		} else{
 		this.setState({index: this.state.index -1})
 		this.show('noteCard-front');
 		this.hide('noteCard-back')
-		}
 	}
 	handleNextCard(e) {
 		e.preventDefault();
@@ -137,7 +133,7 @@ export class FlashCard extends React.Component{
 								<h1 className="App-quiz-questionHeader">
 									<strong>Q: </strong>{this.state.questions[this.state.index].prompt}</h1>
 									{insertAnswerDivs}
-									<button className="App-flashcard-prev" onClick={this.handlePrevCard}>Previous Card</button>
+									<button className="App-flashcard-prev" disabled={this.state.index === 0 } onClick={this.handlePrevCard}>Previous Card</button>
 								<button className="App-flashcard-flip" type="submit">Flip Card</button>
 							</form>
 							{/* ^^^^FRONT OF NOTECARD    vvvvvvv BACK OF NOTECARD */}

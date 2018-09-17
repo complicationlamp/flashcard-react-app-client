@@ -10,6 +10,10 @@
 	border: 2px solid gold;
 } */
 
+.successfulSubmit{
+	background: #7dcc69;
+}
+
 .flashcard-content{
 	line-height: 1.5;
 }

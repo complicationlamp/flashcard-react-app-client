@@ -10,8 +10,7 @@ export class Nav extends React.Component {
 	logOut() {
         this.props.dispatch(clearAuth());
 		clearAuthToken();
-			window.location.replace('/home')
-			alert('successful logout!');
+		window.location.replace('/home')
     }
 	render() {
 		// When a user is loggedin they will have access to the nav link to the profile 

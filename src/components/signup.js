@@ -30,12 +30,7 @@ export class Signup extends React.Component {
 			.dispatch(registerUser(user))
 			.then(() => this.props.dispatch(login(username, password)))
 			.then(() => { 
-				window.location.replace('/profile')
-				// we weren't getting here before because redux-form expects us to
-				// use "this.props.handleSubmit"
-
-				alert('successful login!');
-				console.log('successful login!')
+				window.location.replace('/profile');
 			});
 	}
 
