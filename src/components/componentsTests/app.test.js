@@ -1,10 +1,10 @@
 import React from 'react';
 import {shallow, mount} from 'enzyme';
 
-import {FlashCard} from '../components/flashCard';
+import App from '../../App';
 
-describe('<FlashCard>', () => {
+describe('<App>', () => {
 	it('Renders without crashing', () => {
-		shallow(<FlashCard/>);
+		shallow(<App/>);
 	})
 })

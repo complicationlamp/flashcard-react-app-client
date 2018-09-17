@@ -105,9 +105,9 @@ export class MakeFlashcard extends React.Component {
 						<input value={this.state.link} onChange={event => this.updateState('link', event.target.value)} type="url" name="flashcard-link" placeholder="www.someplace.com"/>
 					</div>
 				</div>
-				<div className="subject-selection">
+				<form className="subject-selection">
 					<h2 className="subject-selection">What subject is this?</h2>
-					<input onClick={event => this.updateState('subject', 'CSS')} type="radio" name="subject-type" value={this.state.subject === 'CSS'} className="subject-type-radio" checked="checked"/>
+					<input onClick={event => this.updateState('subject', 'CSS')} type="radio" name="subject-type" value={this.state.subject === 'CSS'} className="subject-type-radio" />
 					<label htmlFor="subject-type">
 						<span>CSS</span>
           	  		</label>
@@ -131,7 +131,7 @@ export class MakeFlashcard extends React.Component {
 					<label htmlFor="subject-type">
 						<span>NODE</span>
            			 </label>
-				</div>
+				</form>
 				<button type="submit">Submit</button>
 				<button type="reset" onClick={this.handleReset}>Reset</button>
 			</form>

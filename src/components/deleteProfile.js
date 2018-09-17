@@ -8,7 +8,7 @@ export class DeleteProfile extends React.Component {
 	constructor(props) {
 		super(props)
 		this.loadId = this.loadId.bind(this);
-		this.onChangeDeletePofileCheckBox = this.onChangeDeletePofileCheckBox.bind(this);
+		this.onChangeDeleteProfileCheckBox = this.onChangeDeleteProfileCheckBox.bind(this);
 
 		this.state ={
 			confirmDelete: false
@@ -29,7 +29,7 @@ export class DeleteProfile extends React.Component {
 			window.location.replace('/home');
 		})
 	}
-	onChangeDeletePofileCheckBox(){
+	onChangeDeleteProfileCheckBox(){
 		this.setState({
 			confirmDelete: !this.state.confirmDelete
 		})
@@ -45,20 +45,20 @@ export class DeleteProfile extends React.Component {
 
 		return(
 			<div className="App-deleteProfile row">
-				<section className="App-reset">
+				{/* <section className="App-reset">
 					<h2> Reset Account</h2>
 					<p className="subtext">cleares history of successfull and unsuccessful answers on your account</p>
 						{feedbackProfileDetails}
 						<button type='submit'>Clear Feedback</button>
-				</section>
+				</section> */}
 				<section className="App-deleteMe">
 					<h2> Delete Account</h2>
-					<div class="custom-control custom-checkbox">
+					<div className="custom-control custom-checkbox">
 						<p className="subtext">Check this box to delete</p>
-							<input onChange={this.onChangeDeletePofileCheckBox} type="checkbox" className="custom-control-input" id="customCheck1" value={this.state.confirmDelete}/>
-							<label class="custom-control-label" for="customCheck1"></label>
+							<input onChange={this.onChangeDeleteProfileCheckBox} type="checkbox" className="custom-control-input" id="customCheck1" value={this.state.confirmDelete}/>
+							<label className="custom-control-label" htmlFor="customCheck1"></label>
 						</div>
-						<button onClick={this.loadId} disabled={!this.state.confirmDelete} type='submit'>Delete account</button>
+						<button onClick={this.loadId} disabled={!this.state.confirmDelete} type='submit' className="deleteBtn">Delete account</button>
 				</section>
 			</div>
 		)

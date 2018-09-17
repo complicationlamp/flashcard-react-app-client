@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow, mount} from 'enzyme';
 
-import {Nav} from '../components/nav';
+import {Nav} from '../nav';
 
 describe('<Nav>', () => {
 	it('Renders without crashing', () => {

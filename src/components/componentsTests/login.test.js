@@ -1,10 +1,10 @@
 import React from 'react';
 import {shallow, mount} from 'enzyme';
 
-import {Profile} from '../components/profile';
+import {Login} from '../login';
 
-describe('<Profile>', () => {
+describe('<Login>', () => {
 	it('Renders without crashing', () => {
-		shallow(<Profile/>);
+		shallow(<Login/>);
 	})
 })

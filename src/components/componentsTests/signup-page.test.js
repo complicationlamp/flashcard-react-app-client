@@ -1,10 +1,10 @@
 import React from 'react';
 import {shallow, mount} from 'enzyme';
 
-import {Home} from '../components/home';
+import {SignupPage} from '../signup-page';
 
-describe('<Home>', () => {
+describe('<SignupPage>', () => {
 	it('Renders without crashing', () => {
-		shallow(<Home/>);
+		shallow(<SignupPage/>);
 	})
 })

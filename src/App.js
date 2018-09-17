@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { Home } from './components/home';
 import { SignupPage } from './components/signup-page';
 import { FlashCard } from './components/flashCard';
-import { Feedback } from './components/feedback';
 import { MakeFlashcard } from './components/makeFlashcard';
 import { refreshAuthToken } from './actions/auth';
 // below are exported as default riquiering no {}, golbal state
@@ -56,7 +55,6 @@ stopPeriodicRefresh() {
             <Route path="/signup" component={SignupPage} />
             <Route path="/profile" component={Profile} />
             <Route path="/flashQuiz" component={FlashQuiz} />
-            <Route path="/feedback" component={Feedback} />
             <Route path="/makeFlashcard" component={MakeFlashcard} />
             <Route path="/deleteProfile" component={DeleteProfile} />
             <Route path="/flashCard" component={FlashCard} />
