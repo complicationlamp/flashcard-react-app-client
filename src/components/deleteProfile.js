@@ -7,12 +7,12 @@ import './cssComponents/deleteProfile.css'
 export class DeleteProfile extends React.Component {
 	constructor(props) {
 		super(props)
-		this.loadId = this.loadId.bind(this);
-		this.onChangeDeleteProfileCheckBox = this.onChangeDeleteProfileCheckBox.bind(this);
-
 		this.state ={
 			confirmDelete: false
 		}
+
+		this.loadId = this.loadId.bind(this);
+		this.onChangeDeleteProfileCheckBox = this.onChangeDeleteProfileCheckBox.bind(this);
 	}
 	loadId(){
 		this.setState({
@@ -45,12 +45,6 @@ export class DeleteProfile extends React.Component {
 
 		return(
 			<div className="App-deleteProfile row">
-				{/* <section className="App-reset">
-					<h2> Reset Account</h2>
-					<p className="subtext">cleares history of successfull and unsuccessful answers on your account</p>
-						{feedbackProfileDetails}
-						<button type='submit'>Clear Feedback</button>
-				</section> */}
 				<section className="App-deleteMe">
 					<h2> Delete Account</h2>
 					<div className="custom-control custom-checkbox">

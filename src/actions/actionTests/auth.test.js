@@ -1,14 +1,10 @@
 import {
-	SET_AUTH_TOKEN,
-	setAuthToken,
-	CLEAR_AUTH,
-	clearAuth,
-	AUTH_REQUEST,
-	authRequest,
-	AUTH_SUCCESS,
-	authSuccess,
-	AUTH_ERROR,
-	authError
+	// type, function
+	SET_AUTH_TOKEN, setAuthToken,
+	CLEAR_AUTH, clearAuth,
+	AUTH_REQUEST, authRequest,
+	AUTH_SUCCESS, authSuccess,
+	AUTH_ERROR, authError
 } from '../auth';
 
 describe("set an auth token", () => {

@@ -1,8 +1,7 @@
 import {
-	FETCH_PROTECTED_DATA_SUCCESS,
-	fetchProtectedDataSuccess,
-	FETCH_PROTECTED_DATA_ERROR,
-	fetchProtectedDataError
+	// type, function
+	FETCH_PROTECTED_DATA_SUCCESS, fetchProtectedDataSuccess,
+	FETCH_PROTECTED_DATA_ERROR, fetchProtectedDataError
 } from '../protected-data'
 
 describe("fetch protected data", () => {
@@ -22,4 +21,3 @@ describe("fetch protected data error", () => {
 		expect(action.error).toEqual(error);
 	});
 });
-

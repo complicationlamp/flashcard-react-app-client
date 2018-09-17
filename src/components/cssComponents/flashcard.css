@@ -1,7 +1,4 @@
-/* for this might be appropriate to do the flashcard styling that will
-fall outside the card */
 .app-flascard{
-	/* border: 2px solid coral; */
 	padding-top: 5em;
 	width: 24em;
 	display: inline-flex;
@@ -42,9 +39,7 @@ hr{
 .colorRed{
 	border-top: 1px solid #f03c5a62;
 }
-.colorBlue{
-	border-top: 1px solid #0c40eb8f
-}
+
 .Answer-text{
 	color:black;
 	margin: .5em;

@@ -12,11 +12,11 @@ describe('protectted-data reducer', () =>{
 		let state;
 		state = reducer(state, fetchProtectedDataSuccess('1010101111'));
 		expect(state.data).toEqual('1010101111');
-	})
+	});
 
 	it('Should Error', () => {
 		let state;
 		state = reducer(state, fetchProtectedDataError('Danger!'));
 		expect(state.error).toEqual('Danger!');
-	})
+	});
 })

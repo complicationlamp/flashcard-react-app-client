@@ -17,7 +17,7 @@ export class Login extends React.Component {
 		.then(() => { 
 			window.location.replace('/profile')
 			// we weren't getting here before because redux-form expects us to
-			// use "this.props.handleSubmit" see line 8
+			// use "this.props.handleSubmit" see line 10
 			console.log('successful login!')
 		})
 		.catch((error) => {

@@ -1,16 +1,8 @@
 import React from "react";
-// import {Feedback} from './feedback'
-
 import './cssComponents/home.css'
 
 export class Home extends React.Component {
 	render() {
-		// const subjects=['HTML', 'CSS', 'JS', 'Jquery', 'NODE', 'React'].map((subject) => (
-		// <ul className="App-subjects">
-		// 	<li className="App-subject-toggle">{subject}</li>
-		// </ul>
-		// ));
-
 		return (
 			<main role="main" className="App-about row">
 				<section className="App-about-intro col-12">
@@ -34,10 +26,8 @@ export class Home extends React.Component {
 				<section className="App-about-steps col-6">
 					<h2>Third</h2>
 					<p>Choose your contnet by toggeling the subjects you want in your flashcard deck</p>
-					{/* {subjects} */}
 					<h2 className="App-about-steps-text">Lastly</h2>
 					<p>Click on 'Start a session' at the bottom of the screen</p>
-					{/* <Feedback /> */}
 				</section>
 			</main>
 		)

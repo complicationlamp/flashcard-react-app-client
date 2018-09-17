@@ -1,6 +1,5 @@
 import React from 'react';
 import { API_BASE_URL } from '../config'
-
 import './cssComponents/makeFlashcard.css'
 
 export class MakeFlashcard extends React.Component {

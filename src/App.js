@@ -31,7 +31,8 @@ componentWillUnmount() {
 startPeriodicRefresh() {
     this.refreshInterval = setInterval(
         () => this.props.dispatch(refreshAuthToken()),
-        60 * 60 * 1000 // One hour
+        60 * 60 * 1000 
+        // One hour is good, no one should spend more than that on any one page
     );
 }
 
@@ -39,7 +40,6 @@ stopPeriodicRefresh() {
     if (!this.refreshInterval) {
         return;
     }
-
     clearInterval(this.refreshInterval);
 }
   render() {

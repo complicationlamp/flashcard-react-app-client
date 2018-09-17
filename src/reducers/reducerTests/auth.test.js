@@ -42,7 +42,7 @@ describe('auth reducer', () => {
 
 	it('Should error', () => {
 		let state;
-		state = reducer(state, authError("Alert Danger"));
-		expect(state.error).toEqual("Alert Danger")
+		state = reducer(state, authError("alert Danger"));
+		expect(state.error).toEqual("alert Danger")
 	})
 });

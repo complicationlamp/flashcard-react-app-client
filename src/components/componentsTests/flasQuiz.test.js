@@ -6,7 +6,6 @@ describe('<FlashQuiz>', () => {
 	it('Renders without crashing', () => {
 		shallow(<FlashQuiz />);
 	});
-
 	it('Renders the FlashCard component', () => {
 		const wrapper = shallow(<FlashQuiz />);
 		expect(wrapper.hasClass("app-flashQuiz")).toEqual(true);

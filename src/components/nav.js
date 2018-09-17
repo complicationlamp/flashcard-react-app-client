@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
-
 import './cssComponents/nav.css'
 
 export class Nav extends React.Component {
@@ -35,7 +34,7 @@ export class Nav extends React.Component {
 			<nav className="Nav">
 				<div className="row">
 					<ul className="Nav-container ">
-				{/* felt that keeping home visiable was always important */}
+				{/* keeping home visiable was always important */}
 					<Link className="Nav-link" to="/home">Home</Link>
 					{signUpAccess}
 					{logOutButton}

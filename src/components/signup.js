@@ -4,14 +4,11 @@ import {registerUser} from '../actions/users';
 import {login} from '../actions/auth';
 import Input from './input';
 import {required, nonEmpty, matches, length, isTrimmed} from '../validators';
+
 const passwordLength = length({min: 10, max: 72});
 const matchesPassword = matches('password');
 
 export class Signup extends React.Component {
-	// constructor(props) {
-	// 	super(props);
-	// }
-
 	onSubmit(values) {
 		const {
 			username,
@@ -41,16 +38,16 @@ export class Signup extends React.Component {
                 onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
                 <label htmlFor="firstName">First name</label>
                 <Field
-									component={Input}
-									type="text"
-									name="firstName"
-								/>
+                    component={Input}
+                    type="text"
+                    name="firstName"
+                />
                 <label htmlFor="lastName">Last name</label>
                 <Field
-									component={Input}
-									type="text"
-									name="lastName"
-								/>
+                    component={Input}
+                    type="text"
+                    name="lastName"
+                />
                 <label htmlFor="username">Username</label>
                 <Field
                     component={Input}

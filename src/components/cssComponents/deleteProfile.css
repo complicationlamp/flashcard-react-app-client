@@ -1,24 +1,7 @@
-/* .App-deleteProfile{
-	border: 2px solid green;
-}
-
-.App-reset{
-	border: 2px solid purple;
-}
-
-.App-deleteMe{
-	border: 2px solid gold;
-} */
-
 h1, h2{
 	color:#000000;
 	/* text-align: left; */
 }
-
-.subtext{
-	color:#696969;
-}
-
 input{
 	border-radius: 4px;
 	background-color: #c4c4c4;
@@ -30,4 +13,7 @@ button{
 	background-color: #696969;
 	color: white;
 	width: 10em;
+}
+.subtext{
+	color:#696969;
 }

@@ -2,7 +2,6 @@ import React from "react";
 import {connect} from 'react-redux';
 import {FlashCard} from './flashCard';
 import {setSubjectFilter} from '../actions/profile'
-
 import './cssComponents/flashQuiz.css'
 
 export class FlashQuiz extends React.Component {
@@ -25,6 +24,7 @@ export class FlashQuiz extends React.Component {
 		this.disableButton()
 	}
 
+	// turns off the ability to set filters if no subject is selected
 	disableButton(){
 		const filters = ['HTML', 'CSS', 'Javascript', 'NODE', 'jQuery', 'React'].map((subject, index) => {
 			if(this.state[subject]) {
