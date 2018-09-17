@@ -23,5 +23,5 @@ select subjects to study
 ![build deck](https://github.com/complicationlamp/flashcard-react-app-client/blob/master/readMeImages/build%20a%20deck.png)
 
 Flash card
-![card front] (https://github.com/complicationlamp/flashcard-react-app-client/blob/master/readMeImages/question%20answer.png)
+![card front](https://github.com/complicationlamp/flashcard-react-app-client/blob/master/readMeImages/question%20answer.png)
 ![card back wrong ans](https://github.com/complicationlamp/flashcard-react-app-client/blob/master/readMeImages/question.png)
