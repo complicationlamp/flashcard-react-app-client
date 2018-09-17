@@ -78,7 +78,9 @@ export class MakeFlashcard extends React.Component {
 		})
 	};
 	hide(target) {
-		document.getElementsByClassName(target)[0].style.display = 'none';
+		if(document.getElementsByClassName(target)[0]) {
+			document.getElementsByClassName(target)[0].style.display = 'none';
+		}
 	}
 	show(target){
 		document.getElementsByClassName(target)[0].style.display = 'block';
