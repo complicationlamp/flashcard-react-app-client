@@ -1,6 +1,6 @@
 .app-flascard{
-	padding-top: 5em;
-	width: 24em;
+	padding-top: .5em;
+	width: 100%;
 	display: inline-flex;
 	justify-content: center;
 }
