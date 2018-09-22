@@ -18,7 +18,7 @@ export class Profile extends React.Component {
 					<Link className="linkFromProfile col-6" to="/deleteProfile">Delete Profile</Link>
 				</section>
 				<section className="makeFC-profile col-12">
-					<MakeFlashcard/>
+					<MakeFlashcard userId={this.props.userId}/>
 				</section>
 			</main>
 		)
@@ -27,7 +27,8 @@ export class Profile extends React.Component {
 
 const mapStateToProps = (state) => {
 	return {
-    	userFirstName: (state.auth.currentUser && state.auth.currentUser.firstName) || null
+    	userFirstName: (state.auth.currentUser && state.auth.currentUser.firstName) || null,
+		userId: (state.auth.currentUser && state.auth.currentUser.id) || null
 	}
 };
 

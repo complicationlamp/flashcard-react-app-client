@@ -68,7 +68,7 @@ export class FlashQuiz extends React.Component {
 				}
 				{
 					this.state.viewFlashcard ?
-						(<section className="noteCard">
+						(<section className="noteCard row">
 							<FlashCard subjects={this.props.subjects}/>
 						</section>) : null
 				}

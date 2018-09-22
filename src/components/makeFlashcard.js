@@ -1,6 +1,8 @@
 import React from 'react';
 import { API_BASE_URL } from '../config'
 import './cssComponents/makeFlashcard.css'
+import decode from 'jwt-decode'
+import {loadAuthToken} from '../local-storage';
 
 export class MakeFlashcard extends React.Component {
 	constructor(props) {
@@ -50,6 +52,8 @@ export class MakeFlashcard extends React.Component {
 	}
 	onSubmit(e){
 		e.preventDefault();
+		const authToken = loadAuthToken();
+		const decodedToken = (decode(authToken));
 		return fetch(`${API_BASE_URL}/questions`, {
 			method: 'POST',
 			headers: {
@@ -61,7 +65,10 @@ export class MakeFlashcard extends React.Component {
 				prompt: this.state.prompt,
 				correctAnswer: this.state.correctAnswer,
 				answers: [this.state.correctAnswer, this.state.wrongAnsOne, this.state.wrongAnsTwo, this.state.wrongAnsThree],
-				link: this.state.link
+				link: this.state.link,
+				userId: this.props.userId
+				// TODO: add the author from the toke
+				// author: 
 			}),
 		})
 		

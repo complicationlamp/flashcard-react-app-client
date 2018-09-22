@@ -126,11 +126,11 @@ export class FlashCard extends React.Component{
 			));
 		}
 		return (
-			<main role="main" className="app-flascard row">
+			<main role="main" className="app-flascard">
 				{
 					this.state.questions.length ?
 					(
-						<div className="Notecard-front-back">
+						<div className="Notecard-front-back ">
 							<form className="noteCard-front" onSubmit={this.handleAnswer}>
 								<h1 className="App-quiz-questionHeader">
 									<strong>Q: </strong>{this.state.questions[this.state.index].prompt}</h1>
