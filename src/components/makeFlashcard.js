@@ -53,7 +53,6 @@ export class MakeFlashcard extends React.Component {
 	onSubmit(e){
 		e.preventDefault();
 		const authToken = loadAuthToken();
-		const decodedToken = (decode(authToken));
 		return fetch(`${API_BASE_URL}/questions`, {
 			method: 'POST',
 			headers: {

@@ -15,15 +15,21 @@ export class FlashQuiz extends React.Component {
 			NODE: false,
 			React: false,
 			viewFlashcard: false,
-			isDisabled: true
+			isDisabled: true,
+			myQsOnly: false
 		};
+		this.onChangeOnlyMyQs=this.onChangeOnlyMyQs.bind(this);
 		this.onStartStudySession=this.onStartStudySession.bind(this);
 		this.disableButton=this.disableButton.bind(this);
 	}
 	componentDidMount(){
+		console.log('this.currentUser', this.props.currentUser)
 		this.disableButton()
 	}
 
+	onChangeOnlyMyQs(){
+		this.setState({myQsOnly: !this.state.myQsOnly})
+	}
 	// turns off the ability to set filters if no subject is selected
 	disableButton(){
 		const filters = ['HTML', 'CSS', 'Javascript', 'NODE', 'jQuery', 'React'].map((subject, index) => {
@@ -61,6 +67,11 @@ export class FlashQuiz extends React.Component {
 						(
 							<section className="setup-filters">
 								<h3 className="App-filter-banner">Set up your study session</h3>
+								<div>
+									<input onChange={() => this.onChangeOnlyMyQs()} name="myQsOnly" type="checkbox" value={this.state.myQsOnly}/>
+									<label>Only my questions</label>
+								</div>
+								<br/>
 								{filters}
 								<button onClick={this.onStartStudySession} disabled={this.state.isDisabled} className="start-session-btn">Start Your Study Session</button>
 							</section>
@@ -69,7 +80,10 @@ export class FlashQuiz extends React.Component {
 				{
 					this.state.viewFlashcard ?
 						(<section className="noteCard row">
-							<FlashCard subjects={this.props.subjects}/>
+							<FlashCard 
+								subjects={this.props.subjects}
+								myQsOnly={this.state.myQsOnly} 
+								userQIds={this.props.userQIds}/>
 						</section>) : null
 				}
 			</main>
@@ -79,6 +93,8 @@ export class FlashQuiz extends React.Component {
 
 const mapStateToProps = (state) => {
 	return {
+		currentUser: state.auth.currentUser,
+		userQIds: (state.auth.currentUser && state.auth.currentUser.questions) || null,
 		subjects: state.profile.subjects
 	}
 };

@@ -23,10 +23,6 @@ const store = createStore(
 
 // Hydrate the authToken from localStorage if it exist
 const authToken = loadAuthToken();
-const decodedToken = (decode(authToken));
-console.log(typeof decode(authToken));
-console.log(decodedToken.user.id)
-// console.log(decode(authToken));
 if (authToken) {
     const token = authToken;
     store.dispatch(setAuthToken(token));

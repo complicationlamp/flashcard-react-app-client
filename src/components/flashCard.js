@@ -65,14 +65,41 @@ export class FlashCard extends React.Component{
 		document.getElementsByClassName(target)[0].style.display = 'block';
 	}
 	componentDidMount() {
+		console.log(this.props.myQsOnly)
 		this.loadQuestions()
 	}
+
+	getFilteredQuestions(questions) {
+		const filteredQuestions = questions.filter((question) => {
+			// flitering by this.props.subject
+			// if this.props.subjects.indexof is >=o (if it matchs/ if the same 
+			// subject is in the question object as our subject filters on porps)
+			// return those questions
+			return this.props.subjects.indexOf(question.subject) >=0;
+		})
+		this.setState({
+			questions: filteredQuestions,
+			loading: false
+		})
+		this.hide('noteCard-back');
+	}
+
 	loadQuestions(){
 		this.setState({
 			error: null,
 			loading:true
 		});
-		return fetch(`${API_BASE_URL}/questions`)
+		if( this.props.myQsOnly && this.props.userQIds && this.props.userQIds.length > 0) {
+			return fetch(`${API_BASE_URL}/questions/personal`, {
+				method: 'POST',
+				headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({
+					ids: this.props.userQIds
+				}),
+			})
 			.then(res => {
 				if (!res.ok){
 					return Promise.reject(res.statusText);
@@ -81,25 +108,34 @@ export class FlashCard extends React.Component{
 			})
 			.then(questions => {
 				// console.log(questions)
-				const filteredQuestions = questions.filter((question) => {
-					// flitering by this.props.subject
-					// if this.props.subjects.indexof is >=o (if it matchs/ if the same 
-					// subject is in the question object as our subject filters on porps)
-					// return those questions
-					return this.props.subjects.indexOf(question.subject) >=0;
-				})
-				this.setState({
-					questions: filteredQuestions,
-					loading: false
-				})
-				this.hide('noteCard-back');
+				this.getFilteredQuestions(questions);
 			})
 			.catch(err => 
-			this.setState({
-				error: 'Could not load question',
-				loading: false
-			})
-		);
+				this.setState({
+					error: 'Could not load question',
+					loading: false
+				})
+			)
+
+		} else{
+			return fetch(`${API_BASE_URL}/questions`)
+				.then(res => {
+					if (!res.ok){
+						return Promise.reject(res.statusText);
+					}
+					return res.json();
+				})
+				.then(questions => {
+					// console.log(questions)
+					this.getFilteredQuestions(questions);
+				})
+				.catch(err => 
+				this.setState({
+					error: 'Could not load question',
+					loading: false
+				})
+			);
+		}
 	}
 	// shuffles the order of the answers, will not modify the database
 	shuffle(a) {
