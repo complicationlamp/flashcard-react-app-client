@@ -18,11 +18,13 @@ export class FlashCard extends React.Component{
 		this.handlePrevCard=this.handlePrevCard.bind(this);
 		this.shuffle=this.shuffle.bind(this);
 		this.handleAnswer=this.handleAnswer.bind(this);
+		this.handleDelete=this.handleDelete.bind(this);
 	}
 	// this is not a ttru flip in the sense of the word, both side of the card render, but back is initally hidden 
 	handleFlip(e) {
 		this.hide('noteCard-front');
 		this.show('noteCard-back');
+		this.hide('successfulDelete');
 	}
 
 	handleAnswer(e) {
@@ -57,15 +59,39 @@ export class FlashCard extends React.Component{
 			return window.location.replace('/profile')
 		}
 	}
+	handleDelete(idOfCard){
+		// e.preventDefault();
+		console.log(idOfCard)
+		return fetch(`${API_BASE_URL}/questions/${idOfCard}`, {
+			method: 'DELETE',
+		})
+		.then(res => {
+			if (!res.ok){
+				return Promise.reject(res.statusText);
+			}
+			this.show('successfulDelete')
+			return res.json();
+		})
+		.catch(err => 
+			this.setState({
+				error: 'Could not delete question',
+				loading: false
+			})
+		)
+	}
+
 	//getElementbyID/getElementByClassName always returns an array so we need a [0] to tell it what to hide.
 	hide(target) {
-		document.getElementsByClassName(target)[0].style.display = 'none';
+		if(document.getElementsByClassName(target)[0]) {
+			document.getElementsByClassName(target)[0].style.display = 'none';
+		}
 	}
 	show(target){
 		document.getElementsByClassName(target)[0].style.display = 'block';
 	}
 	componentDidMount() {
 		console.log(this.props.myQsOnly)
+		// this.hide('successfulDelete')
 		this.loadQuestions()
 	}
 
@@ -149,6 +175,12 @@ export class FlashCard extends React.Component{
 		return a;
 	};
 
+	renderDeleteButton(id){
+		if (this.props.userQIds.includes(id)) {
+			return <button className="App-flashcard-delete" onClick={() => this.handleDelete(id)}>Delete Card</button>
+		}
+	}
+
 	render() {
 		let insertAnswerDivs;
 		// with no if statement the render will fire before the fetch is returned, this will error out, the >0 will stop this
@@ -161,6 +193,7 @@ export class FlashCard extends React.Component{
 				</div>
 			));
 		}
+
 		return (
 			<main role="main" className="app-flascard">
 				{
@@ -176,6 +209,7 @@ export class FlashCard extends React.Component{
 							</form>
 							{/* ^^^^FRONT OF NOTECARD    vvvvvvv BACK OF NOTECARD */}
 							<section className="noteCard-back">
+							<div className="successfulDelete row">Card removed from the deck! THis will be updated on your next session</div>
 								<span className="noteCard-header1">
 									 {this.state.questions[this.state.index].prompt}
 									<i className="fas fa-times"/><i className="fas fa-check"/>
@@ -183,10 +217,13 @@ export class FlashCard extends React.Component{
 								<hr className="colorRed" />
 								<p className="Answer-text"><strong>ANSWER:</strong> {this.state.questions[this.state.index].correctAnswer}</p>
 								<a href={this.state.questions[this.state.index].link}>this is the link to the docs</a><br/>
+								{ this.renderDeleteButton(this.state.questions[this.state.index]._id)}
+								<br/>
 								<button className="App-flashcard-next" onClick={this.handleNextCard}>Next Card</button>
 							</section>
 						</div>
-					) :null 
+					) :
+					(<div>There are no questions to display</div>)
 				}
 			</main>
 		)
