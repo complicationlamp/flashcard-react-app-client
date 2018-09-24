@@ -23,7 +23,7 @@ export class FlashQuiz extends React.Component {
 		this.disableButton=this.disableButton.bind(this);
 	}
 	componentDidMount(){
-		console.log('this.currentUser', this.props.currentUser)
+		// console.log('this.currentUser', this.props.currentUser)
 		this.disableButton()
 	}
 
@@ -52,7 +52,7 @@ export class FlashQuiz extends React.Component {
 		this.setState({ viewFlashcard: true });
 	}
 	render() {
-		console.log(this.props);
+		// console.log(this.props);
 		const filters = ['HTML', 'CSS', 'Javascript', 'NODE', 'jQuery', 'React'].map((subject, index) => (
 			<div className="custom-checkbox" key={`${subject}-${index}`}>
 				<input onChange={() => this.updateState(subject)} type="checkbox" className="subject-filter-checkbox" id={`${subject}-${index}`} required/>

@@ -28,7 +28,7 @@ export class MakeFlashcard extends React.Component {
 
 	handleClick(e) {
 		e.preventDefault();
-		console.log('submit was clicked');
+		// console.log('submit was clicked');
 	}
 	handleReset(e) {
 		e.preventDefault();

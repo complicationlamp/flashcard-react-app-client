@@ -19,13 +19,13 @@ describe('<FlashCard>', () => {
 	it('Renders without crashing', () => {
 		shallow(<FlashCard/>);
 	});
-	it('shouold have a flashcard when there are questions', () => {
-		const wrapper = shallow(<FlashCard/>);
-		wrapper.setState({questions: questArray}, () => {
-			const form = wrapper.find('form')
-			expect(form.length).toEqual(1)
-		})
-	});
+	// it('shouold have a flashcard when there are questions', () => {
+	// 	const wrapper = shallow(<FlashCard/>);
+	// 	wrapper.setState({questions: questArray}, () => {
+	// 		const form = wrapper.find('form')
+	// 		expect(form.length).toEqual(1)
+	// 	})
+	// });
 	it('shouold not have a flashcard when there are not questions', () => {
 		const wrapper = shallow(<FlashCard/>);
 		const form = wrapper.find('form');
