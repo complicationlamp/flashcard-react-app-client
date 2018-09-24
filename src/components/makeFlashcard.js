@@ -66,8 +66,6 @@ export class MakeFlashcard extends React.Component {
 				answers: [this.state.correctAnswer, this.state.wrongAnsOne, this.state.wrongAnsTwo, this.state.wrongAnsThree],
 				link: this.state.link,
 				userId: this.props.userId
-				// TODO: add the author from the toke
-				// author: 
 			}),
 		})
 		

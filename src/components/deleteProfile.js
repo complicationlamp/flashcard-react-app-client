@@ -36,12 +36,12 @@ export class DeleteProfile extends React.Component {
 	}
 
 	render() {
-		const feedbackProfileDetails = ['Username', 'Password', 'Re-enter Password'].map((detail, index) => (
-			<div key={`${detail}-${index}`}>
-				<label htmlfor={`${detail}-${index}`}>{detail}</label><br/>
-				<input type="text" id={`${detail}-${index}`} />
-			</div>
-		))
+		// const feedbackProfileDetails = ['Username', 'Password', 'Re-enter Password'].map((detail, index) => (
+		// 	<div key={`${detail}-${index}`}>
+		// 		<label htmlfor={`${detail}-${index}`}>{detail}</label><br/>
+		// 		<input type="text" id={`${detail}-${index}`} />
+		// 	</div>
+		// ))
 
 		return(
 			<div className="App-deleteProfile row">

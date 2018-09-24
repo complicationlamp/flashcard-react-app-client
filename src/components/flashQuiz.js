@@ -23,7 +23,7 @@ export class FlashQuiz extends React.Component {
 		this.disableButton=this.disableButton.bind(this);
 	}
 	componentDidMount(){
-		// console.log('this.currentUser', this.props.currentUser)
+		console.log('this.currentUser', this.props.currentUser)
 		this.disableButton()
 	}
 
@@ -38,7 +38,9 @@ export class FlashQuiz extends React.Component {
 			}
 		});
 		if(filters.length > 0){
+			console.log(this.state.isDisabled)
 			this.setState({isDisabled: false})
+			
 		} else {
 			this.setState({isDisabled: true})
 		}
@@ -73,7 +75,7 @@ export class FlashQuiz extends React.Component {
 								</div>
 								<br/>
 								{filters}
-								<button onClick={this.onStartStudySession} disabled={this.state.isDisabled} className="start-session-btn">Start Your Study Session</button>
+								<button disabled={this.state.isDisabled} onClick={this.onStartStudySession} className="start-session-btn">Start Your Study Session</button>
 							</section>
 						) : null
 				}
