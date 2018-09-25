@@ -6,6 +6,7 @@ import authReducer from './reducers/auth';
 import protectedDataReducer from './reducers/protected-data';
 import profileReducer from './reducers/profile';
 import {setAuthToken, refreshAuthToken} from './actions/auth';
+import decode from 'jwt-decode'
 
 const store = createStore(
     combineReducers({

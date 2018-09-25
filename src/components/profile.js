@@ -14,11 +14,14 @@ export class Profile extends React.Component {
 					</header>
 				</section>
 				<section className="links-section">
-					<Link className="linkFromProfile col-6" to="/flashQuiz">Start a session</Link>
-					<Link className="linkFromProfile col-6" to="/deleteProfile">Delete Profile</Link>
+					<Link className="linkFromProfileStart col-12" to="/flashQuiz">Start a session</Link>
 				</section>
 				<section className="makeFC-profile col-12">
-					<MakeFlashcard/>
+					<MakeFlashcard userId={this.props.userId}/>
+				</section>
+				<section className="profileDelete">
+					<br/>
+					<Link className="linkFromProfileDelete col-12" to="/deleteProfile">Delete Profile</Link>
 				</section>
 			</main>
 		)
@@ -27,7 +30,8 @@ export class Profile extends React.Component {
 
 const mapStateToProps = (state) => {
 	return {
-    	userFirstName: (state.auth.currentUser && state.auth.currentUser.firstName) || null
+    	userFirstName: (state.auth.currentUser && state.auth.currentUser.firstName) || null,
+		userId: (state.auth.currentUser && state.auth.currentUser.id) || null
 	}
 };
 
