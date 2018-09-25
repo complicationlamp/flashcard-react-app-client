@@ -62,6 +62,7 @@ export class FlashCard extends React.Component{
 	handleDelete(idOfCard){
 		// e.preventDefault();
 		// console.log(idOfCard)
+		this.hide('noteCard-header1');
 		return fetch(`${API_BASE_URL}/questions/${idOfCard}`, {
 			method: 'DELETE',
 		})
@@ -208,9 +209,9 @@ export class FlashCard extends React.Component{
 							</form>
 							{/* ^^^^FRONT OF NOTECARD    vvvvvvv BACK OF NOTECARD */}
 							<section className="noteCard-back">
-							<div className="successfulDelete row">Card removed from the deck! THis will be updated on your next session</div>
-								<span className="noteCard-header1">
-									 {this.state.questions[this.state.index].prompt}
+							<div className="successfulDelete row">Card removed from the deck! This will be updated on your next session</div>
+								<span className="noteCard-header1">Q: 
+									{this.state.questions[this.state.index].prompt}
 									<i className="fas fa-times"/><i className="fas fa-check"/>
 								</span >
 								<hr className="colorRed" />

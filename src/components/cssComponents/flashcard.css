@@ -18,6 +18,16 @@
 	min-height: 10em;
 }
 
+.successfulDelete{
+	background: #f03c5a62;
+	width: 100%;
+	margin-bottom: .5em
+}
+
+.noteCard-header1{
+	padding-top: .5em
+}
+
 .fa-check {
 	margin-right: .3em;
 	color: #5397259d;
@@ -48,3 +58,4 @@ hr{
 .App-flashcard-next{
 	margin: 2em;
 }
+

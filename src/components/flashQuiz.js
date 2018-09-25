@@ -22,17 +22,12 @@ export class FlashQuiz extends React.Component {
 		this.onStartStudySession=this.onStartStudySession.bind(this);
 		this.disableButton=this.disableButton.bind(this);
 	}
-	componentDidMount(){
-		// console.log('this.currentUser', this.props.currentUser)
-		this.disableButton()
-	}
-
 	onChangeOnlyMyQs(){
 		this.setState({myQsOnly: !this.state.myQsOnly})
 	}
 	// turns off the ability to set filters if no subject is selected
 	disableButton(){
-		const filters = ['HTML', 'CSS', 'Javascript', 'NODE', 'jQuery', 'React'].map((subject, index) => {
+		const filters = ['HTML', 'CSS', 'Javascript', 'NODE', 'jQuery', 'React'].filter((subject, index) => {
 			if(this.state[subject]) {
 				return subject
 			}
@@ -44,7 +39,9 @@ export class FlashQuiz extends React.Component {
 		}
 	}
 	updateState(subject) {
-		this.setState({[subject]: !this.state[subject]})
+		this.setState({[subject]: !this.state[subject]}, () => {
+			this.disableButton()
+		})
 	}
 	onStartStudySession(){
 		const selectedSubjects = Object.keys(this.state).filter(key => this.state[key] === true);

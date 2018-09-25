@@ -6,8 +6,7 @@ a {
 	color: #696969;
 	text-align: center;
 }
-
-.profileDelete {
+.linkFromProfileDelete{ 
+	color: rgb(156, 1, 1);
 	padding-top: 2em;
-	color: red
 }

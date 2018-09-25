@@ -14,14 +14,14 @@ export class Profile extends React.Component {
 					</header>
 				</section>
 				<section className="links-section">
-					<Link className="linkFromProfile col-12" to="/flashQuiz">Start a session</Link>
+					<Link className="linkFromProfileStart col-12" to="/flashQuiz">Start a session</Link>
 				</section>
 				<section className="makeFC-profile col-12">
 					<MakeFlashcard userId={this.props.userId}/>
 				</section>
 				<section className="profileDelete">
 					<br/>
-					<Link className="linkFromProfile col-12" to="/deleteProfile">Delete Profile</Link>
+					<Link className="linkFromProfileDelete col-12" to="/deleteProfile">Delete Profile</Link>
 				</section>
 			</main>
 		)
