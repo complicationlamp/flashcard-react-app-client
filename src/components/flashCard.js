@@ -223,7 +223,7 @@ export class FlashCard extends React.Component{
 							</section>
 						</div>
 					) :
-					(<div>There are no questions to display</div>)
+					(<div>Looks like you haven't made questions for this topic!</div>)
 				}
 			</main>
 		)
