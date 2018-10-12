@@ -29,7 +29,7 @@ export class Home extends React.Component {
 				<section className="App-about-steps col-6">
 					<div className="instrucction-cards box-a">
 						<h2 className="numbers">3</h2>
-						<p className="instrucction-cards-text"><strong>Choose your contnet by toggeling the subjects you want in your flashcard deck</strong></p>
+						<p className="instrucction-cards-text"><strong>Choose your content by toggling the subjects you want in your flashcard deck</strong></p>
 					</div>
 					<div className="instrucction-cards box-b">
 						<h2 className=" numbers App-about-steps-text">4</h2>
