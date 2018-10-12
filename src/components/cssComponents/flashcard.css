@@ -1,20 +1,29 @@
 .app-flascard{
-	padding-top: .5em;
+	padding-top: .3em;
 	width: 100%;
 	display: inline-flex;
 	justify-content: center;
+	margin-top: 3em;
 }
 
 .noteCard-front{
-	border: 1px solid #c1c1c124;
-    padding: .5em;
-    box-shadow: 2px 3px 4px 0px #b7b7b7;
+	border: 1px solid gray;
+	height: 280px;
+	min-width: 300px;
+	border-radius: .2em;
+	margin-bottom: 1em;
+	background:	#eeeeee8f;
+	box-shadow:inset 0px 1px 3px grey;
+	background-image: repeating-linear-gradient(
+		0deg, white, rgb(61, 61, 236) 1px, transparent 2px, transparent 40px
+	);
 }
 
 .noteCard-back{
 	border: 1px solid #c1c1c124;
     padding: .5em;
 	box-shadow: 2px 3px 4px 0px #b7b7b7;
+	background: #eeeeee8f;
 	min-height: 10em;
 }
 

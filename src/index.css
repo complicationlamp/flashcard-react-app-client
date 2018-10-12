@@ -3,15 +3,14 @@
 body{
 	font-family: 'Poppins', sans-serif;
 	font-size: 1.3em;
+	background:ghostwhite;
 }
-.App {
-	text-align: center;
-	background-color: white;
-  }
   
   * {
-	box-sizing: border-box;
-	margin: 0;
+		box-sizing: border-box;
+		margin: 0;
+
+		/* background-size: cover; */
   }
   
   /* Grid measurements:

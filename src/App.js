@@ -11,6 +11,7 @@ import Login from './components/login';
 import Profile from './components/profile';
 import FlashQuiz from './components/flashQuiz';
 import DeleteProfile from './components/deleteProfile'
+import './App.css';
 
 
 class App extends Component {
@@ -45,7 +46,7 @@ stopPeriodicRefresh() {
   render() {
     return (
       <Router>
-        <div className="App">
+        <div className="App" >
             <Nav />
             <Route exact path="/" render={() => (
               <Redirect to="/home"/>

@@ -35,11 +35,11 @@ export class Nav extends React.Component {
 				<div className="row">
 					<ul className="Nav-container ">
 				{/* keeping home visiable was always important */}
-					<Link className="Nav-link" to="/home">Home</Link>
-					{signUpAccess}
-					{logOutButton}
-					{profileAccess}
-					{logInAccess}
+						<Link className="Nav-link" to="/home">Home</Link>
+						{signUpAccess}
+						{logOutButton}
+						{profileAccess}
+						{logInAccess}
 					</ul>
 				</div>
 				

@@ -6,28 +6,35 @@ export class Home extends React.Component {
 		return (
 			<main role="main" className="App-about row">
 				<section className="App-about-intro col-12">
-					<header role="heading">
+					<header className="homeHeader" role="heading">
 						<h1 className="App-about-intro-header">Welcome to FlashQuiz</h1>
 							<p>
-							A simple Flashcard application where the user can combine subjects into a deck.<br/>
-							Have something to contribute? <br/>Login and head over to the profile section where you can make a card
-							the whole comunity can enjoy. <br/>If you'd like to demo, head over to Login where a sample login has been set up.
+							A simple Flashcard application where the user can combine subjects into a deck.
+							If you'd like to demo, head over to Login where a sample login has been set up.
 							</p>
 					</header>
 				</section>
 				<hr/>
 				<section className="App-about-steps col-6">
-					<h2>First</h2>
-					<p>Use the navigation bar to head to the login page</p>
-					<h2 className="App-about-steps-text">Second</h2>
-					<p>Use the example login credentials to log-on <br/> -or-<br/>
-					Create your own account following the signup link</p>
+				<div class="instrucction-cards box-b">
+						<h2 className="numbers">1</h2>
+						<p className="instrucction-cards-text"><strong>Use the navigation bar to head to the login page</strong></p>
+					</div>
+					<div className="instrucction-cards box-a">
+						<h2 className="numbers App-about-steps-text">2</h2>
+						<p className="instrucction-cards-text"><strong>Use the example login credentials to log-on <br/> -or-<br/>
+						Create your own account following the signup link</strong></p>
+					</div>
 				</section>
 				<section className="App-about-steps col-6">
-					<h2>Third</h2>
-					<p>Choose your contnet by toggeling the subjects you want in your flashcard deck</p>
-					<h2 className="App-about-steps-text">Lastly</h2>
-					<p>Click on 'Start a session' at the bottom of the screen</p>
+					<div className="instrucction-cards box-a">
+						<h2 className="numbers">3</h2>
+						<p className="instrucction-cards-text"><strong>Choose your contnet by toggeling the subjects you want in your flashcard deck</strong></p>
+					</div>
+					<div className="instrucction-cards box-b">
+						<h2 className=" numbers App-about-steps-text">4</h2>
+						<p className="instrucction-cards-text"><strong>Click on 'Start a session' at the bottom of the screen</strong></p>
+					</div>
 				</section>
 			</main>
 		)

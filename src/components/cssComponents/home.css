@@ -4,12 +4,53 @@
 
 h1, h2, h3{
 	color:#000000;
-	margin: .5em;
+	/* margin: .5em; */
 	/* text-align: left; */
 }
 
+.homeHeader{
+	margin-bottom: 2em;
+	font-size: 1.2em;
+}
+
 p{
-	color:#696969;
+	color: black;
 	line-break: auto;
 	padding: .5em;
+}
+
+.numbers{
+	color: red;
+	font-size: 3em;
+	font-family: 'Indie Flower', cursive;
+	position: absolute;
+    margin-top: 0em;
+    margin-left: .2em;
+}
+
+.instrucction-cards-text{
+	color: #000000;
+	font-style: bold;
+	padding-top: 1.2em;
+	padding-left: 1.3em;
+	font-family: 'Indie Flower', cursive;
+	font-size: 1.5em;
+}
+.instrucction-cards{
+	border: 1px solid gray;
+	height: 280px;
+	border-radius: .2em;
+	margin-bottom: 1em;
+	box-shadow:inset 0px 1px 3px grey;
+	background-image: repeating-linear-gradient(
+		0deg, white, rgb(61, 61, 236) 1px, transparent 2px, transparent 40px
+    );
+}
+.box-a{
+	transform: rotate(3deg);
+	box-shadow: 1px -2px 20px black;
+}
+.box-b{
+	transform: rotate(-1deg);
+	box-shadow: 12px 5px 20px #000000ad;
 }
