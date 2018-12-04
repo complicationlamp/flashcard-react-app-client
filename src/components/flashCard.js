@@ -60,8 +60,6 @@ export class FlashCard extends React.Component{
 		}
 	}
 	handleDelete(idOfCard){
-		// e.preventDefault();
-		// console.log(idOfCard)
 		this.hide('noteCard-header1');
 		return fetch(`${API_BASE_URL}/questions/${idOfCard}`, {
 			method: 'DELETE',
@@ -91,7 +89,6 @@ export class FlashCard extends React.Component{
 		document.getElementsByClassName(target)[0].style.display = 'block';
 	}
 	componentDidMount() {
-		// console.log(this.props.myQsOnly)
 		this.loadQuestions()
 	}
 
@@ -133,7 +130,6 @@ export class FlashCard extends React.Component{
 				return res.json();
 			})
 			.then(questions => {
-				// console.log(questions)
 				this.getFilteredQuestions(questions);
 			})
 			.catch(err => 
@@ -152,7 +148,6 @@ export class FlashCard extends React.Component{
 					return res.json();
 				})
 				.then(questions => {
-					// console.log(questions)
 					this.getFilteredQuestions(questions);
 				})
 				.catch(err => 
